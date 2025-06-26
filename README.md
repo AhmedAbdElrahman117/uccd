@@ -121,10 +121,9 @@ A built-in announcement and discussion feature for Super Admins, Admins, and Ins
 ## 📦 Tech Stack
 
 - **Frontend & Mobile:** Flutter (Dart)
-- **Backend:** [Your backend, e.g., Firebase Functions, Node.js]
+- **Backend:** [Laravel,Firebase]
 - **Authentication:** Firebase Auth (with university email domain restriction)
 - **Database:** [e.g., Firestore or Realtime Database]
-- **Hosting:** [e.g., Firebase Hosting]
 
 ---
 
