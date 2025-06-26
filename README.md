@@ -1,5 +1,9 @@
 # UCCD Courses Management System
 
+[![Flutter](https://img.shields.io/badge/Flutter-3.10%2B-blue?logo=flutter)](https://flutter.dev/)
+[![Dart](https://img.shields.io/badge/Dart-3.0%2B-blue?logo=dart)](https://dart.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A modern, feature-rich courses management platform built for the University Center for Career Development (UCCD) at Bani Sweif Technological University (BSTU). This app provides a seamless and secure experience for managing university courses, enrollment, and internal communication—complete with a stunning UI and robust role-based access.
 
 ---
