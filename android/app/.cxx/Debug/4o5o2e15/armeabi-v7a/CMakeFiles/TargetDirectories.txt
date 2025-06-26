@@ -1,0 +1,2 @@
+C:/Users/Ahmed Abo Elnaga/Desktop/Project/4th year/uccd/android/app/.cxx/Debug/4o5o2e15/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/Ahmed Abo Elnaga/Desktop/Project/4th year/uccd/android/app/.cxx/Debug/4o5o2e15/armeabi-v7a/CMakeFiles/rebuild_cache.dir

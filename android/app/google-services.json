@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1037776187244",
+    "project_id": "uccd-f607e",
+    "storage_bucket": "uccd-f607e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037776187244:android:b8e3526093c1e853390d49",
+        "android_client_info": {
+          "package_name": "com.example.uccd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDF_bn1c0xf9etMzHx0yywlYG93C5JS6k0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,688 @@
+{
+    "splashText":"대학 경력 개발 센터",
+    "splashLoading":"로딩중...",
+    "welcomeTo":"환영합니다",
+    "loginButton":"로그인",
+    "contactSupport":"지원팀 문의",
+    "orDivider":"또는",    
+    "uccdMobileApp":"UCCD 모바일 앱",
+    "versionNumber":"버전 1.0.0",
+    "universityEmail":"대학 이메일",
+    "universityEmailHint":"대학 이메일을 입력하세요",
+    "password":"비밀번호",
+    "passwordHint":"비밀번호를 입력하세요",
+    "emailRequired":"이메일 필드는 필수입니다",
+    "invalidEmail":"유효한 이메일 주소를 입력하세요",
+    "onlyBtuEmail":"BTU 대학 이메일(@btu.edu.eg)만 허용됩니다",
+    "emailUsernameTooShort":"이메일 사용자명은 최소 3자 이상이어야 합니다",
+    "studentInterests":"학생 관심사",
+    "studentInterestsDescription":"관심 있는 과정 또는 분야 카테고리는 무엇입니까",
+    "studentInfo":"학생 정보",
+    "studentInfoDescription":"몇 가지 정보를 제공하는 것부터 시작하겠습니다",
+    "phoneNumber":"전화번호",
+    "phoneNumberHint":"전화번호를 입력하세요",
+    "requiredField":"필수 필드",
+    "phoneNumberTooShort":"전화번호가 11자리보다 적습니다",
+    "invalidPhoneNumber":"유효하지 않은 전화번호",
+    "graduationYear":"졸업년도",
+    "graduationYearHint":"예상 졸업년도를 입력하세요",
+    "dateRequired":"날짜 필수",
+    "graduationYearIncorrect":"졸업년도가 올바르지 않습니다",
+    "verificationEmailSent":"인증 이메일을 다음 주소로 보냈습니다 ",
+    "verificationEmailInbox":" 오티피 번호와 함께, 받은 편지함을 확인하세요",
+    "otpVerification":"오티피",
+    "didntRecieveCode":"코드를 받지 못하셨나요?",
+    "rensendCode":"렌센드코드",
+    "Disability":"무능",
+    "yes":"예",
+    "No":"아니요",
+    "Next":"다음",
+    "Back":"뒤쪽에",
+    "Submit":"제출하다",
+    "TermsAndConditions":"이용약관",
+    "readTerms":"진행하기 전에 이용 약관을 주의 깊게 읽어주세요.",
+    "TermsText1":"저는 UCCD가 UCCD 보고, 출판 및 고용주 네트워킹 목적으로 센터에서 제공하는 교육 프로그램 및/또는 경력 개발 서비스에 참여하는 동안 촬영한 데이터와 사진을 사용하는 것에 동의하고 이를 승인합니다.",
+    "TermsText2":"그리고 UCCD 앱이 분석 및 사용자 경험 개선을 위해 내 코스 참여에 대한 데이터를 수집하도록 승인합니다.",    "IAgree": "동의합니다",
+    "onTerms":"UCCD 센터 이용 약관에 관하여",    "home": "홈",
+    "courses": "과정",
+    "myCourses": "내 과정",
+    "community": "커뮤니티",    "profile": "프로필",    "assignedCourses": "할당된 과정",
+    "noCoursesAssignedYet": "아직 할당된 과정이 없습니다",
+    "coursesWillAppearAssigned": "과정이 할당되면 여기에 표시됩니다",
+    "errorLoadingCourses": "과정 로딩 오류",
+    "quickActions": "빠른 작업",
+    "addCourse": "과정 추가",
+    "createNewCourse": "새 과정 만들기",
+    "addCategory": "카테고리 추가",
+    "manageCategories": "카테고리 관리",
+    "addPost": "게시물 추가",
+    "communityPost": "커뮤니티 게시물",
+    "addInstructor": "강사 추가",
+    "newInstructor": "새 강사",
+    "addStudent": "학생 추가",
+    "registerStudent": "학생 등록",
+    "actions": "작업",
+    "adminDashboard": "관리자 대시보드",
+    "welcomeBack": "환영합니다,",
+    "admin": "관리자",
+    "totalCourses": "총 과정 수",
+    "activeStudents": "활성 학생",
+    "studentsByYear": "연도별 학생",
+    "studentsByDepartments": "부서별 학생",
+    "studentsByDepartmentAndYear": "부서 및 연도별 학생",
+    "changeInstructor": "강사 변경",
+    "change": "변경",
+    "interview": "인터뷰",
+    "statistics": "통계",    
+    "changeCategory": "카테고리 변경",
+    "retry": "재시도",
+    "multipleCheck": "다중 체크",
+    "dashboard": "대시보드",
+    "admins": "관리자들",
+    "categories": "카테고리들",
+    "instructors": "강사들",
+    "courseAnalytics": "과정 분석",
+    "settings": "설정",
+    "dashboardOverview": "대시보드 개요",
+    "course": "과정",    
+    "reject": "거부",    
+    "LiveData":"라이브 데이터",
+    "SystemConfiguration":"시스템 구성",
+    "coursesManagement": "과정 관리",
+    "students": "학생들",
+    "sendNotification": "알림 보내기",
+    "sendAll": "모두 보내기",
+    "ratings": "평점",    
+    "accept": "수락",
+    "edit": "편집",
+    "delete": "삭제",
+    "noAcceptedStudents": "승인된 학생이 없습니다",
+    "attend": "출석",
+    "absent": "결석",
+    "invalidCourseDates": "유효하지 않은 코스 날짜",
+    "invalidInterviewDates": "유효하지 않은 인터뷰 날짜",
+    "interviewDatesBeforeCourseDates": "인터뷰 날짜는 코스 날짜보다 이전이어야 합니다",
+    "maxAcceptedStudents": "최대 승인 학생 수",
+    "enterMaxAcceptedStudents": "최대 승인 학생 수 입력",
+    "enterInterviewStartDate": "인터뷰 시작 날짜 입력",
+    "enterInterviewEndDate": "인터뷰 종료 날짜 입력",
+    "interviewStartDate": "인터뷰 시작 날짜",
+    "interviewEndDate": "인터뷰 종료 날짜",
+    "startDateRequired": "시작 날짜 필수",
+    "endDateRequired": "종료 날짜 필수",
+    "interviewStartDateBeforeEndDate": "인터뷰 시작 날짜는 종료 날짜보다 이전이어야 합니다",
+    "interviewEndDateAfterStartDate": "인터뷰 종료 날짜는 시작 날짜보다 이후여야 합니다",
+    "interviewStartDateBeforeCourses": "인터뷰 시작 날짜는 코스보다 이전이어야 합니다",
+    "interviewEndDateBeforeCourses": "인터뷰 종료 날짜는 코스보다 이전이어야 합니다",
+    "availableCourses":"사용 가능",
+    "archivedCourses":"보관소",
+    "ManageCourses":"과정 관리",    
+    "Archived": "보관됨",
+    "Active": "활성",
+    "Student": "학생",
+    "controlPanel": "제어판",
+    "all": "전체",
+    "pending": "대기 중",
+    "accepted": "승인됨",
+    "rejected": "거부됨",
+    "studentAcceptedSuccessfully": "학생이 성공적으로 승인되었습니다",
+    "enrollments": "등록",
+    "available": "사용 가능",    
+    "totalStudents": "총 학생 수",
+    "noStudentsToInterview": "인터뷰할 학생이 없습니다",
+    "statisticsButtonTitle": "통계",
+    "statisticsButtonTooltip": "과정 통계 및 분석 보기",
+    "statisticsButtonSemanticLabel": "{courseName} 통계 보기",
+    "interviewButtonTitle": "인터뷰",
+    "interviewButtonTooltip": "과정 인터뷰 및 지원서 관리",
+    "interviewButtonSemanticLabel": "{courseName} 인터뷰 관리",
+    "editButtonTitle": "편집",
+    "editButtonTooltip": "과정 정보 및 설정 편집",
+    "editButtonSemanticLabel": "{courseName} 편집",
+    "changeInstructorButtonTitle": "강사 변경",
+    "changeInstructorButtonTooltip": "과정 강사 변경",
+    "changeInstructorButtonSemanticLabel": "{courseName} 강사 변경",
+    "changeCategoryButtonTitle": "카테고리 변경",
+    "changeCategoryButtonTooltip": "과정 카테고리 변경",
+    "changeCategoryButtonSemanticLabel": "{courseName} 카테고리 변경",
+    "deleteButtonTitle": "삭제",
+    "deleteButtonTooltip": "과정을 영구적으로 삭제",
+    "deleteButtonSemanticLabel": "{courseName} 삭제",
+    "deleteCourseConfirmMessage": "{courseName}을(를) 영구적으로 삭제하시겠습니까?",    "firstYear":"첫 번째 년도",
+    "secondYear":"둘 년도",
+    "thirdYear":"삼 년도",    "fourthYear":"네 개 년도",
+    "itDepartment": "정보기술",
+    "mechaDepartment": "메카트로닉스",
+    "autoDepartment": "오토트로닉스", 
+    "reDepartment": "재생에너지",
+    "opDepartment": "의지보조기",
+    "addCourseTitle": "과정 추가",
+    "editCourseTitle": "과정 편집",
+    "courseAddedSuccessfully": "과정이 성공적으로 추가되었습니다",
+    "courseUpdatedSuccessfully": "과정이 성공적으로 업데이트되었습니다",
+    "courseDeletedSuccessfully": "과정이 성공적으로 삭제되었습니다",
+    "categoryChangedSuccessfully": "카테고리가 성공적으로 변경되었습니다",
+    "interviewBeforeCourse": "면접 날짜는 과정 날짜보다 먼저여야 합니다",
+    "courseInfo": "과정 정보",
+    "courseInfoDescription": "과정 기본 정보부터 시작하겠습니다",
+    "courseGoals": "과정 목표",
+    "courseGoalsDescription": "학생을 위한 과정 결과 설정",
+    "courseGoalsNote": "참고: 최소 하나의 목표를 설정해야 합니다",
+    "goalLabel": "목표 {goalNumber}",
+    "goalHint": "목표 {goalNumber} 입력",
+    "addGoal": "목표 추가",
+    "courseDates": "과정 날짜",
+    "courseDatesDescription": "이제 과정 날짜를 설정해보겠습니다",
+    "courseImage": "과정 이미지",
+    "courseImageDescription": "마지막으로 과정에 이미지를 추가할 수 있습니다",
+    "courseImageNote": "참고: 과정에 이미지를 추가하지 않으면 자동으로 UCCD 로고가 표시됩니다",    "addButtonLabel": "추가",
+    "editButtonLabel": "편집",
+    "courseTitleLabel": "과정 제목",
+    "courseTitleHint": "과정 제목 입력",
+    "descriptionLabel": "설명",
+    "descriptionHint": "과정 설명 입력",
+    "roomNumberLabel": "강의실 번호",
+    "roomNumberHint": "강의실 번호 입력",
+    "durationLabel": "기간",
+    "durationHint": "과정 기간 입력",
+    "courseStartDateLabel": "과정 시작 날짜",
+    "courseStartDateHint": "과정 시작 날짜 입력",
+    "courseStartDateRequired": "시작 날짜 필수",
+    "courseStartDateBeforeEndDate": "과정 시작 날짜는 종료 날짜보다 이전이어야 합니다",
+    "courseStartDateAfterInterviews": "과정 시작 날짜는 인터뷰 이후여야 합니다",
+    "courseEndDateLabel": "과정 종료 날짜",
+    "courseEndDateHint": "과정 종료 날짜 입력",
+    "courseEndDateRequired": "종료 날짜 필수",
+    "courseEndDateAfterStartDate": "과정 종료 날짜는 시작 날짜보다 이후여야 합니다",
+    "courseEndDateAfterInterviews": "과정 종료 날짜는 인터뷰 이후여야 합니다",
+    "loadingText": "로딩 중",
+    "noInstructorsRegistered": "등록된 강사가 없습니다",
+    "instructorsLabel": "강사들",
+    "selectOneInstructor": "강사 한 명 선택",    "noCategoriesRegistered": "등록된 카테고리가 없습니다",
+    "categoriesLabel": "카테고리들",    
+    "selectCategory": "카테고리 선택",
+    "tapToAddImage": "탭하여 이미지 추가",
+    "imageSizeLimit": "이미지 크기 제한은 10MB입니다",
+    "deleteDialogTitle": "삭제",
+    "deleteButtonText": "삭제",
+    "logoutDialogTitle": "로그아웃",
+    "logoutButtonText": "로그아웃",    
+    "deletePostTitle": "게시물 삭제",
+    "deletePostConfirmMessage": "이 게시물을 삭제하시겠습니까?",
+    "cancel": "취소",
+    "universityIdLabel": "학번",
+    "nationalIdLabel": "주민등록번호",
+    "departmentLabel": "학과",
+    "yearLabel": "학년",
+    "genderLabel": "성별",    
+    "disabilityLabel": "장애",
+    "phoneNumberLabel": "전화번호",    
+    "graduationYearLabel": "졸업년도",
+    "archivePanel": "아카이브 패널",
+    "archiveStatisticsTooltip": "아카이브된 과정 통계 및 분석 보기",
+    "archiveStatisticsSemanticLabel": "아카이브된 과정 {courseName} 통계 보기",
+    "courseStudentsTooltip": "아카이브된 과정 학생들 보기",
+    "courseStudentsSemanticLabel": "{courseName} 학생들 보기",    
+    "courseRatingsTooltip": "과정 평점 및 피드백 보기",
+    "courseRatingsSemanticLabel": "{courseName} 평점 보기",    "totalDays": "총: {days}일",
+    "@totalDays": {
+        "placeholders": {
+            "days": {
+                "type": "String"
+            }
+        }
+    },
+    "attendedDays": "출석: {count}",
+    "@attendedDays": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "absentDays": "결석: {count}",
+    "@absentDays": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "absenceDaysTitle": "결석일",
+    "enrollmentSuccess": "{courseName}에 성공적으로 등록되었습니다",
+    "enrollmentError": "오류: {errorMessage}",
+    "noGoalsProvided": "제공된 목표가 없습니다",
+    "advancedCourse": "고급 {category}",
+    "beginnerCourse": "초보자를 위한 {category}",
+    "ratingsTitle": "평점",
+    "allRatings": "전체",
+    "fiveStars": "5점",
+    "fourStars": "4점",
+    "threeStars": "3점",
+    "twoStars": "2점",
+    "oneStar": "1점",
+    "noRatingsYet": "아직 평점이 없습니다",
+    "noRatingsMessage": "이 과정은 아직 평점을 받지 못했습니다.",    
+    "errorLoadingRatings": "평점 로딩 오류",
+    "ratingOverview": "평점 개요",
+    "overallRating": "전체",
+    "contentRating": "내용",
+    "instructorRating": "강사",
+    "reviewsCount": "{count}개 리뷰",    "@reviewsCount": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }    },
+    "noReviewsYet": "아직 리뷰가 없습니다",
+    "showingOneReview": "1개 리뷰 표시",
+    "showingMultipleReviews": "{count}개 리뷰 표시",    "@showingMultipleReviews": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "noFilteredReviews": "{filter} 리뷰가 없습니다",
+    "@noFilteredReviews": {
+        "placeholders": {
+            "filter": {
+                "type": "String"
+            }
+        }
+    },
+    "showingOneFilteredReview": "1개 {filter} 리뷰 표시",
+    "@showingOneFilteredReview": {
+        "placeholders": {
+            "filter": {
+                "type": "String"
+            }
+        }
+    },
+    "showingMultipleFilteredReviews": "{count}개 {filter} 리뷰 표시",    "@showingMultipleFilteredReviews": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            },
+            "filter": {
+                "type": "String"
+            }
+        }
+    },
+    "loadingUserName": "사용자 이름 로딩 중",    
+    "loadingComment": "실제 내용으로 대체될 댓글 텍스트를 로딩 중...",
+    "Review": "리뷰",    
+    "enrollmentFull": "정원 마감",
+    "enrollmentAlmostFull": "거의 마감!",
+    "enrollmentFillingUp": "마감 임박",
+    "enrollmentSpotsAvailable": "여석 있음",
+    "courseStatsDuration": "기간",
+    "courseStatsRoom": "강의실",
+    "courseStatsLength": "수업 기간",
+    "courseStatsPrerequisites": "선수과목",
+    "courseStatsDurationValue": "{hours}시간",
+    "@courseStatsDurationValue": {
+        "placeholders": {
+            "hours": {
+                "type": "String"
+            }
+        }
+    },    "courseStatsLengthValue": "{weeks}주",
+    "@courseStatsLengthValue": {
+        "placeholders": {
+            "weeks": {
+                "type": "String"
+            }
+        }
+    },
+    "courseScheduleTitle": "과정 일정",
+    "relatedCoursesTitle": "관련 과정",
+    "instructorTitle": "강사",
+    "aboutThisCourseTitle": "이 과정에 대하여",
+    "confirmEnrollmentTitle": "등록 확인",
+    "confirmEnrollmentMessage": "{courseName}에 등록하려고 합니다.",
+    "@confirmEnrollmentMessage": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },
+    "interviewPeriodLabel": "면접 기간: {startDate} - {endDate}",
+    "@interviewPeriodLabel": {
+        "placeholders": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            }
+        }
+    },
+    "coursePeriodLabel": "과정 기간: {startDate} - {endDate}",
+    "@coursePeriodLabel": {
+        "placeholders": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            }
+        }
+    },
+    "confirmButton": "확인",
+    "enrollNowButton": "지금 등록",
+    "courseTimelineTitle": "과정 일정표",
+    "interviewPeriodTitle": "면접 기간",
+    "coursePeriodTitle": "과정 기간",
+    "instructorLabel": "강사: {name}",
+    "@instructorLabel": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },    "viewCourseButton": "과정 보기",
+     "SkillsAndPrerequisites": "기술 및 전제 조건",
+    "WhatYouWillLearn": "당신이 배울 것",
+    "interviewPeriodSubtitle": "면접은 {startDate}에 시작하여 {endDate}에 종료됩니다",
+    "@interviewPeriodSubtitle": {
+        "placeholders": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            }
+        }
+    },
+    "coursePeriodSubtitle": "과정은 {startDate}부터 {endDate}까지 진행됩니다",
+    "@coursePeriodSubtitle": {
+        "placeholders": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            }
+        }
+    },
+    "communityTitle": "커뮤니티",
+    "communitySubtitle": "UCCD 센터의 이벤트를 팔로우하세요",
+    "likeButtonLabel": "좋아요",
+    "commentsButtonLabel": "댓글",
+    "editPostOption": "게시물 편집",
+    "deletePostOption": "게시물 삭제",
+    "createPostDialogTitle": "게시물 작성",
+    "editPostDialogTitle": "게시물 편집",
+    "postContentHint": "무슨 생각을 하고 계신가요?",
+    "editPostContentHint": "게시물을 편집하세요...",
+    "postButtonLabel": "게시",
+    "updateButtonLabel": "업데이트",
+    "cancelButtonLabel": "취소",
+    "postContentEmpty": "게시물 내용이 비어있을 수 없습니다",
+    "failedToPickImage": "이미지 선택 실패: {error}",
+    "removeImageTooltip": "이미지 제거",
+    "closeDialogTooltip": "대화상자 닫기",
+    "pickImageTooltip": "이미지 선택",
+    "noPostsYet": "아직 게시물이 없습니다",
+    "beFirstToShare": "커뮤니티와 처음으로 무언가를 공유해보세요!",
+    "createPostButton": "게시물 작성",
+    "noCommentsYet": "아직 댓글이 없습니다",
+    "beFirstToComment": "이 게시물에 첫 번째로 댓글을 달아보세요!",
+    "commentsTitle": "댓글",
+    "addCommentHint": "댓글을 추가하세요...",
+    "commentValidationEmpty": "댓글을 입력해주세요",
+    "commentValidationTrimmed": "댓글이 비어있을 수 없습니다",    
+    "errorLoadingComments": "댓글 로딩 오류: {error}",
+    "likesCount": "좋아요: {count}",
+    "commentsCount": "댓글: {count}",    
+    "Post":"우편",
+    "adminFeatures":"관리자 기능",
+    "account":"계정",
+    "language":"언어",
+    "darkMode":"다크 모드",
+    "users":"사용자",    
+    "logs":"로그",
+    "noLogsInThisDay":"이 날에는 로그가 없습니다",
+    "logout":"로그아웃",
+    "logoutConfirmation":"로그아웃하시겠습니까",   
+    "arabic":"아랍어",
+    "english":"영어",
+    "korean": "한국어",    
+    "roleStudent":"학생",
+    "roleInstructor":"강사",
+    "roleAdmin":"관리자",
+    "roleSuperAdmin":"수퍼 관리자",
+    "addStudentTitle":"학생 추가",
+    "editStudentTitle":"학생 편집",
+    "addInstructorTitle":"강사 추가",
+    "editInstructorTitle":"강사 편집",
+    "addAdminTitle":"관리자 추가",
+    "editAdminTitle":"관리자 편집",
+    "studentNameLabel":"학생 이름",
+    "studentNameHint":"학생 이름을 입력하세요",
+    "instructorNameLabel":"강사 이름",
+    "instructorNameHint":"강사 이름을 입력하세요",
+    "adminNameLabel":"관리자 이름",
+    "adminNameHint":"관리자 사용자명을 입력하세요",
+    "studentEmailLabel":"학생 이메일",
+    "studentEmailHint":"학생 이메일을 입력하세요",
+    "instructorEmailLabel":"강사 이메일",
+    "instructorEmailHint":"강사 이메일을 입력하세요",
+    "adminEmailLabel":"관리자 이메일",
+    "adminEmailHint":"관리자 이메일을 입력하세요",
+    "studentPasswordLabel":"학생 비밀번호",
+    "instructorPasswordLabel":"강사 비밀번호",
+    "adminPasswordLabel":"관리자 비밀번호",
+    "universityIdHint":"학생 학번을 입력하세요",
+    "nationalIdHint":"주민등록번호를 입력하세요",
+    "studentEmailRequired":"학생 이메일 필수",
+    "universityEmailsOnly":"대학 이메일만",
+    "universityIdRequired":"학번 필수",
+    "nationalIdRequired":"주민등록번호 필수",
+    "passwordRequired":"비밀번호 필수",
+    "usernameRequired":"사용자명을 입력하세요",
+    "adminAddedSuccessfully":"관리자가 성공적으로 추가되었습니다",
+    "adminUpdatedSuccessfully":"관리자가 성공적으로 업데이트되었습니다",
+    "instructorAddedSuccessfully":"강사가 성공적으로 추가되었습니다",    
+    "instructorUpdatedSuccessfully":"강사가 성공적으로 업데이트되었습니다",
+    "studentAddedSuccessfully":"학생이 성공적으로 추가되었습니다",    
+    "studentUpdatedSuccessfully":"학생이 성공적으로 업데이트되었습니다",
+    "universityIdLengthError":"학번은 9자리여야 합니다",
+    "studentNameRequired":"학생 이름 필수",    
+    "nationalIdLengthError":"주민등록번호는 14자리여야 합니다",
+    "studentPasswordHint":"학생 비밀번호 입력",
+    "departmentHint":"학과",
+    "selectDepartment":"학과 선택",
+    "yearHint":"학년",
+    "selectYear":"학년 선택",
+    "informationTechnology":"정보기술",
+    "mechatronics":"메카트로닉스",
+    "autotronics":"오토트로닉스",    "renewableEnergy":"재생에너지",      "orthoticsProsthetics":"보조기구 및 의지학",    
+    "instructorPasswordHint":"강사 비밀번호 입력",    
+    "nameRequired":"이름이 필요합니다",
+    "browseCoursesHint":"사용 가능한 과정을 찾아보고 등록하여 여기에서 확인하세요",
+    "browseCourses":"과정 찾아보기",
+    "tryChangingFilters":"필터나 검색어를 변경해 보세요",
+    "coursesWillAppear":"과정이 사용 가능해지면 여기에 나타납니다",
+    "showAllCourses":"모든 과정 보기",
+    "uploadCourseMaterials":"과정 자료 업로드",
+"skillsAndPrerequisitesDescription":"학생에게 필요한 기술과 전제 조건은 무엇입니까",
+"prerequisitesNote":"참고: 최소 하나의 기술 또는 전제 조건을 정의하세요",
+"prerequisitesNoneNote":"참고: 기술이나 전제 조건이 없는 경우 아래 필드에 \"없음\"이라고 쓸 수 있습니다",
+"prerequisiteSkillLabel":"전제 조건/기술 {number}",
+"@prerequisiteSkillLabel": {
+    "placeholders": {
+        "number": {
+            "type": "int"
+        }
+    }
+},
+"prerequisiteSkillHint":"이 전제 조건/기술에 대해 말해보세요",
+"prerequisiteFieldRequired":"이 필드는 비워둘 수 없습니다",
+"addPrerequisiteSkill":"전제 조건/기술 추가",
+"emailAlreadyInUse":"이메일이 이미 사용 중입니다",
+"authInvalidEmail":"유효하지 않은 이메일",
+"emailNotEnabled":"이메일이 활성화되지 않음, 지원팀에 문의하세요",
+"tryAgainLater":"나중에 다시 시도하세요",
+"checkInternetConnection":"인터넷 연결을 확인하고 나중에 다시 시도하세요",
+"userAccountDisabled":"사용자 계정이 비활성화됨, 지원팀에 문의하세요",
+"noSuchEmailFound":"해당 이메일을 찾을 수 없습니다",
+"wrongPassword":"잘못된 비밀번호",
+"emailOrPasswordInvalid":"이메일 또는 비밀번호가 유효하지 않습니다",
+"unknownError":"알 수 없는 오류",
+"connectionTimeout":"연결 시간 초과",
+"noUser":"사용자 없음",
+"noUserFoundContactSupport":"사용자를 찾을 수 없습니다\n지원팀에 문의하세요",
+    "error":"오류",
+    "success":"성공",
+    "codeResent":"코드가 다시 전송됨",
+    "failed":"실패",
+    "passwordLengthError":"비밀번호는 최소 8자 이상이어야 합니다",
+    "NothingToEdit":"편집할 것이 없습니다",
+    "addCategoryTitle":"카테고리 추가",
+    "editCategoryTitle":"카테고리 편집",
+    "categoryNameLabel":"카테고리 이름",
+    "categoryNameHint":"카테고리 이름을 입력하세요",
+    "categoryNameRequired":"카테고리 이름이 필요합니다",
+    "noRegisteredCategories":"등록된 카테고리가 없습니다",
+    "deleteCategoryConfirmation":"\"{categoryName}\"을(를) 삭제하시겠습니까?\n\n *이 작업은 되돌릴 수 없습니다.",
+    "@deleteCategoryConfirmation": {
+        "placeholders": {
+            "categoryName": {
+                "type": "String"
+            }
+        }
+    },
+    "categoriesOverview":"카테고리 개요",
+    "categoryAvailable":"{count}개 카테고리 사용 가능",
+    "@categoryAvailable": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },    "manageCategoriesEfficiently":"카테고리를 효율적으로 관리하세요",
+    "CreatedOn": "생성됨",
+    "categoryUsageInfo":"이 카테고리는 강좌와 콘텐츠를 정리하는 데 사용할 수 있습니다.",    "recentCourses":"최근 과정",
+    "currentYear":"현재 학년",
+    "department":"학과",
+    "inProgress":"진행 중",
+    "noCoursesInProgress":"진행 중인 과정이 없습니다",
+    "failedToLoadCourses":"과정 로딩 실패",    "noCoursesAvailable":"사용 가능한 과정이 없습니다",
+    "welcomeBackComma":"환영합니다, ",
+    "continueLearningJourney":"학습 여정을 계속하세요",    "viewAll":"모두 보기",
+    "enroll":"등록",
+    "checkInternetConnectionAndTryAgain":"인터넷 연결을 확인하고 다시 시도하세요",
+    "connectionTimeoutTryAgain":"연결 시간 초과, 나중에 다시 시도하세요",
+    "enrolledInThisCategory":"이 카테고리에 등록됨",
+    "courseFull":"가득 참",
+    "enrollNow":"지금 등록",
+    "userCreatedSuccessfully":"사용자가 성공적으로 생성되었습니다",
+    "userDeletedSuccessfully":"사용자가 성공적으로 삭제되었습니다",
+    "userUpdatedSuccessfully":"사용자가 성공적으로 업데이트되었습니다",
+    "instructorCreatedSuccessfully":"강사가 성공적으로 생성되었습니다",
+    "instructorDeletedSuccessfully":"강사가 성공적으로 삭제되었습니다",
+    "categoryAddedSuccessfully":"카테고리가 성공적으로 추가되었습니다",
+    "categoryDeletedSuccessfully":"카테고리가 성공적으로 삭제되었습니다",
+    "categoryUpdatedSuccessfully":"카테고리가 성공적으로 업데이트되었습니다",
+    "postAddedSuccessfully":"게시물이 성공적으로 추가되었습니다",
+    "postDeletedSuccessfully":"게시물이 성공적으로 삭제되었습니다",
+    "postUpdatedSuccessfully":"게시물이 성공적으로 업데이트되었습니다",    
+    "commentAddedSuccessfully":"댓글이 성공적으로 추가되었습니다",
+    "noInternetConnection":"인터넷 연결이 없습니다",
+    "registrationFailed":"등록 실패",
+    "tryAgain":"다시 시도",
+    "failedToLoadData":"데이터 검색 실패",    
+    "failedToLoadCoursesWithHelp":"코스를 로드하지 못했습니다.\n인터넷 연결을 확인하고 다시 시도하세요.",
+    "searchCourses":"코스 검색...",
+    "noCoursesFound":"코스를 찾을 수 없습니다",
+    "instructor":"강사",    "starts":"시작",
+    "ended":"종료됨",    "ends":"종료",
+    "completed":"완료됨",    "myCoursesTitle":"내 과정",
+    "rateCourse":"과정 평가",    "yourProgress":"당신의 진도",
+    "trackEnrolledCourses":"등록된 과정과 진도를 추적하세요",
+    "noEnrolledCourses":"등록된 과정이 없습니다",    "notificationSentSuccessfully":"알림이 성공적으로 전송되었습니다",
+    "Hour": "시간",
+    "ComingSoon": "곧 출시 예정",
+    "ComingSoonlabel": "이 기능은 곧 출시됩니다!",
+    "selectDateAttendance": "출석 날짜 선택",
+    "studentsCount": "학생 ({count})",
+    "@studentsCount": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "dateLabel": "날짜: {date}",
+    "@dateLabel": {
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
+    "presentCount": "출석: {count}",
+    "@presentCount": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "absentCount": "결석: {count}",
+    "@absentCount": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "unmarkedCount": "미표시: {count}",
+    "@unmarkedCount": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "selectTodayDateAttendance": "출석을 보려면 오늘 날짜를 선택하세요",
+    "attendanceOnlyToday": "출석은 오늘 날짜에만 가능합니다",    "selectedDate": "선택됨: {date}",
+    "@selectedDate": {
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
+    "monthJan": "1월",
+    "monthFeb": "2월",
+    "monthMar": "3월",
+    "monthApr": "4월",
+    "monthMay": "5월",
+    "monthJun": "6월",
+    "monthJul": "7월",
+    "monthAug": "8월",
+    "monthSep": "9월",
+    "monthOct": "10월",
+    "monthNov": "11월",    "monthDec": "12월",    "failedToSaveAttendance": "출석 저장 실패: {errorMessage}",
+    "@failedToSaveAttendance": {
+        "placeholders": {
+            "errorMessage": {
+                "type": "String"
+            }
+        }
+    },    "errorLoadingStudents": "학생 로딩 오류",
+    "noStudentsEnrolled": "등록된 학생 없음",
+    "studentsWillAppearEnrolled": "학생들이 과정에 등록되면 여기에 표시됩니다",
+    "attendanceOnlyTodayDate": "출석은 오늘 날짜에만 표시할 수 있습니다",
+    "studentMarkedPresent": "학생이 출석으로 표시됨",
+    "studentMarkedAbsent": "학생이 결석으로 표시됨",
+    "studentAttendanceUnmarked": "학생 출석이 표시 해제됨",
+    "room": "강의실",
+    "Present": "현재의",
+    "Absent": "결석한",
+    "Unmarked": "표시되지 않음"
+}
