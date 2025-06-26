@@ -4,6 +4,14 @@ A modern, feature-rich courses management platform built for the University Cent
 
 ---
 
+## 🏷️ Tags
+
+`#courses-management` `#university` `#bstu` `#UCCD` `#firebase-auth` `#role-based-access` `#admin-dashboard`  
+`#student-portal` `#internal-community` `#analytics` `#attendance` `#certificate-management` `#modern-ui`  
+`#education` `#career-development` `#flutter` `#dart` `#MIT-license`
+
+---
+
 ## 🌟 Project Overview
 
 This platform is designed to digitalize and streamline the career development courses at BSTU. It enables the university to manage courses, track enrollments, conduct interviews, handle certificates, and facilitate communication—all while ensuring security and ease of use for different user types.
@@ -108,11 +116,11 @@ A built-in announcement and discussion feature for Super Admins, Admins, and Ins
 
 ## 📦 Tech Stack
 
-- **Frontend:** [Your frontend framework, e.g., React, Angular]
-- **Backend:** [Your backend, e.g., Node.js, Firebase Functions]
+- **Frontend & Mobile:** Flutter (Dart)
+- **Backend:** [Your backend, e.g., Firebase Functions, Node.js]
 - **Authentication:** Firebase Auth (with university email domain restriction)
 - **Database:** [e.g., Firestore or Realtime Database]
-- **Hosting:** [e.g., Firebase Hosting, Vercel, Netlify]
+- **Hosting:** [e.g., Firebase Hosting]
 
 ---
 
@@ -152,14 +160,14 @@ A built-in announcement and discussion feature for Super Admins, Admins, and Ins
    ```
 2. **Install dependencies:**
    ```bash
-   npm install
+   flutter pub get
    ```
 3. **Configure Firebase:**
-   - Add your Firebase project configuration to the environment variables or config file.
-   - Restrict authentication to BSTU university emails.
+   - Add your Firebase project configuration to the `/android`, `/ios`, and `/web` directories as appropriate.
+   - Restrict authentication to BSTU university emails in Firebase Console.
 4. **Run the app:**
    ```bash
-   npm start
+   flutter run
    ```
 
 ---
@@ -176,7 +184,8 @@ A built-in announcement and discussion feature for Super Admins, Admins, and Ins
 
 ## 📄 License
 
-[MIT License](LICENSE)
+This project is licensed under the MIT License.  
+See the [LICENSE](LICENSE) file for details.
 
 ---
 
