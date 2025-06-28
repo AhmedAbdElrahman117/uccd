@@ -10,7 +10,7 @@ class CoursePrerequisites extends StatelessWidget {
     required this.prerequisites,
   });
 
-  final List<String> prerequisites;
+  final List<dynamic> prerequisites;
 
   @override
   Widget build(BuildContext context) {

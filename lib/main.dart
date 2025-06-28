@@ -1,17 +1,13 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_otp/email_otp.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-// import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:toastification/toastification.dart';
-// import 'package:uccd/Core/Notification%20System.dart';
 import 'package:uccd/Core/app_global_keys.dart';
 import 'package:uccd/Core/app_theme.dart';
 import 'package:uccd/Core/notification_service.dart';
@@ -22,9 +18,7 @@ import 'package:uccd/generated/l10n.dart';
 @pragma('vm:entry-point')
 Future<dynamic> firebaseMessagingBackgroundHandler(
     RemoteMessage message) async {
-  log('Handling a background message: ${message.messageId}');
   if (message.notification != null) {
-    log('background');
     NotificationSystem.notificationController.createNotification(
       title: message.notification?.title ?? 'No Title',
       body: message.notification?.body ?? 'No Body',

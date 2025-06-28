@@ -29,7 +29,7 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController emailController =
-      TextEditingController(text: 'ahmed11@btu.edu.eg');
+      TextEditingController(text: 'ahmed1@btu.edu.eg');
   TextEditingController passwordController =
       TextEditingController(text: '123456789');
 

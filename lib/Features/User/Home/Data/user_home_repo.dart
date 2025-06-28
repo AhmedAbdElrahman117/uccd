@@ -72,13 +72,15 @@ class UserHomeRepo {
       },
     ).map(
       (snapshot) {
-        List<dynamic> enrolledCategories = snapshot.get('enrolledCategories');
-        if (enrolledCategories.contains(course.categoryID)) {
-          return 'enrolledInThisCategory';
+        List<dynamic>? enrolledCategories = snapshot.get('enrolledCategories');
+        if (enrolledCategories != null &&
+            enrolledCategories.isNotEmpty &&
+            enrolledCategories.contains(course.categoryID)) {
+          return 'Enrolled In This Category';
         } else if (course.maxAcceptedStudents == course.currentStudents) {
-          return 'courseFull';
+          return 'Course Full';
         } else {
-          return 'enrollNow';
+          return 'Enroll Now';
         }
       },
     );
@@ -99,7 +101,7 @@ class UserHomeRepo {
       if (doc.exists) {
         return doc.data()!;
       } else {
-        throw ("noUser");
+        throw ("no User");
       }
     } on SocketException {
       throw ('noInternetConnection');

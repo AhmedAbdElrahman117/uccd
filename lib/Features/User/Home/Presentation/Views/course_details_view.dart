@@ -120,8 +120,8 @@ class CourseDetailsView extends StatelessWidget {
                     ),
 
                     const SizedBox(height: 20), // Prerequisites/Skills
-                    const CoursePrerequisites(
-                      prerequisites: [],
+                    CoursePrerequisites(
+                      prerequisites: course.coursePrerequests ?? [],
                     ),
 
                     const SizedBox(

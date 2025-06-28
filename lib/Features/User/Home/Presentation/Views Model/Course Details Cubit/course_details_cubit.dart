@@ -9,6 +9,7 @@ import 'package:uccd/Features/User/Home/Presentation/Views%20Model/Course%20Deta
 class CourseDetailsCubit extends Cubit<CourseDetailsStates> {
   CourseDetailsCubit(this.course) : super(InitialState()) {
     checkEnrollmentStatus(course);
+    log('opened');
   }
 
   CourseDetailsCubit.noStatusCheck(this.course) : super(InitialState());
@@ -29,9 +30,18 @@ class CourseDetailsCubit extends Cubit<CourseDetailsStates> {
         );
       },
       onError: (error) => emit(
-        StatusFailed(errorMessage: error.toString()),
+        StatusFailed(
+          errorMessage: error.toString(),
+        ),
       ),
     );
+  }
+
+  @override
+  void onChange(Change<CourseDetailsStates> change) {
+    log(change.currentState.toString());
+    log(change.nextState.toString());
+    super.onChange(change);
   }
 
   void registerInCourse(
