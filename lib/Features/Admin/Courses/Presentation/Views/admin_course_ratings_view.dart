@@ -54,9 +54,11 @@ class _AdminCourseRatingsViewState extends State<AdminCourseRatingsView> {
                         size: 16,
                       ),
                       onChange: (option) {
-                        setState(() {
-                          selectedFilter = option;
-                        });
+                        setState(
+                          () {
+                            selectedFilter = option;
+                          },
+                        );
                       },
                       options: [
                         S.of(context).allRatings,
@@ -134,7 +136,7 @@ class _AdminCourseRatingsViewState extends State<AdminCourseRatingsView> {
       case AdminRatingLoaded():
         return SliverToBoxAdapter(
           child: RatingsCount(
-            selectedFilter: _getFilterForBackend(selectedFilter),
+            selectedFilter: selectedFilter,
             ratings: state.ratings,
           ),
         );
@@ -145,7 +147,7 @@ class _AdminCourseRatingsViewState extends State<AdminCourseRatingsView> {
       case AdminRatingInitialState():
         return SliverToBoxAdapter(
           child: RatingsCount(
-            selectedFilter: _getFilterForBackend(selectedFilter),
+            selectedFilter: selectedFilter,
           ),
         );
     }
@@ -163,7 +165,7 @@ class _AdminCourseRatingsViewState extends State<AdminCourseRatingsView> {
           enabled: true,
           child: RatingsListView(
             courseId: widget.course.courseID,
-            filterRating: _getFilterForBackend(selectedFilter),
+            filterRating: selectedFilter,
             ratings: _generateSkeletonRatings(),
           ),
         );
@@ -171,7 +173,7 @@ class _AdminCourseRatingsViewState extends State<AdminCourseRatingsView> {
       case AdminRatingLoaded():
         return RatingsListView(
           courseId: widget.course.courseID,
-          filterRating: _getFilterForBackend(selectedFilter),
+          filterRating: selectedFilter,
           ratings: state.ratings,
         );
 
@@ -274,16 +276,5 @@ class _AdminCourseRatingsViewState extends State<AdminCourseRatingsView> {
         createdAt: null,
       ),
     );
-  }
-
-  // Helper method to convert localized filter to English equivalent for backend filtering
-  String _getFilterForBackend(String localizedFilter) {
-    if (localizedFilter == S.of(context).allRatings) return 'All';
-    if (localizedFilter == S.of(context).fiveStars) return '5 Stars';
-    if (localizedFilter == S.of(context).fourStars) return '4 Stars';
-    if (localizedFilter == S.of(context).threeStars) return '3 Stars';
-    if (localizedFilter == S.of(context).twoStars) return '2 Stars';
-    if (localizedFilter == S.of(context).oneStar) return '1 Star';
-    return 'All'; // Default fallback
   }
 }

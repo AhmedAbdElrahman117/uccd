@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Models/rating_model.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Rating/user_rating_card.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class RatingsListView extends StatelessWidget {
   const RatingsListView({
@@ -20,7 +21,7 @@ class RatingsListView extends StatelessWidget {
     final List<RatingModel> allRatings = ratings ?? _generateMockRatings();
 
     // Filter ratings based on selected filter
-    final filteredRatings = _filterRatings(allRatings);
+    final filteredRatings = _filterRatings(context, allRatings);
 
     return SliverPadding(
       padding: const EdgeInsets.symmetric(
@@ -60,17 +61,42 @@ class RatingsListView extends StatelessWidget {
     );
   }
 
-  List<RatingModel> _filterRatings(List<RatingModel> ratings) {
-    if (filterRating == 'All') {
+  List<RatingModel> _filterRatings(
+      BuildContext context, List<RatingModel> ratings) {
+    // Convert localized filter to backend format for filtering
+    final backendFilter = _getFilterForBackend(context, filterRating);
+
+    if (backendFilter == 'All') {
       return ratings;
     }
 
     // Extract the number from filter strings like "5 Stars"
-    final ratingValue = int.tryParse(filterRating.split(' ')[0]);
+    final ratingValue = int.tryParse(backendFilter.split(' ')[0]);
     if (ratingValue == null) return ratings;
 
     return ratings
         .where((rating) => rating.overallRating.round() == ratingValue)
         .toList();
+  }
+
+  // Helper method to convert localized filter to English equivalent for backend filtering
+  String _getFilterForBackend(BuildContext context, String localizedFilter) {
+    if (localizedFilter == S.of(context).allRatings) return 'All';
+    if (localizedFilter == S.of(context).fiveStars) {
+      return '5 Stars';
+    }
+    if (localizedFilter == S.of(context).fourStars) {
+      return '4 Stars';
+    }
+    if (localizedFilter == S.of(context).threeStars) {
+      return '3 Stars';
+    }
+    if (localizedFilter == S.of(context).twoStars) {
+      return '2 Stars';
+    }
+    if (localizedFilter == S.of(context).oneStar) {
+      return '1 Stars';
+    }
+    return 'All'; // Default fallback
   }
 }

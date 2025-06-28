@@ -104,7 +104,7 @@ class AvailableCourseRepo {
         title: 'New Course Available',
       );
 
-      return 'courseAddedSuccessfully';
+      return 'Course Added Successfully';
     } on TimeoutException {
       throw ('connectionTimeout');
     } on SocketException {
