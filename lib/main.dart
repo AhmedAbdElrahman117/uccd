@@ -14,6 +14,7 @@ import 'package:uccd/Core/notification_service.dart';
 import 'package:uccd/Core/route_nav.dart';
 import 'package:uccd/Core/utils_provider.dart';
 import 'package:uccd/generated/l10n.dart';
+import 'package:uccd/keys.dart';
 
 @pragma('vm:entry-point')
 Future<dynamic> firebaseMessagingBackgroundHandler(
@@ -40,9 +41,8 @@ void main() async {
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
   await Supabase.initialize(
-    url: 'https://zmoejgvxfufurmezwagi.supabase.co',
-    anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inptb2VqZ3Z4ZnVmdXJtZXp3YWdpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MTgxNzEsImV4cCI6MjA1Mzk5NDE3MX0.Vf5LNNTgWB8JUjbuICWvs8JXt8_C-EuKvyk4qtMyAZQ',
+    url: supaUrl,
+    anonKey: supaAnonKey,
   );
 
   EmailOTP.config(

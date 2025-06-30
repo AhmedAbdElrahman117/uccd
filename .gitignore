@@ -11,6 +11,7 @@
 migrate_working_dir/
 firebase.json
 lib/Core/notification_api.dart
+lib/keys.dart
 
 # IntelliJ related
 *.iml
