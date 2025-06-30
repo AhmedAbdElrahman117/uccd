@@ -24,9 +24,11 @@ class NotificationService {
 
     NotificationSystem.notificationController.initNotificationPackage();
 
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    NotificationSystem.notificationController.setPackageListeners();
+
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
       log('firebase onMessage');
-      NotificationSystem.notificationController.createNotification(
+      await NotificationSystem.notificationController.createNotification(
         title: message.notification?.title ?? 'No Title',
         body: message.notification?.body ?? 'No Body',
       );
@@ -34,9 +36,9 @@ class NotificationService {
     });
 
     FirebaseMessaging.onMessageOpenedApp.listen(
-      (RemoteMessage message) {
+      (RemoteMessage message) async {
         log('firebase onMessageOpenedApp');
-        NotificationSystem.notificationController.createNotification(
+        await NotificationSystem.notificationController.createNotification(
           title: message.notification?.title ?? 'No Title',
           body: message.notification?.body ?? 'No Body',
         );
@@ -74,31 +76,32 @@ class NotificationSystem {
     );
   }
 
-  void setPackageListeners(BuildContext context) async {
+  void setPackageListeners() async {
     await AwesomeNotifications().setListeners(
       onNotificationCreatedMethod: (receivedNotification) async {
-        if (receivedNotification.title != null ||
-            receivedNotification.body != null) {
-          createNotification(
-            title: receivedNotification.title!,
-            body: receivedNotification.body!,
-          );
-        }
+        // if (receivedNotification.title != null ||
+        //     receivedNotification.body != null) {
+        //   await createNotification(
+        //     title: receivedNotification.title!,
+        //     body: receivedNotification.body!,
+        //   );
+        // }
       },
       onNotificationDisplayedMethod: (receivedNotification) async {
-        if (receivedNotification.title != null ||
-            receivedNotification.body != null) {
-          createNotification(
-            title: receivedNotification.title!,
-            body: receivedNotification.body!,
-          );
-        }
+        // if (receivedNotification.title != null ||
+        //     receivedNotification.body != null) {
+        //   await createNotification(
+        //     title: receivedNotification.title!,
+        //     body: receivedNotification.body!,
+        //   );
+        // }
       },
-      onActionReceivedMethod: (receivedAction) async {},
+      onActionReceivedMethod: onAction,
     );
   }
 
-  void createNotification({required String title, required String body}) async {
+  Future<void> createNotification(
+      {required String title, required String body}) async {
     await AwesomeNotifications().createNotification(
       content: NotificationContent(
         id: Timestamp.now().toString().hashCode,
@@ -117,3 +120,5 @@ class NotificationSystem {
     );
   }
 }
+
+Future<void> onAction(ReceivedAction receivedAction) async {}

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -13,6 +14,7 @@ import 'package:uccd/Features/Login/Presentation/Views/Widgets/login_theme_butto
 import 'package:uccd/Features/Login/Presentation/Views/Widgets/logo.dart';
 import 'package:uccd/Features/Login/Presentation/Views/Widgets/welcome_text.dart';
 import 'package:uccd/Features/Login/Presentation/Views/Widgets/login_theme_helper.dart';
+import 'package:uccd/Features/Login/Presentation/Views/otp_verification_view.dart';
 import 'package:uccd/Features/Login/Presentation/Views/registeration_form_view.dart';
 import 'package:uccd/Features/Super%20Admin/Presentation/View/super_admin_view.dart';
 import 'package:uccd/Features/User/user_view.dart';
@@ -117,23 +119,27 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
             )
           : context.go(UserView.id);
     } else if (state is SuperAdminRole) {
-      // context.push(
-      //   OtpVerificationView.id,
-      //   extra: emailController.text,
-      // );
-
-      context.go(
-        SuperAdminView.id,
-      );
+      if (kReleaseMode) {
+        context.push(
+          OtpVerificationView.id,
+          extra: emailController.text,
+        );
+      } else {
+        context.go(
+          SuperAdminView.id,
+        );
+      }
     } else if (state is AdminRole) {
-      // context.push(
-      //   OtpVerificationView.id,
-      //   extra: emailController.text,
-      // );
-
-      context.go(
-        AdminView.id,
-      );
+      if (kReleaseMode) {
+        context.push(
+          OtpVerificationView.id,
+          extra: emailController.text,
+        );
+      } else {
+        context.go(
+          AdminView.id,
+        );
+      }
     } else if (state is InstructorRole) {
       context.go(InstructorView.id);
     }
