@@ -18,7 +18,6 @@ class UploadMaterialButton extends StatelessWidget {
           onPressed: () {
             AppBanners.showSuccess(
               message: 'Upcoming feature!',
-              title: 'Not Available Yet',
             );
           },
           icon: const Icon(Icons.upload_file, size: 18),

@@ -43,7 +43,6 @@ class ProgressCourses extends StatelessWidget {
                 case DataEmpty():
                   return NoDataWidget(
                     message: S.of(context).noCoursesInProgress,
-                    showImage: false,
                   );
                 case DataFailed():
                   return DataErrorWidget(

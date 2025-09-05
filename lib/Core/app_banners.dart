@@ -185,4 +185,33 @@ class AppBanners {
       showProgressBar: false,
     );
   }
+
+  static void showComingSoon(BuildContext context) {
+    toastification.show(
+      type: ToastificationType.error,
+      style: ToastificationStyle.flatColored,
+      title: const Text("Coming Soon!"),
+      description: const Text('This Feature is Coming Soon!'),
+      autoCloseDuration: const Duration(milliseconds: 2500),
+      icon: const Icon(Icons.email),
+      animationBuilder: (
+        context,
+        animation,
+        alignment,
+        child,
+      ) {
+        return ScaleTransition(
+          scale: animation,
+          child: child,
+        );
+      },
+      borderRadius: BorderRadius.circular(12.0),
+      boxShadow: highModeShadow,
+      closeButtonShowType: CloseButtonShowType.none,
+      dragToClose: true,
+      applyBlurEffect: true,
+      closeOnClick: true,
+      showProgressBar: false,
+    );
+  }
 }

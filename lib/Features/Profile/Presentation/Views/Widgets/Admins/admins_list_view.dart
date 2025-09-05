@@ -32,14 +32,13 @@ class AdminsListView extends StatelessWidget {
               );
             },
             onEdit: () {
-              OverlayController.showAddAdminDialog(
+              OverlayController.showAddInstructorDialog(
                 context,
                 admins[index],
               );
             },
             deleteMessage:
                 'Are you sure you want to delete ${admins[index].name} from Admins',
-            deleteImage: AppAssets.imagesRemoveUser,
           ),
         );
       },

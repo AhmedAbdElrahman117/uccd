@@ -78,10 +78,7 @@ class CategoryViewHeader extends StatelessWidget {
               ),
             ),
             child: Text(
-              AppDates.formatLocalizedNumber(
-                categories.length,
-                context,
-              ),
+              categories.length.toString(),
               style: CategoryThemeHelper.getActionButtonTextStyle(context)
                   .copyWith(
                 color: CategoryThemeHelper.getCategoryIconColor(context),

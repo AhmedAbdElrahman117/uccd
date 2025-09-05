@@ -7,6 +7,7 @@ class CourseModel {
   final String? imageName;
   final String? courseID;
   final List<dynamic>? courseGoals;
+  final List<dynamic>? coursePrerequests;
   final String instructor;
   final String instructorID;
   final String category;
@@ -36,6 +37,7 @@ class CourseModel {
     this.imageLink,
     this.createdAt,
     required this.instructorID,
+    this.coursePrerequests,
     this.courseGoals,
     this.courseID,
     this.currentStudents,

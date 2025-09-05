@@ -31,7 +31,7 @@ class AdminCourseMetaInfo extends StatelessWidget {
         const SizedBox(width: 4),
         Expanded(
           child: Text(
-            '${AppDates.formatLocalizedNumber(course.currentStudents ?? 0, context)}/${AppDates.formatLocalizedNumber(course.maxAcceptedStudents, context)} ${S.of(context).Student}',
+            '${course.currentStudents}/${course.maxAcceptedStudents} ${S.of(context).Student}',
             style: AppText.style12Regular(context).copyWith(
               color: metaTextColor,
             ),

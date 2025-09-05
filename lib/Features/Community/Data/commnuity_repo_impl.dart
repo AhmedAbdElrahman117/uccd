@@ -69,9 +69,7 @@ class CommnuityRepoImpl extends CommunityRepo {
       DocumentReference<Map<String, dynamic>> doc = await _firestore
           .collection('posts')
           .add(
-            post.toMap(
-              post: post,
-            ),
+            post.toMap(),
           )
           .timeout(
             const Duration(seconds: 30),

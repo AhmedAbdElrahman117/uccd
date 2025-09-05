@@ -99,10 +99,7 @@ class _CreatePostDialogState extends State<CreatePostDialog> {
             });
           } else if (state is AddUpdateSuccess) {
             AppBanners.showSuccess(
-              message: AppException.getLocalizedMessage(
-                state.successMessage,
-                context,
-              ),
+              message: state.successMessage,
             );
             Navigator.pop(context);
           } else if (state is AddUpdateFailed) {

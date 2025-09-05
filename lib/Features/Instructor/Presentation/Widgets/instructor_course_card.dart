@@ -109,7 +109,7 @@ class InstructorCourseCard extends StatelessWidget {
                             ),
                             const SizedBox(width: 4),
                             Text(
-                              '${AppDates.formatLocalizedNumberDigits(course.currentStudents ?? 0, context)}/${AppDates.formatLocalizedNumberDigits(course.maxAcceptedStudents, context)}',
+                              '${course.currentStudents ?? 0} / ${course.maxAcceptedStudents}',
                               style: AppText.style12Regular(context),
                             ),
                           ],
@@ -127,7 +127,7 @@ class InstructorCourseCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          '${AppDates.formatLocalizedNumberDigits(course.duration, context)} ${S.of(context).Hour}',
+                          '${course.duration} ${S.of(context).Hour}',
                           style: AppText.style12Regular(context),
                         ),
                         const SizedBox(width: 16),
@@ -137,7 +137,7 @@ class InstructorCourseCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          '${S.of(context).room} ${AppDates.formatLocalizedNumberDigits(course.roomNumber, context)}',
+                          '${S.of(context).room} ${course.roomNumber}',
                           style: AppText.style12Regular(context),
                         ),
                       ],

@@ -23,11 +23,11 @@ class AdminAppBar extends StatelessWidget {
   final List<Widget>? actions;
   final DashboardModel? dashboardData;
   String _formatNumber(int? number, BuildContext context) {
-    if (number == null) return AppDates.formatLocalizedNumber(0, context);
+    if (number == null) return '0';
     if (number >= 1000) {
-      return '${AppDates.formatLocalizedNumberDigits(number / 1000, context)}k';
+      return '${(number / 1000).toStringAsFixed(1)}K';
     }
-    return AppDates.formatLocalizedNumber(number, context);
+    return number.toString();
   }
 
   @override

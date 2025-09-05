@@ -128,12 +128,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                 SafeArea(
                   bottom: true,
                   child: CommentField(
-                    commentController: _commentController,
-                    commentCubit: _commentCubit,
-                    formKey: _formKey,
-                    cardColor: cardColor,
-                    isDarkMode: isDarkMode,
-                    textColor: textColor,
+                    postID: widget.postID,
                   ),
                 ),
               ],
@@ -146,21 +141,11 @@ class _CommentsScreenState extends State<CommentsScreen> {
 
   void _listener(BuildContext context, CommentStates state) {
     if (state is CommentSuccess) {
-      AppBanners.showSuccess(
-        message: AppException.getLocalizedMessage(
-          state.successMessage,
-          context,
-        ),
-      );
+      AppBanners.showSuccess(message: state.successMessage);
     } else if (state is CommentLoading) {
       _commentController.clear();
     } else if (state is CommentFailed) {
-      AppBanners.showFailed(
-        message: AppException.getLocalizedMessage(
-          state.errorMessage,
-          context,
-        ),
-      );
+      AppBanners.showFailed(message: state.errorMessage);
     }
   }
 

@@ -11,6 +11,7 @@ class PostModel {
   final String? postID;
   final String publisherEmail;
   final int? likesCount;
+  bool? isLiked;
   final int? commentsCount;
 
   PostModel({
@@ -22,19 +23,20 @@ class PostModel {
     this.likes,
     this.postID,
     this.postImageName,
+    this.isLiked,
     required this.publisherEmail,
     this.commentsCount,
     this.likesCount,
   });
 
-  Map<String, dynamic> toMap({required PostModel post}) {
+  Map<String, dynamic> toMap() {
     return {
-      'postDescription': post.postDescription,
+      'postDescription': postDescription,
       'postImageLink': null,
       'postImageName': null,
-      'publisherName': post.publisherName,
+      'publisherName': publisherName,
       'publisherImage': null,
-      'publisherEmail': post.publisherEmail,
+      'publisherEmail': publisherEmail,
       'publishedAt': Timestamp.now(),
       'likes': [],
       'postID': null,

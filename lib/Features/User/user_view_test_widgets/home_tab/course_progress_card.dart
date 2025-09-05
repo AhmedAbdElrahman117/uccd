@@ -113,7 +113,7 @@ class CourseProgressCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 12),
                 Text(
-                  AppDates.formatLocalizedPercent(progress, context),
+                  progress.toString(),
                   style: ThemeHelper.style14Bold(context).copyWith(
                     color: ThemeHelper.appPrimaryColor,
                   ),
@@ -139,7 +139,6 @@ class CourseDetailsNavigator {
             'title': 'course_title',
             'counter': 'course_counter',
           },
-          hideEnrollButton: true,
         ),
       ),
     );

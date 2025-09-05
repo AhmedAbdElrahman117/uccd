@@ -36,9 +36,7 @@ class _SuperAdminViewState extends State<SuperAdminView>
           controller: tabController,
           physics: const NeverScrollableScrollPhysics(),
           children: [
-            AdminHomeView(
-              tabController: tabController,
-            ),
+            AdminHomeView(),
             const AdminCoursesView(),
             const CommunityTab(),
             const ProfileView(),

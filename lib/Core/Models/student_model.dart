@@ -16,10 +16,16 @@ class StudentModel {
   final Timestamp expectedGraduationYear; ////
   final String? notificationID;
   final Timestamp? registeredAt; //
+  final List<dynamic>? absenceDates;
+  final List<dynamic>? attendanceDates;
   final bool? isAccepted; //
+  bool? isAttended;
 
   StudentModel({
     this.name,
+    this.isAttended,
+    this.absenceDates,
+    this.attendanceDates,
     required this.gender,
     required this.disability,
     this.nationalID,

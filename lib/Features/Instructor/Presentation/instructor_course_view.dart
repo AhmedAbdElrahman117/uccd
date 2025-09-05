@@ -151,8 +151,7 @@ class _InstructorCourseViewState extends State<InstructorCourseView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          AppDates.formatLocalizedNumberDigits(
-                              date.day, context),
+                          date.day.toString(),
                           style: AppText.style20Bold(context).copyWith(
                             color: !isAccessible
                                 ? Colors.grey[600]
@@ -319,9 +318,9 @@ class _InstructorCourseViewState extends State<InstructorCourseView> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            S.of(context).studentsCount(
-                                AppDates.formatLocalizedNumberDigits(
-                                    students.length, context)),
+                            S
+                                .of(context)
+                                .studentsCount(students.length.toString()),
                             style: AppText.style20Bold(context),
                           ),
                           Text(
@@ -334,34 +333,32 @@ class _InstructorCourseViewState extends State<InstructorCourseView> {
                         ],
                       ),
                       Text(
-                        S.of(context).presentCount(
-                            AppDates.formatLocalizedNumberDigits(
-                                currentAttendance.values
-                                    .where((status) => status.isPresent)
-                                    .length,
-                                context)),
+                        S.of(context).presentCount(currentAttendance.values
+                            .where((status) => status.isPresent)
+                            .length
+                            .toString()),
                         style: AppText.style14Bold(context).copyWith(
                           color: Colors.green[600],
                         ),
                       ),
                       Text(
                         S.of(context).absentCount(
-                            AppDates.formatLocalizedNumberDigits(
-                                currentAttendance.values
-                                    .where((status) => status.isAbsent)
-                                    .length,
-                                context)),
+                              currentAttendance.values
+                                  .where((status) => status.isAbsent)
+                                  .length
+                                  .toString(),
+                            ),
                         style: AppText.style14Bold(context).copyWith(
                           color: Colors.red[600],
                         ),
                       ),
                       Text(
                         S.of(context).unmarkedCount(
-                            AppDates.formatLocalizedNumberDigits(
-                                currentAttendance.values
-                                    .where((status) => status.isUnmarked)
-                                    .length,
-                                context)),
+                              currentAttendance.values
+                                  .where((status) => status.isUnmarked)
+                                  .length
+                                  .toString(),
+                            ),
                         style: AppText.style14Bold(context).copyWith(
                           color: Colors.grey[600],
                         ),

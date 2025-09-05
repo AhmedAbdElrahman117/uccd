@@ -28,10 +28,7 @@ class _HomeTabState extends State<HomeTab> with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
     super.initState();
-    _myCoursesCubit = MyCoursesCubit(
-      limit: 2,
-      acceptedOnly: true,
-    );
+    _myCoursesCubit = MyCoursesCubit();
     _userHomeCubit = UserHomeCubit();
   }
 

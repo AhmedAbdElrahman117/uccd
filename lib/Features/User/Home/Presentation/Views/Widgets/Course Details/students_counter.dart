@@ -24,7 +24,7 @@ class CourseEnrollmentCounter extends StatelessWidget {
           color: Colors.grey,
         ),
         Text(
-          '${AppDates.formatLocalizedNumber(currentStudents ?? 0, context)}/${AppDates.formatLocalizedNumber(maxStudents, context)} ${S.of(context).Student}',
+          '${currentStudents ?? 0}/$maxStudents ${S.of(context).Student}',
           style: AppText.style14Regular(context).copyWith(
             color: Colors.grey,
           ),

@@ -57,8 +57,7 @@ class UserRatingCard extends StatelessWidget {
                           color: AppColor.primary,
                         ),
                         Text(
-                          AppDates.formatLocalizedNumberDigits(
-                              rating.overallRating, context),
+                          rating.overallRating.toString(),
                           style: AppText.style14Bold(context),
                         ),
                       ],
@@ -193,7 +192,7 @@ class UserRatingCard extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         Text(
-          AppDates.formatLocalizedNumberDigits(rating, context),
+          rating.toString(),
           style: AppText.style14Bold(context),
         ),
         const SizedBox(height: 2),

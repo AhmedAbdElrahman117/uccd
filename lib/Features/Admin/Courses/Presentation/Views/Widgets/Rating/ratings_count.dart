@@ -58,15 +58,14 @@ class RatingsCount extends StatelessWidget {
           ? S.of(context).noReviewsYet
           : totalCount == 1
               ? S.of(context).showingOneReview
-              : S.of(context).showingMultipleReviews(
-                  AppDates.formatLocalizedNumber(totalCount, context));
+              : S.of(context).showingMultipleReviews(totalCount.toString());
     } else {
       return filteredCount == 0
           ? S.of(context).noFilteredReviews(selectedFilter)
           : filteredCount == 1
               ? S.of(context).showingOneFilteredReview(selectedFilter)
               : S.of(context).showingMultipleFilteredReviews(
-                    AppDates.formatLocalizedNumber(filteredCount, context),
+                    filteredCount.toString(),
                     selectedFilter,
                   );
     }

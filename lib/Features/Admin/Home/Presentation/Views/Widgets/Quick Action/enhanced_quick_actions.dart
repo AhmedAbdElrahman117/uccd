@@ -102,7 +102,7 @@ class QuickActions extends StatelessWidget {
         'gradient':
             AdminHomeThemeHelper.getQuickActionQuaternaryGradient(context),
         'onTap': () {
-          OverlayController.showCreatePostDialog(context);
+          OverlayController.showAddPostDialog(context);
         }
       },
       {

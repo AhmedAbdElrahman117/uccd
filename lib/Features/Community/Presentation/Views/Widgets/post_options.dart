@@ -58,12 +58,14 @@ class PostOptions extends StatelessWidget {
       },
       onSelected: (value) {
         if (value == 'delete') {
-          OverlayController.confirmDelete(
+          OverlayController.showDeleteDialog(
             context,
-            onDelete: onDelete,
+            message:
+                'Are you sure you want to delete this post? This action cannot be undone.',
+            onConfirm: onDelete,
           );
         } else if (value == 'edit') {
-          OverlayController.showEditDialog(
+          OverlayController.showAddPostDialog(
             context,
             post,
           );

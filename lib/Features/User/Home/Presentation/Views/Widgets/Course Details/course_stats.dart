@@ -22,16 +22,13 @@ class CourseStats extends StatelessWidget {
           CourseStatItem(
             icon: Icons.access_time,
             value: S.of(context).courseStatsDurationValue(
-                  AppDates.formatLocalizedNumber(
-                    course.duration,
-                    context,
-                  ),
+                  course.duration.toString(),
                 ),
             label: S.of(context).courseStatsDuration,
           ),
           CourseStatItem(
             icon: Icons.meeting_room,
-            value: AppDates.formatLocalizedNumber(course.roomNumber, context),
+            value: course.roomNumber.toString(),
             label: S.of(context).courseStatsRoom,
           ),
           CourseStatItem(
@@ -43,8 +40,7 @@ class CourseStats extends StatelessWidget {
           ),
           CourseStatItem(
             icon: FontAwesomeIcons.bookOpenReader,
-            value: course.coursePrerequests?.length.toString() ??
-                AppDates.formatLocalizedNumber(0, context),
+            value: course.coursePrerequests?.length.toString() ?? '0',
             label: S.of(context).courseStatsPrerequisites.split(' ')[0],
           ),
         ],
@@ -56,9 +52,6 @@ class CourseStats extends StatelessWidget {
     final start = course.courseStartDate.toDate();
     final end = course.courseEndDate.toDate();
     final difference = end.difference(start).inDays;
-    return AppDates.formatLocalizedNumber(
-      (difference / 7).ceil(),
-      context,
-    );
+    return (difference / 7).ceil().toString();
   }
 }

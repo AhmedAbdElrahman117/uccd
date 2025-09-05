@@ -92,8 +92,7 @@ class CourseRatingSummary extends StatelessWidget {
               ),
               const SizedBox(width: 4),
               Text(
-                S.of(context).reviewsCount(
-                    AppDates.formatLocalizedNumber(ratings.length, context)),
+                S.of(context).reviewsCount(ratings.length.toString()),
                 style: AppText.style14Regular(context).copyWith(
                   color: Colors.grey[600],
                 ),

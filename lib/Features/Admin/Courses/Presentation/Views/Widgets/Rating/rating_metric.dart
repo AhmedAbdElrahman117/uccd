@@ -27,7 +27,7 @@ class RatingMetric extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          AppDates.formatLocalizedNumberDigits(rating, context),
+          rating.toString(),
           style: AppText.style20Bold(context),
         ),
         const SizedBox(height: 4),
