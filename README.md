@@ -156,26 +156,8 @@ A built-in announcement and discussion feature for Super Admins, Admins, and Ins
 
 ## ScreenShots
 
-<img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥_١٦٤٢٠٤_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥_١٦٤٢٠٩_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٣٧_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٣٨_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٣٩_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٠_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤١_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٢_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٣_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٤_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٦_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٧_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٨_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٩_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٥٠_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٥١_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٥٢_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٥٣_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٥٤_com_example_uccd_MainActivity.jpg" width="200"/>
+<img src="screenshots/1.jpg" width="200"/> &nbsp;&nbsp;&nbsp; <img src="screenshots/2.jpg" width="200"/> &nbsp;&nbsp;&nbsp; <img src="screenshots/3.jpg" width="200"/> &nbsp;&nbsp;&nbsp; <img src="screenshots/4.jpg" width="200"/> &nbsp;&nbsp;&nbsp; <img src="screenshots/5.jpg" width="200"/> &nbsp;&nbsp;&nbsp;<img src="screenshots/6.jpg" width="200"/> &nbsp;&nbsp;&nbsp;<img src="screenshots/7.jpg" width="200"/> &nbsp;&nbsp;&nbsp;<img src="screenshots/8.jpg" width="200"/> &nbsp;&nbsp;&nbsp;<img src="screenshots/9.jpg" width="200"/> &nbsp;&nbsp;&nbsp;<img src="screenshots/10.jpg" width="200"/>&nbsp;&nbsp;&nbsp;<img src="screenshots/11.jpg" width="200"/> &nbsp;&nbsp;&nbsp;<img src="screenshots/12.jpg" width="200"/> &nbsp;&nbsp;&nbsp;<img src="screenshots/13.jpg" width="200"/> &nbsp;&nbsp;&nbsp;<img src="screenshots/14.jpg" width="200"/> &nbsp;&nbsp;&nbsp;<img src="screenshots/15.jpg" width="200"/> &nbsp;&nbsp;&nbsp;<img src="screenshots/16.jpg" width="200"/> &nbsp;&nbsp;&nbsp;<img src="screenshots/17.jpg" width="200"/> &nbsp;&nbsp;&nbsp;<img src="screenshots/18.jpg" width="200"/>
+
 
 ## 🏗️ Future Work
 
@@ -226,4 +208,5 @@ Contributions are welcome! Please open issues and submit pull requests for new f
 ## 📬 Contact
 
 For questions or support, contact [AhmedAbdElrahman117](mailto:your.email@bstu.edu.eg).
+
 
