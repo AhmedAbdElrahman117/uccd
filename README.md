@@ -154,6 +154,40 @@ A built-in announcement and discussion feature for Super Admins, Admins, and Ins
 
 ---
 
+## ScreenShots
+
+<img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥_١٦٤٢٠٤_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥_١٦٤٢٠٩_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٣٧_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٣٨_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٣٩_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٠_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤١_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٢_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٣_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٤_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٦_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٧_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٨_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٤٩_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٥٠_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٥١_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٥٢_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٥٣_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/Screenshot_٢٠٢٥٠٩٠٥١٢٥٤_com_example_uccd_MainActivity.jpg" width="200"/>
+
+## 🏗️ Future Work
+
+- Instructor material upload and sharing.
+- More detailed analytics and reporting.
+- Enhanced notification system and certificate management.
+- Community post comments and reactions.
+- Mobile app support.
+
+---
+
+
 ## 🛠️ Getting Started
 
 1. **Clone the repository:**
@@ -175,33 +209,6 @@ A built-in announcement and discussion feature for Super Admins, Admins, and Ins
 
 ---
 
-## ScreenShots
-
-<img src="screenshots/Screenshot_١‏٢‏٣٤٥_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٣٦_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٣٧_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٣٨_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٣٩_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٤٠_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٤١_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٤٢_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٤٣_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٤٤_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٤٥_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٤٦_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٤٧_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٤٨_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/> &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/Screenshot_١٢٤٩_٢٠-٠٩-٠٥_com_example_uccd_MainActivity.jpg" width="200"/>
-
-## 🏗️ Future Work
-
-- Instructor material upload and sharing.
-- More detailed analytics and reporting.
-- Enhanced notification system and certificate management.
-- Community post comments and reactions.
-- Mobile app support.
-
----
 
 ## 📄 License
 
@@ -219,3 +226,4 @@ Contributions are welcome! Please open issues and submit pull requests for new f
 ## 📬 Contact
 
 For questions or support, contact [AhmedAbdElrahman117](mailto:your.email@bstu.edu.eg).
+
