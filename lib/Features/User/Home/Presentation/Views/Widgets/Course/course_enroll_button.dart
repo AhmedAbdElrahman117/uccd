@@ -64,13 +64,15 @@ class CourseEnrollButton extends StatelessWidget {
                 width: double.infinity,
                 child: CustomButton(
                   title: state.status,
-                  onPressed: () {
-                    BlocProvider.of<CourseDetailsCubit>(context)
-                        .registerInCourse(
-                      courseID: course.courseID!,
-                      categoryID: course.categoryID,
-                    );
-                  },
+                  onPressed: state.canEnroll
+                      ? () {
+                          BlocProvider.of<CourseDetailsCubit>(context)
+                              .registerInCourse(
+                            courseID: course.courseID!,
+                            categoryID: course.categoryID,
+                          );
+                        }
+                      : null,
                 ),
               );
 

@@ -8,7 +8,6 @@ import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Cou
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/duration_field.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/instructor_menu_field.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/max_accepted_students_field.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class CourseBasicInfoPage extends StatefulWidget {
   const CourseBasicInfoPage({
@@ -58,11 +57,11 @@ class _CourseBasicInfoPageState extends State<CourseBasicInfoPage>
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  S.of(context).courseInfo,
+                  'Course Info',
                   style: AppText.style18Bold(context),
                 ),
                 Text(
-                  S.of(context).courseInfoDescription,
+                  'Let\'s Start With Course Basic Info',
                   style: AppText.style16Regular(context),
                 ),
                 CourseTitleField(

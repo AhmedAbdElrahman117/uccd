@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uccd/Core/theme_helper.dart';
+import 'package:uccd/Core/app_text.dart';
 
 class CustomTitle extends StatelessWidget {
   const CustomTitle({
@@ -19,7 +19,7 @@ class CustomTitle extends StatelessWidget {
       type: MaterialType.transparency,
       child: Text(
         title,
-        style: ThemeHelper.style16Bold(context)
+        style: AppText.style16Bold(context)
             .copyWith(
               overflow: TextOverflow.ellipsis,
               color: fontColor ?? Theme.of(context).textTheme.bodyMedium!.color,

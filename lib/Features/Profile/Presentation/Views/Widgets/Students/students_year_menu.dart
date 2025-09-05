@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class StudentYearMenu extends StatefulWidget {
   const StudentYearMenu({super.key, required this.yearController});
@@ -11,31 +10,25 @@ class StudentYearMenu extends StatefulWidget {
 }
 
 class _StudentYearMenuState extends State<StudentYearMenu> {
-  Map<String, String> _getYears(BuildContext context) {
-    return {
-      S.of(context).firstYear: '1st year',
-      S.of(context).secondYear: '2nd year',
-      S.of(context).thirdYear: '3rd year',
-      S.of(context).fourthYear: '4th year',
-    };
-  }
-
+  final Map<String, String> years = {
+    '1st year': '1st year',
+    '2nd year': '2nd year',
+    '3rd year': '3rd year',
+    '4th year': '4th year',
+  };
   @override
   Widget build(BuildContext context) {
-    final years = _getYears(context);
     return DropdownButtonFormField(
-      decoration: InputDecoration(
-        prefixIcon: const Icon(Icons.person),
-        hintText: S.of(context).yearHint,
+      decoration: const InputDecoration(
+        prefixIcon: Icon(Icons.person),
+        hintText: 'year',
       ),
-      value: years.values.contains(widget.yearController.text)
-          ? widget.yearController.text
-          : null,
-      items: years.entries
+      value: years[widget.yearController.text],
+      items: years.entries.indexed
           .map(
             (e) => DropdownMenuItem(
-              value: e.value,
-              child: Text(e.key),
+              value: e.$2.value,
+              child: Text(e.$2.key),
             ),
           )
           .toList(),
@@ -44,7 +37,7 @@ class _StudentYearMenuState extends State<StudentYearMenu> {
       },
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return S.of(context).selectYear;
+          return 'Select year';
         }
         return null;
       },

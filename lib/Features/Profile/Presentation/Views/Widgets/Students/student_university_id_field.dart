@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Components/Fields/custom_text_field.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class StudentUniversityIdField extends StatelessWidget {
   const StudentUniversityIdField({
@@ -9,19 +8,20 @@ class StudentUniversityIdField extends StatelessWidget {
   });
 
   final TextEditingController studentuniversityId;
+
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
       textController: studentuniversityId,
-      label: S.of(context).universityIdLabel,
-      hint: S.of(context).universityIdHint,
+      label: 'University ID',
+      hint: 'Enter Student University ID',
       icon: Icons.person,
       keyboardType: TextInputType.number,
       validator: (value) {
         if (value!.isEmpty) {
-          return S.of(context).universityIdRequired;
+          return 'University ID Required';
         } else if (value.length != 9) {
-          return S.of(context).universityIdLengthError;
+          return 'University ID must be 9 characters length';
         }
         return null;
       },

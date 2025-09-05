@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:uccd/Core/Components/image_picker_container.dart';
 import 'package:uccd/Core/app_text.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class CourseImagePage extends StatefulWidget {
   const CourseImagePage({
@@ -30,15 +29,15 @@ class _CourseImagePageState extends State<CourseImagePage>
             spacing: 20,
             children: [
               Text(
-                S.of(context).courseImage,
+                'Course Image',
                 style: AppText.style18Bold(context),
               ),
               Text(
-                S.of(context).courseImageDescription,
+                'Finally you can Add an Image to your course',
                 style: AppText.style16Regular(context),
               ),
               Text(
-                S.of(context).courseImageNote,
+                'Note: if you Don\'t add an image to the course the course will have the UCCD logo automatically',
                 style: AppText.style14Regular(context),
                 textAlign: TextAlign.center,
               ),

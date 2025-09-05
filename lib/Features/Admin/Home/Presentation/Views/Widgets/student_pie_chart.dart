@@ -1,6 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:uccd/Core/app_dates.dart';
 import 'package:uccd/Core/app_text.dart';
 
 class StudentPieChart extends StatefulWidget {
@@ -10,8 +9,8 @@ class StudentPieChart extends StatefulWidget {
     required this.colors,
   });
 
-  final Map<double, int> piechartData;
-  final List<Color> colors;
+  final Map<double, num> piechartData;
+  final List colors;
 
   @override
   State<StudentPieChart> createState() => _StudentPieChartState();
@@ -46,9 +45,7 @@ class _StudentPieChartState extends State<StudentPieChart> {
                     radius: currentIndex == index ? 55 : 40,
                     value: 100 / widget.colors.length,
                     showTitle: true,
-                    title: currentIndex == index
-                        ? AppDates.formatLocalizedNumber(0, context)
-                        : '${AppDates.formatLocalizedNumber(0, context)}%',
+                    title: currentIndex == index ? '0' : '0%',
                     titleStyle: currentIndex == index
                         ? AppText.style16Bold(context)
                         : AppText.style14Bold(context),
@@ -62,15 +59,11 @@ class _StudentPieChartState extends State<StudentPieChart> {
                       value: e.$2.key,
                       showTitle: true,
                       title: currentIndex == e.$1
-                          ? AppDates.formatLocalizedNumber(e.$2.value, context)
-                          : '${AppDates.formatLocalizedPercent(e.$2.key / 100, context)}',
+                          ? '${e.$2.value}'
+                          : '${e.$2.key}%',
                       titleStyle: currentIndex == e.$1
-                          ? AppText.style16Bold(context).copyWith(
-                              color: Colors.white,
-                            )
-                          : AppText.style14Bold(context).copyWith(
-                              color: Colors.white,
-                            ),
+                          ? AppText.style16Bold(context)
+                          : AppText.style14Bold(context),
                     );
                   },
                 ).toList(),

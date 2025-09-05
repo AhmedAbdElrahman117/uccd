@@ -2,17 +2,12 @@
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28"/>
-<uses-permission android:name="android.permission.VIBRATE" />
-<!-- <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/> -->
 
     <application
-        android:label="UCCD"
+        android:label="uccd"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon"
+        android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
-        <meta-data
-    android:name="com.google.firebase.messaging.default_notification_channel_id"
-    android:value="basic"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Components/Fields/custom_text_field.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class StudentNationalIdField extends StatelessWidget {
   const StudentNationalIdField({
@@ -14,15 +13,15 @@ class StudentNationalIdField extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomTextField(
       textController: studentNationalId,
-      label: S.of(context).nationalIdLabel,
-      hint: S.of(context).nationalIdHint,
+      label: 'National ID',
+      hint: 'Enter Student National ID',
       icon: Icons.person,
       keyboardType: TextInputType.number,
       validator: (value) {
         if (value!.isEmpty) {
-          return S.of(context).nationalIdRequired;
+          return 'National ID Required';
         } else if (value.length != 14) {
-          return S.of(context).nationalIdLengthError;
+          return 'National ID must be 14 characters length';
         }
         return null;
       },

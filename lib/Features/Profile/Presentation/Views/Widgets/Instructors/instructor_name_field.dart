@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Components/Fields/custom_text_field.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class InstructorNameField extends StatelessWidget {
   const InstructorNameField({
@@ -14,12 +13,12 @@ class InstructorNameField extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomTextField(
       textController: instructorName,
-      label: S.of(context).instructorNameLabel,
-      hint: S.of(context).instructorNameHint,
+      label: 'Instructor Name',
+      hint: 'Enter Instructor Name',
       icon: Icons.person,
       validator: (value) {
         if (value!.isEmpty) {
-          return S.of(context).nameRequired;
+          return 'Name Required';
         }
         return null;
       },

@@ -50,21 +50,15 @@ class StatisticsBox extends StatelessWidget {
                         fit: BoxFit.scaleDown,
                         child: Text(
                           sections.keys.elementAt(index),
-                          style: AppText.style18Bold(context).copyWith(
-                            color: Colors.white,
-                          ),
+                          style: AppText.style18Bold(context),
                           textAlign: TextAlign.center,
                         ),
                       ),
                       FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(
-                          sections.values.elementAt(index) is String
-                              ? sections.values.elementAt(index)
-                              : sections.values.elementAt(index).toString(),
-                          style: AppText.style16Bold(context).copyWith(
-                            color: Colors.white,
-                          ),
+                          sections.values.elementAt(index).toString(),
+                          style: AppText.style16Bold(context),
                           textAlign: TextAlign.center,
                         ),
                       ),

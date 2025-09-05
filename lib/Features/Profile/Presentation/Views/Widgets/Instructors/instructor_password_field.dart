@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Components/Fields/custom_password_field.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class InstructorPasswordField extends StatelessWidget {
   const InstructorPasswordField({
@@ -14,8 +13,8 @@ class InstructorPasswordField extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomPasswordField(
       passwordController: instructorPassword,
-      label: S.of(context).instructorPasswordLabel,
-      hint: S.of(context).instructorPasswordHint,
+      label: 'Instructor Password',
+      hint: 'Enter Instructor Password',
     );
   }
 }

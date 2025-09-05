@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uccd/Core/Models/comment_model.dart';
-import 'package:uccd/Features/Community/Data/commnuity_repo.dart';
+import 'package:uccd/Features/Community/Data/commnuity_repo_impl.dart';
 import 'package:uccd/Features/Community/Presentation/Views%20Model/Comments%20Cubit/comment_states.dart';
 
 class CommentCubit extends Cubit<CommentStates> {
@@ -10,7 +10,7 @@ class CommentCubit extends Cubit<CommentStates> {
   }
 
   final String postID;
-  final CommnuityRepo repo = CommnuityRepo();
+  final CommnuityRepoImpl repo = CommnuityRepoImpl();
   StreamSubscription? commentSubscription;
 
   void getComments() {
@@ -30,31 +30,19 @@ class CommentCubit extends Cubit<CommentStates> {
   void comment({
     required CommentModel comment,
   }) async {
-    if (comment.comment.trim().isNotEmpty) {
-      emit(CommentLoading());
-      try {
-        String message = await repo.addComment(
-          comment: comment,
-          postID: postID,
-        );
-        emit(
-          CommentSuccess(successMessage: message),
-        );
-      } catch (e) {
-        emit(
-          CommentFailed(errorMessage: e.toString()),
-        );
-      }
-    } else {
+    emit(CommentLoading());
+    try {
+      String message = await repo.addComment(
+        comment: comment,
+        postID: postID,
+      );
       emit(
-        CommentFailed(errorMessage: 'Comment cannot be empty'),
+        CommentSuccess(successMessage: message),
+      );
+    } catch (e) {
+      emit(
+        CommentFailed(errorMessage: e.toString()),
       );
     }
-  }
-
-  @override
-  Future<void> close() {
-    commentSubscription?.cancel();
-    return super.close();
   }
 }

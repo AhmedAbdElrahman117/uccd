@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Components/Fields/custom_text_field.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class DescriptionField extends StatelessWidget {
   const DescriptionField({
@@ -30,7 +29,7 @@ class DescriptionField extends StatelessWidget {
       onChanged: onChanged,
       validator: (value) {
         if (value!.isEmpty) {
-          return S.of(context).requiredField;
+          return 'Required Field';
         }
         return null;
       },

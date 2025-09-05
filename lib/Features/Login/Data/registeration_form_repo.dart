@@ -23,11 +23,11 @@ class RegisterationFormRepo {
         .catchError(
       (error) {
         if (error is SocketException) {
-          throw ('noInternetConnection');
+          throw ('No Internet Connection');
         } else if (error is FirebaseException) {
           throw (error.message ?? error.code);
         } else if (error is TimeoutException) {
-          throw ('connectionTimeout');
+          throw ('Connection Timeout');
         } else {
           throw (error.toString());
         }
@@ -64,11 +64,11 @@ class RegisterationFormRepo {
         const Duration(seconds: 30),
       );
     } on SocketException {
-      throw ('noInternetConnection');
+      throw ('No Internet Connection');
     } on FirebaseException catch (e) {
       throw (e.message ?? e.code);
     } on TimeoutException {
-      throw ('connectionTimeout');
+      throw ('Connection Timeout');
     } on Exception catch (e) {
       throw (e.toString());
     }

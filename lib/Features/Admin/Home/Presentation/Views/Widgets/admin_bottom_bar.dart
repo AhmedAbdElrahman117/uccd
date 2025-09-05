@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uccd/Core/Components/bottom_bar.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class AdminBottomBar extends StatefulWidget {
   const AdminBottomBar({
@@ -16,15 +15,15 @@ class AdminBottomBar extends StatefulWidget {
 }
 
 class _AdminBottomBarState extends State<AdminBottomBar> {
+  Map<String, IconData> adminBarButtons = {
+    'Home': FontAwesomeIcons.house,
+    'Courses': FontAwesomeIcons.bookOpen,
+    'Community': FontAwesomeIcons.globe,
+    'Profile': FontAwesomeIcons.solidUser,
+  };
+
   @override
   Widget build(BuildContext context) {
-    Map<String, IconData> adminBarButtons = {
-      S.of(context).home: FontAwesomeIcons.house,
-      S.of(context).courses: FontAwesomeIcons.bookOpen,
-      S.of(context).community: FontAwesomeIcons.globe,
-      S.of(context).profile: FontAwesomeIcons.solidUser,
-    };
-
     return BottomBar(
       tabController: widget.tabController,
       barButtons: adminBarButtons,

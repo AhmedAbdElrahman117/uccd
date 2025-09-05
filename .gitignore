@@ -9,10 +9,6 @@
 .history
 .svn/
 migrate_working_dir/
-firebase.json
-lib/Core/notification_api.dart
-lib/keys.dart
-lib/firebase_options.dart
 
 # IntelliJ related
 *.iml

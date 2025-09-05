@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:uccd/Core/Models/category_model.dart';
 import 'package:uccd/Features/Profile/Data/admin_category_repo.dart';
 import 'package:uccd/Features/Profile/Presentation/Views%20Model/Admin%20Category%20Cubit/admin_category_states.dart';
 
@@ -30,12 +29,10 @@ class AdminCategoryCubit extends Cubit<AdminCategoryStates> {
     );
   }
 
-  void delete({required CategoryModel category}) async {
+  void delete({required String id}) async {
     emit(DeleteLoading());
     try {
-      String message = await repo.deleteCategory(
-        category: category,
-      );
+      String message = await repo.deleteCategory(id: id);
 
       emit(
         DeleteSuccess(successMessage: message),

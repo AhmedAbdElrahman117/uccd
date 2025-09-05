@@ -9,11 +9,10 @@ class AppText {
       );
 
   static TextStyle style12Bold(BuildContext context) => TextStyle(
-        fontSize: 14,
+        fontSize: 12,
         fontWeight: FontWeight.bold,
         color: Theme.of(context).textTheme.bodyLarge!.color,
       );
-
   static TextStyle style14Regular(BuildContext context) => TextStyle(
         fontSize: 14,
         color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -67,7 +66,7 @@ class AppText {
       );
 
   static TextStyle style23Bold(BuildContext context) => TextStyle(
-        fontSize: 23.5,
+        fontSize: 23,
         fontWeight: FontWeight.bold,
         color: Theme.of(context).textTheme.bodyLarge!.color,
       );

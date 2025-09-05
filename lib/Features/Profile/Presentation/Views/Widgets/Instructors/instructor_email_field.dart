@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Components/Fields/custom_text_field.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class InstructorEmailField extends StatelessWidget {
   const InstructorEmailField({
@@ -16,15 +15,15 @@ class InstructorEmailField extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomTextField(
       textController: instructorEmail,
-      label: S.of(context).instructorEmailLabel,
-      hint: S.of(context).instructorEmailHint,
+      label: 'Instructor Email',
+      hint: 'Enter Instructor Email',
       icon: Icons.email,
       enabled: isEditable,
       validator: (value) {
         if (value!.isEmpty) {
-          return S.of(context).emailRequired;
+          return 'Email Required';
         } else if (!value.endsWith('btu.edu.eg')) {
-          return S.of(context).universityEmailsOnly;
+          return 'University Emails Only';
         }
         return null;
       },

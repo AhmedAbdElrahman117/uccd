@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:uccd/Core/Components/Fields/date_picker_field.dart';
 import 'package:uccd/Core/constants.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class CourseStartDateField extends StatelessWidget {
   const CourseStartDateField({
@@ -21,19 +20,19 @@ class CourseStartDateField extends StatelessWidget {
   Widget build(BuildContext context) {
     return DatePickerField(
       dateController: courseStartController,
-      label: S.of(context).courseStartDateLabel,
-      hint: S.of(context).courseStartDateHint,
+      label: 'Course Start Date',
+      hint: 'Enter Course Start Date',
       validator: (value) {
         if (value!.isEmpty) {
-          return S.of(context).courseStartDateRequired;
+          return 'Start Date Required';
         } else if (parseDate(courseStartController.text)
             .isSameOrAfter(parseDate(courseEndController.text))) {
-          return S.of(context).courseStartDateBeforeEndDate;
+          return 'Course Start Date must be before End Date';
         } else if (parseDate(courseStartController.text)
                 .isSameOrBefore(parseDate(interviewEndController.text)) ||
             parseDate(courseStartController.text)
                 .isSameOrBefore(parseDate(interviewStartController.text))) {
-          return S.of(context).courseStartDateAfterInterviews;
+          return 'Course Start Date must be After Interviews';
         }
         return null;
       },

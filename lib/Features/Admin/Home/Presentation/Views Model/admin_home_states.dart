@@ -1,19 +1,9 @@
-import 'package:uccd/Core/Models/dashboard_model.dart';
-
-sealed class AdminHomeStates {}
+class AdminHomeStates {}
 
 class AdminHomeInitialState extends AdminHomeStates {}
 
-class AdminHomeLoading extends AdminHomeStates {}
+class AdminHomeSuccessState extends AdminHomeStates {}
 
-class AdminHomeLoaded extends AdminHomeStates {
-  final DashboardModel stats;
+class AdminHomeLoadingState extends AdminHomeStates {}
 
-  AdminHomeLoaded({required this.stats});
-}
-
-class AdminHomeFailed extends AdminHomeStates {
-  final String errorMessage;
-
-  AdminHomeFailed({required this.errorMessage});
-}
+class AdminHomeFailedState extends AdminHomeStates {}

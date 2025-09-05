@@ -1,68 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:uccd/Features/Community/Presentation/Views%20Model/Comments%20Cubit/comment_cubit.dart';
-import 'package:uccd/Features/Community/Presentation/Views%20Model/Comments%20Cubit/comment_states.dart';
+import 'package:uccd/Core/Components/Fields/custom_text_field.dart';
+import 'package:uccd/Core/Components/adaptive_container.dart';
 import 'package:uccd/Features/Community/Presentation/Views/Widgets/add_comment_button.dart';
-import 'package:uccd/Features/Community/Presentation/Views/Widgets/comment_field_avatar.dart';
-import 'package:uccd/Features/Community/Presentation/Views/Widgets/comment_text_field.dart';
 
-class CommentField extends StatelessWidget {
+class CommentField extends StatefulWidget {
   const CommentField({
     super.key,
-    required this.commentController,
-    required this.commentCubit,
-    required this.cardColor,
-    required this.textColor,
-    required this.isDarkMode,
-    required this.formKey,
+    required this.postID,
   });
 
-  final TextEditingController commentController;
-  final CommentCubit commentCubit;
-  final Color cardColor;
-  final Color textColor;
-  final bool isDarkMode;
-  final GlobalKey<FormState> formKey;
+  final String postID;
+
+  @override
+  State<CommentField> createState() => _CommentFieldState();
+}
+
+class _CommentFieldState extends State<CommentField> {
+  final TextEditingController commentController = TextEditingController();
+  final GlobalKey<FormState> commentsKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CommentCubit, CommentStates>(
-      buildWhen: (previous, current) {
-        return current is CommentLoading ||
-            current is CommentSuccess ||
-            current is CommentFailed ||
-            (previous is CommentLoading &&
-                (current is! CommentLoading &&
-                    current is! CommentSuccess &&
-                    current is! CommentFailed));
-      },
-      builder: (context, state) {
-        final isLoading = state is CommentLoading;
-        return Container(
-          padding: const EdgeInsets.all(12),
-          color: cardColor,
-          child: Row(
-            spacing: 12,
-            children: [
-              const CommentFieldAvatar(),
-              Expanded(
-                child: CommentTextField(
-                  commentController: commentController,
-                  isLoading: isLoading,
-                  textColor: textColor,
-                  isDarkMode: isDarkMode,
-                ),
-              ),
-              AddCommentButton(
-                isLoading: isLoading,
-                formKey: formKey,
-                commentCubit: commentCubit,
-                commentController: commentController,
-              ),
-            ],
+    return AdaptiveContainer(
+      allPadding: 4,
+      topLeftRadius: 0,
+      topRightRadius: 0,
+      child: Form(
+        key: commentsKey,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+          child: CustomTextField(
+            textController: commentController,
+            label: 'Write a Comment',
+            hint: 'Write a Public Comment',
+            maxLines: null,
+            keyboardType: TextInputType.multiline,
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Comment Required';
+              }
+              return null;
+            },
+            suffix: AddCommentButton(
+              commentController: commentController,
+              commentsKey: commentsKey,
+              postID: widget.postID,
+            ),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }

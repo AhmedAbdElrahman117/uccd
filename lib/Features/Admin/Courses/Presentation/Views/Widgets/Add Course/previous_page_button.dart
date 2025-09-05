@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/app_text.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class PreviousPageButton extends StatelessWidget {
   const PreviousPageButton({
@@ -19,7 +18,7 @@ class PreviousPageButton extends StatelessWidget {
       child: OutlinedButton.icon(
         onPressed: onPressed,
         label: Text(
-          S.of(context).Back,
+          'Back',
           style: AppText.style14Bold(context),
         ),
         icon: Icon(

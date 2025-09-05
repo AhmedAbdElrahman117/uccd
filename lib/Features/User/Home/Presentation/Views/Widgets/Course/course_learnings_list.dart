@@ -8,18 +8,19 @@ class CourseLearningsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      itemCount: goals?.length ?? 0,
+    return ListView.builder(
+      itemCount: goals?.length,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      separatorBuilder: (context, index) => const SizedBox(height: 12),
+      padding: EdgeInsets.zero,
       itemBuilder: (context, index) {
-        return CustomInfo(
-          info: goals![index],
-          icon: Icons.check_circle,
-          iconColor: Colors.green,
-          fontSize: 14,
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: CustomInfo(
+            info: goals![index],
+            icon: Icons.check,
+            fontSize: 18,
+          ),
         );
       },
     );

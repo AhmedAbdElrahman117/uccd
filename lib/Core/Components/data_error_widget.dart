@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:uccd/Core/app_assets.dart';
-import 'package:uccd/Core/theme_helper.dart';
-import 'package:uccd/generated/l10n.dart';
+import 'package:uccd/Core/app_text.dart';
 
 class DataErrorWidget extends StatelessWidget {
   const DataErrorWidget({
@@ -11,15 +9,16 @@ class DataErrorWidget extends StatelessWidget {
   });
 
   final String? message;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
-      spacing: ThemeHelper.gap16.height!,
+      spacing: 16,
       children: [
         Lottie.asset(
-          AppAssets.imagesNointernet,
+          'assets/lotties/no internet.json',
           width: 120,
           height: 120,
           fit: BoxFit.cover,
@@ -28,8 +27,8 @@ class DataErrorWidget extends StatelessWidget {
         Center(
           child: SelectableText(
             message ??
-                '${S.of(context).failedToLoadData}\n${S.of(context).checkInternetConnectionAndTryAgain}',
-            style: ThemeHelper.style16Bold(context),
+                'Failed to retrieve Data\nCheck your Internet Connection and try again',
+            style: AppText.style16Bold(context),
             textAlign: TextAlign.center,
           ),
         ),

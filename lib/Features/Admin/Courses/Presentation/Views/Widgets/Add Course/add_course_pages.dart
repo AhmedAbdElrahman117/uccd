@@ -6,7 +6,6 @@ import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Cou
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/course_dates_page.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/course_goals_page.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/course_image_page.dart';
-import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/course_prerequests_page.dart';
 
 class AddCoursePages extends StatelessWidget {
   const AddCoursePages({
@@ -31,8 +30,6 @@ class AddCoursePages extends StatelessWidget {
     required this.instructorIDController,
     required this.categoryIDController,
     this.currentCourse,
-    required this.prerequestsController,
-    required this.prequesetsKey,
   });
 
   final GlobalKey<FormState> datesKey;
@@ -54,8 +51,6 @@ class AddCoursePages extends StatelessWidget {
   final List<TextEditingController> goalsController;
   final TextEditingController imagePath;
   final GlobalKey<FormState> goalsKey;
-  final List<TextEditingController> prerequestsController;
-  final GlobalKey<FormState> prequesetsKey;
 
   final CourseModel? currentCourse;
 
@@ -85,10 +80,6 @@ class AddCoursePages extends StatelessWidget {
           CourseGoalsPage(
             goalsController: goalsController,
             goalsKey: goalsKey,
-          ),
-          CoursePrerequestsPage(
-            prequesetsKey: prequesetsKey,
-            prerequestsController: prerequestsController,
           ),
           CourseDatesPage(
             datesKey: datesKey,

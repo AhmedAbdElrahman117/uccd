@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/app_text.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class InfoText extends StatelessWidget {
   const InfoText({
@@ -15,7 +14,7 @@ class InfoText extends StatelessWidget {
     return SelectableText.rich(
       textAlign: TextAlign.center,
       TextSpan(
-        text: S.of(context).verificationEmailSent,
+        text: 'We Sent a Verification Email to ',
         style: AppText.style16Regular(context),
         children: [
           TextSpan(
@@ -23,7 +22,7 @@ class InfoText extends StatelessWidget {
             style: AppText.style16Bold(context),
           ),
           TextSpan(
-            text: S.of(context).verificationEmailInbox,
+            text: ' with an OTP Number please Check your Inbox',
             style: AppText.style16Regular(context),
           )
         ],

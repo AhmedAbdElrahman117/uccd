@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Components/profile_data.dart';
-import 'package:uccd/Core/theme_helper.dart';
-import 'package:uccd/Features/Admin/Home/Presentation/Views/Widgets/Themes/admin_home_theme_helper.dart';
-import 'package:uccd/Features/Profile/Presentation/Views/Widgets/admin_features_section.dart';
-import 'package:uccd/Features/Profile/Presentation/Views/Widgets/profile_account_section.dart';
-import 'package:uccd/Features/Profile/Presentation/Views/Widgets/profile_settings_section.dart';
+import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Categories/category_tile.dart';
+import 'package:uccd/Features/Profile/Presentation/Views/Widgets/language_tile.dart';
+import 'package:uccd/Features/Profile/Presentation/Views/Widgets/logout_tile.dart';
+import 'package:uccd/Features/Profile/Presentation/Views/Widgets/theme_mode_tile.dart';
+import 'package:uccd/Features/Profile/Presentation/Views/Widgets/users_tile.dart';
 import 'package:uccd/main.dart';
 
 class ProfileView extends StatefulWidget {
@@ -20,41 +20,23 @@ class _ProfileViewState extends State<ProfileView>
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      backgroundColor: AdminHomeThemeHelper.getBackgroundColor(context),
-      body: Container(
-        color: ThemeHelper.isDark(context)
-            ? const Color(0xFF1A1A1A)
-            : Colors.white,
-        child: CustomScrollView(
-          slivers: [
-            // Profile Header Section with gradient background
-            const SliverToBoxAdapter(
-              child: ProfileData(),
+      body: ListView(
+        padding: const EdgeInsets.all(12),
+        children: [
+          const ProfileData(),
+          Visibility(
+            visible: InternalStorage.getString('role') == 'Admin',
+            child: const Column(
+              children: [
+                UsersTile(),
+                CategoryTile(),
+              ],
             ),
-
-            // Admin Features Section
-            SliverToBoxAdapter(
-              child: Visibility(
-                visible: InternalStorage.getString('role') == 'SuperAdmin' ||
-                    InternalStorage.getString('role') == 'Admin',
-                child: const Padding(
-                  padding: EdgeInsets.fromLTRB(20, 24, 20, 0),
-                  child: AdminFeaturesSection(),
-                ),
-              ),
-            ),
-
-            // Settings Section
-            const SliverToBoxAdapter(
-              child: ProfileSettingsSection(),
-            ),
-
-            // Account Section
-            const SliverToBoxAdapter(
-              child: ProfileAccountSection(),
-            ),
-          ],
-        ),
+          ),
+          const LanguageTile(),
+          const ThemeModeTile(),
+          const LogoutTile(),
+        ],
       ),
     );
   }

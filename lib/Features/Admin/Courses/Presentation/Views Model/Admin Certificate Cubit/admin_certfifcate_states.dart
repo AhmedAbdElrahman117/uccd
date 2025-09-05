@@ -19,13 +19,3 @@ class DataLoaded extends AdminCertfifcateStates {
 
   DataLoaded({required this.acceptedStudents});
 }
-
-class DataNotifying extends AdminCertfifcateStates {}
-
-class DataNotified extends AdminCertfifcateStates {}
-
-class DataNotifyFailed extends AdminCertfifcateStates {
-  final String errorMessage;
-
-  DataNotifyFailed({required this.errorMessage});
-}

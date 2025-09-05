@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uccd/Core/Components/custom_image.dart';
 
 class HeroImage extends StatelessWidget {
   const HeroImage({
@@ -32,7 +33,15 @@ class HeroImage extends StatelessWidget {
       tag: tag,
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: verticalPadding ?? 0),
-        child: SizedBox(),
+        child: CustomImage(
+          height: imageHeight,
+          image: image,
+          bottomLeftRadius: bottomLeftRadius,
+          bottomRightRadius: bottomRightRadius,
+          topLeftRadius: topLeftRadius,
+          topRightRadius: topRightRadius,
+          fadeFrom: fadeFrom,
+        ),
       ),
     );
   }

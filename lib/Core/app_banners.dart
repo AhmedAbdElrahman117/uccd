@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:toastification/toastification.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class AppBanners {
   static void showFailed(
-      {required String message,
-      AlignmentGeometry? alignment,
-      BuildContext? context}) {
+      {required String message, AlignmentGeometry? alignment}) {
     toastification.show(
       type: ToastificationType.error,
       style: ToastificationStyle.flatColored,
-      title: Text(context != null ? S.of(context).error : "Error"),
+      title: const Text("Error"),
       description: Text(message),
       alignment: alignment ?? Alignment.topCenter,
       autoCloseDuration: const Duration(milliseconds: 3000),
@@ -27,6 +24,7 @@ class AppBanners {
       },
       borderRadius: BorderRadius.circular(12.0),
       boxShadow: highModeShadow,
+      closeButtonShowType: CloseButtonShowType.none,
       dragToClose: true,
       applyBlurEffect: true,
       closeOnClick: true,
@@ -35,15 +33,11 @@ class AppBanners {
   }
 
   static void showSuccess(
-      {required String message,
-      AlignmentGeometry? alignment,
-      String? title,
-      BuildContext? context}) {
+      {required String message, AlignmentGeometry? alignment}) {
     toastification.show(
       type: ToastificationType.success,
       style: ToastificationStyle.flatColored,
-      title:
-          Text(title ?? (context != null ? S.of(context).success : "Success")),
+      title: const Text("Success"),
       description: Text(message),
       alignment: alignment ?? Alignment.topCenter,
       autoCloseDuration: const Duration(milliseconds: 3000),
@@ -60,6 +54,7 @@ class AppBanners {
       },
       borderRadius: BorderRadius.circular(12.0),
       boxShadow: highModeShadow,
+      closeButtonShowType: CloseButtonShowType.none,
       dragToClose: true,
       applyBlurEffect: true,
       closeOnClick: true,
@@ -68,13 +63,11 @@ class AppBanners {
   }
 
   static void showLikeSuccess(
-      {required String message,
-      AlignmentGeometry? alignment,
-      BuildContext? context}) {
+      {required String message, AlignmentGeometry? alignment}) {
     toastification.show(
       type: ToastificationType.success,
       style: ToastificationStyle.flatColored,
-      title: Text(context != null ? S.of(context).success : "Success"),
+      title: const Text("Success"),
       description: Text(message),
       alignment: alignment ?? Alignment.bottomCenter,
       autoCloseDuration: const Duration(milliseconds: 1500),
@@ -92,6 +85,7 @@ class AppBanners {
       },
       borderRadius: BorderRadius.circular(12.0),
       boxShadow: highModeShadow,
+      closeButtonShowType: CloseButtonShowType.none,
       dragToClose: true,
       applyBlurEffect: true,
       closeOnClick: true,
@@ -100,13 +94,11 @@ class AppBanners {
   }
 
   static void showLikeFailed(
-      {required String message,
-      AlignmentGeometry? alignment,
-      BuildContext? context}) {
+      {required String message, AlignmentGeometry? alignment}) {
     toastification.show(
       type: ToastificationType.error,
       style: ToastificationStyle.flatColored,
-      title: Text(context != null ? S.of(context).success : "Success"),
+      title: const Text("Success"),
       description: Text(message),
       alignment: alignment ?? Alignment.bottomCenter,
       autoCloseDuration: const Duration(milliseconds: 1500),
@@ -124,6 +116,7 @@ class AppBanners {
       },
       borderRadius: BorderRadius.circular(12.0),
       boxShadow: highModeShadow,
+      closeButtonShowType: CloseButtonShowType.none,
       dragToClose: true,
       applyBlurEffect: true,
       closeOnClick: true,
@@ -132,13 +125,11 @@ class AppBanners {
   }
 
   static void showResentEmail(
-      {required String message,
-      AlignmentGeometry? alignment,
-      BuildContext? context}) {
+      {required String message, AlignmentGeometry? alignment}) {
     toastification.show(
       type: ToastificationType.info,
       style: ToastificationStyle.flatColored,
-      title: Text(context != null ? S.of(context).codeResent : "Code Resent"),
+      title: const Text("Code Resent"),
       description: Text(message),
       alignment: alignment ?? Alignment.bottomCenter,
       autoCloseDuration: const Duration(milliseconds: 2500),
@@ -156,6 +147,7 @@ class AppBanners {
       },
       borderRadius: BorderRadius.circular(12.0),
       boxShadow: highModeShadow,
+      closeButtonShowType: CloseButtonShowType.none,
       dragToClose: true,
       applyBlurEffect: true,
       closeOnClick: true,
@@ -164,13 +156,11 @@ class AppBanners {
   }
 
   static void showFailedEmail(
-      {required String message,
-      AlignmentGeometry? alignment,
-      BuildContext? context}) {
+      {required String message, AlignmentGeometry? alignment}) {
     toastification.show(
       type: ToastificationType.error,
       style: ToastificationStyle.flatColored,
-      title: Text(context != null ? S.of(context).failed : "Failed"),
+      title: const Text("Failed"),
       description: Text(message),
       alignment: alignment ?? Alignment.bottomCenter,
       autoCloseDuration: const Duration(milliseconds: 2500),
@@ -188,34 +178,7 @@ class AppBanners {
       },
       borderRadius: BorderRadius.circular(12.0),
       boxShadow: highModeShadow,
-      dragToClose: true,
-      applyBlurEffect: true,
-      closeOnClick: true,
-      showProgressBar: false,
-    );
-  }
-
-  static void showComingSoon(BuildContext context) {
-    toastification.show(
-      type: ToastificationType.info,
-      style: ToastificationStyle.flatColored,
-      title: Text(S.of(context).ComingSoon),
-      description: Text(S.of(context).ComingSoonlabel),
-      autoCloseDuration: const Duration(milliseconds: 2500),
-      icon: const Icon(Icons.history),
-      animationBuilder: (
-        context,
-        animation,
-        alignment,
-        child,
-      ) {
-        return ScaleTransition(
-          scale: animation,
-          child: child,
-        );
-      },
-      borderRadius: BorderRadius.circular(12.0),
-      boxShadow: highModeShadow,
+      closeButtonShowType: CloseButtonShowType.none,
       dragToClose: true,
       applyBlurEffect: true,
       closeOnClick: true,

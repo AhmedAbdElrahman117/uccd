@@ -23,5 +23,3 @@ class StudentRole extends LoginStates {
 
   StudentRole(this.user);
 }
-
-class SuperAdminRole extends LoginStates {}

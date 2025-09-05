@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uccd/Core/Components/Fields/alpha_numeric_field.dart';
 import 'package:uccd/Core/app_text.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class CourseGoalsPage extends StatefulWidget {
   const CourseGoalsPage(
@@ -30,15 +29,15 @@ class _CourseGoalsPageState extends State<CourseGoalsPage>
           spacing: 20,
           children: [
             Text(
-              S.of(context).courseGoals,
+              'Course Goals',
               style: AppText.style18Bold(context),
             ),
             Text(
-              S.of(context).courseGoalsDescription,
+              'Set The Course Outcomes for Students',
               style: AppText.style16Regular(context),
             ),
             Text(
-              S.of(context).courseGoalsNote,
+              'Note: you must set at least one goal',
               style: AppText.style14Regular(context),
             ),
             Expanded(
@@ -56,8 +55,8 @@ class _CourseGoalsPageState extends State<CourseGoalsPage>
                             padding: const EdgeInsets.all(12),
                             child: AlphaNumericField(
                               controller: widget.goalsController[index],
-                              label: S.of(context).goalLabel(index + 1),
-                              hint: S.of(context).goalHint(index + 1),
+                              label: 'Goal ${index + 1}',
+                              hint: 'Enter Goal ${index + 1}',
                               icon: FontAwesomeIcons.award,
                             ),
                           ),
@@ -86,7 +85,7 @@ class _CourseGoalsPageState extends State<CourseGoalsPage>
               ),
               icon: const Icon(Icons.add_circle_outlined),
               label: Text(
-                S.of(context).addGoal,
+                'Add Goal',
                 style: AppText.style14Regular(context),
               ),
             ),
@@ -130,8 +129,8 @@ class _CourseGoalsPageState extends State<CourseGoalsPage>
                     padding: const EdgeInsets.all(12),
                     child: AlphaNumericField(
                       controller: TextEditingController(),
-                      label: S.of(context).goalLabel(index + 1),
-                      hint: S.of(context).goalHint(index + 1),
+                      label: 'Goal ${index + 1}',
+                      hint: 'Enter Goal ${index + 1}',
                       icon: FontAwesomeIcons.award,
                     ),
                   ),
