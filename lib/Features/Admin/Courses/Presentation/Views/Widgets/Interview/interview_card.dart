@@ -7,7 +7,6 @@ import 'package:uccd/Core/Models/student_model.dart';
 import 'package:uccd/Core/overlay_controller.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Interview%20Cubit/interview_cubit.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/admin_course_button.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class InterviewCard extends StatelessWidget {
   const InterviewCard({
@@ -64,16 +63,15 @@ class InterviewCard extends StatelessWidget {
             children: [
               Visibility(
                 visible: isAcceptedList == null,
-                child: Flexible(
-                  flex: 1,
+                child: Expanded(
                   child: AdminCourseButton(
-                    title: S.of(context).reject,
+                    title: 'Reject',
                     backgroundColor: Colors.redAccent.shade700,
                     icon: Icons.close,
                     onPressed: () {
                       BlocProvider.of<InterviewCubit>(context).reject(
                         course: course,
-                        student: student,
+                        studentID: student.studentID!,
                       );
                     },
                   ),
@@ -81,16 +79,15 @@ class InterviewCard extends StatelessWidget {
               ),
               Visibility(
                 visible: isAcceptedList == null,
-                child: Flexible(
-                  flex: 1,
+                child: Expanded(
                   child: AdminCourseButton(
-                    title: S.of(context).accept,
+                    title: 'Accept',
                     backgroundColor: Colors.green,
                     icon: Icons.check,
                     onPressed: () {
                       BlocProvider.of<InterviewCubit>(context).accept(
                         course: course,
-                        student: student,
+                        studentID: student.studentID!,
                       );
                     },
                   ),

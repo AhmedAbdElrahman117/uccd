@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:uccd/Core/app_text.dart';
 
 class AdminCourseButton extends StatelessWidget {
   const AdminCourseButton({
@@ -17,51 +16,26 @@ class AdminCourseButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      spacing: 8,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        IconButton.filledTonal(
-          onPressed: onPressed,
-          icon: Icon(
-            icon,
-            color: Colors.white,
-          ),
-          style: IconButton.styleFrom(
-            backgroundColor: backgroundColor,
-          ),
+    return ElevatedButton.icon(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: backgroundColor,
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
         ),
-        FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Text(
-            title,
-            style: AppText.style14Regular(context),
-          ),
+      ),
+      icon: Icon(
+        icon,
+        color: Colors.white,
+      ),
+      label: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Text(
+          title,
+          style: const TextStyle(fontSize: 14),
         ),
-      ],
+      ),
     );
   }
 }
-
-
-// ElevatedButton.icon(
-//       onPressed: onPressed,
-//       style: ElevatedButton.styleFrom(
-//         backgroundColor: backgroundColor,
-//         foregroundColor: Colors.white,
-//         shape: RoundedRectangleBorder(
-//           borderRadius: BorderRadius.circular(10),
-//         ),
-//       ),
-//       icon: Icon(
-//         icon,
-//         color: Colors.white,
-//       ),
-//       label: FittedBox(
-//         fit: BoxFit.scaleDown,
-//         child: Text(
-//           title,
-//           style: const TextStyle(fontSize: 14),
-//         ),
-//       ),
-//     )

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uccd/Features/Admin/Courses/Data/archive_course_repo.dart';
@@ -16,20 +15,16 @@ class ArchiveCourseCubit extends Cubit<ArchiveCourseStates> {
 
   void getArchiveCourses() {
     emit(DataLoading());
-    _subscription = repo.getArchiveCourses().listen((courses) {
-      courses.isEmpty
-          ? emit(DataEmpty())
-          : emit(
-              DataLoaded(
-                archiveCourses: courses,
-              ),
-            );
-    }, onError: (error) {
-      log(error.toString());
-      emit(
-        DataFailed(errorMessage: error.toString()),
-      );
-    });
+    _subscription = repo.getArchiveCourses().listen(
+          (courses) => courses.isEmpty
+              ? emit(DataEmpty())
+              : emit(
+                  DataLoaded(archiveCourses: courses),
+                ),
+          onError: (error) => emit(
+            DataFailed(errorMessage: error.toString()),
+          ),
+        );
   }
 
   @override

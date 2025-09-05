@@ -17,7 +17,7 @@ class RatingsCount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final allRatings = ratings ?? [];
-    final filteredCount = _getFilteredCount(allRatings);
+    final filteredCount = _getFilteredCount(context, allRatings);
     final totalCount = allRatings.length;
 
     return Padding(
@@ -35,15 +35,15 @@ class RatingsCount extends StatelessWidget {
     );
   }
 
-  int _getFilteredCount(List<RatingModel> ratings) {
+  int _getFilteredCount(BuildContext context, List<RatingModel> ratings) {
     // Check if selectedFilter matches the localized "All" string
-    if (selectedFilter == 'All' ||
-        selectedFilter == 'الكل' ||
-        selectedFilter == '전체') {
+    if (selectedFilter == S.of(context).allRatings) {
       return ratings.length;
     }
 
-    final ratingValue = int.tryParse(selectedFilter.split(' ')[0]);
+    // Convert localized filter to backend format to extract rating value
+    final backendFilter = _getFilterForBackend(context, selectedFilter);
+    final ratingValue = int.tryParse(backendFilter.split(' ')[0]);
     if (ratingValue == null) return ratings.length;
 
     return ratings
@@ -53,9 +53,7 @@ class RatingsCount extends StatelessWidget {
 
   String _getDisplayText(
       BuildContext context, int totalCount, int filteredCount) {
-    if (selectedFilter == 'All' ||
-        selectedFilter == 'الكل' ||
-        selectedFilter == '전체') {
+    if (selectedFilter == S.of(context).allRatings) {
       return totalCount == 0
           ? S.of(context).noReviewsYet
           : totalCount == 1
@@ -72,5 +70,26 @@ class RatingsCount extends StatelessWidget {
                     selectedFilter,
                   );
     }
+  }
+
+  // Helper method to convert localized filter to English equivalent for backend filtering
+  String _getFilterForBackend(BuildContext context, String localizedFilter) {
+    if (localizedFilter == S.of(context).allRatings) return 'All';
+    if (localizedFilter == S.of(context).fiveStars) {
+      return '5 Stars';
+    }
+    if (localizedFilter == S.of(context).fourStars) {
+      return '4 Stars';
+    }
+    if (localizedFilter == S.of(context).threeStars) {
+      return '3 Stars';
+    }
+    if (localizedFilter == S.of(context).twoStars) {
+      return '2 Stars';
+    }
+    if (localizedFilter == S.of(context).oneStar) {
+      return '1 Stars';
+    }
+    return 'All'; // Default fallback
   }
 }

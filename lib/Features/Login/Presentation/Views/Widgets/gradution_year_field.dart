@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:uccd/Core/Components/Fields/date_picker_field.dart';
 import 'package:uccd/Core/constants.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class GraduationYearField extends StatelessWidget {
   const GraduationYearField({
@@ -17,16 +16,16 @@ class GraduationYearField extends StatelessWidget {
   Widget build(BuildContext context) {
     return DatePickerField(
       dateController: graduationYearController,
-      label: S.of(context).graduationYear,
-      hint: S.of(context).graduationYearHint,
+      label: 'Graduation year',
+      hint: 'Enter your Expected Graduation year',
       icon: FontAwesomeIcons.graduationCap,
       validator: (value) {
         if (value!.isEmpty) {
-          return S.of(context).dateRequired;
+          return 'Date Required';
         } else if (value.isNotEmpty) {
           if (Jiffy.parse(value, pattern: dateFormat).dateTime ==
               DateTime.now()) {
-            return S.of(context).graduationYearIncorrect;
+            return 'Graduation year is Incorrect';
           }
         }
         return null;

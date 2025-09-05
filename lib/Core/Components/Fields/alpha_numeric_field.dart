@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Components/Fields/custom_text_field.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class AlphaNumericField extends StatelessWidget {
   const AlphaNumericField({
@@ -34,7 +33,7 @@ class AlphaNumericField extends StatelessWidget {
       validator: validator ??
           (value) {
             if (value!.isEmpty) {
-              return S.of(context).requiredField;
+              return 'Required Field';
             }
             return null;
           },

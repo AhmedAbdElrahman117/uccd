@@ -3,18 +3,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:uccd/Core/Components/custom_loading_indicator.dart';
 import 'package:uccd/Core/app_banners.dart';
-import 'package:uccd/Core/app_exception.dart';
 import 'package:uccd/Features/Admin/admin_view.dart';
-import 'package:uccd/Features/Instructor/Presentation/instructor_view.dart';
+import 'package:uccd/Features/Instructor/instructor_view.dart';
 import 'package:uccd/Features/Login/Presentation/Views%20Model/Login%20Cubit/login_cubit.dart';
 import 'package:uccd/Features/Login/Presentation/Views%20Model/Login%20Cubit/login_states.dart';
-import 'package:uccd/Features/Login/Presentation/Views/Widgets/login_fields_box.dart';
-import 'package:uccd/Features/Login/Presentation/Views/Widgets/login_theme_button.dart';
+import 'package:uccd/Features/Login/Presentation/Views/Widgets/login_email_field.dart';
+import 'package:uccd/Features/Login/Presentation/Views/Widgets/login_button.dart';
 import 'package:uccd/Features/Login/Presentation/Views/Widgets/logo.dart';
+import 'package:uccd/Features/Login/Presentation/Views/Widgets/login_password_field.dart';
 import 'package:uccd/Features/Login/Presentation/Views/Widgets/welcome_text.dart';
-import 'package:uccd/Features/Login/Presentation/Views/Widgets/login_theme_helper.dart';
+import 'package:uccd/Features/Login/Presentation/Views/otp_verification_view.dart';
 import 'package:uccd/Features/Login/Presentation/Views/registeration_form_view.dart';
-import 'package:uccd/Features/Super%20Admin/Presentation/View/super_admin_view.dart';
 import 'package:uccd/Features/User/user_view.dart';
 
 class LoginView extends StatefulWidget {
@@ -26,10 +25,10 @@ class LoginView extends StatefulWidget {
   State<LoginView> createState() => _LoginViewState();
 }
 
-class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
+class _LoginViewState extends State<LoginView> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController emailController =
-      TextEditingController(text: 'ahmed11@btu.edu.eg');
+      TextEditingController(text: 'ahmed1@btu.edu.eg');
   TextEditingController passwordController =
       TextEditingController(text: '123456789');
 
@@ -42,43 +41,29 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
         child: Stack(
           children: [
             Scaffold(
-              body: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      LoginThemeHelper.getBackgroundGradientStart(context),
-                      LoginThemeHelper.getBackgroundGradientMiddle(context),
-                      LoginThemeHelper.getBackgroundGradientEnd(context),
-                    ],
-                    stops: const [0.0, 0.5, 1.0],
-                  ),
-                ),
-                child: SafeArea(
-                  child: Form(
-                    key: formKey,
-                    child: Center(
-                      child: ListView(
-                        padding: const EdgeInsets.symmetric(horizontal: 24),
-                        physics: const BouncingScrollPhysics(),
-                        shrinkWrap: true,
-                        children: [
-                          const LoginThemeButton(),
-                          const SizedBox(height: 20),
-                          const Logo(),
-                          const SizedBox(height: 20),
-                          const WelcomeText(),
-                          LoginFieldsBox(
-                            emailController: emailController,
-                            passwordController: passwordController,
-                            formKey: formKey,
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                        ],
-                      ),
+              body: SafeArea(
+                child: Form(
+                  key: formKey,
+                  child: Center(
+                    child: ListView(
+                      shrinkWrap: true,
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      physics: const ClampingScrollPhysics(),
+                      children: [
+                        const Logo(),
+                        const WelcomeText(),
+                        LoginEmailField(
+                          emailController: emailController,
+                        ),
+                        LoginPasswordField(
+                          passwordController: passwordController,
+                        ),
+                        LoginButton(
+                          formKey: formKey,
+                          emailController: emailController,
+                          passwordController: passwordController,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -107,7 +92,7 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
   void _listener(BuildContext context, LoginStates state) {
     if (state is LoginFailed) {
       AppBanners.showFailed(
-        message: AppException.getLocalizedMessage(state.errorMessage, context),
+        message: state.errorMessage,
       );
     } else if (state is StudentRole) {
       state.user.isFirstRegister!
@@ -116,15 +101,6 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
               extra: state.user,
             )
           : context.go(UserView.id);
-    } else if (state is SuperAdminRole) {
-      // context.push(
-      //   OtpVerificationView.id,
-      //   extra: emailController.text,
-      // );
-
-      context.go(
-        SuperAdminView.id,
-      );
     } else if (state is AdminRole) {
       // context.push(
       //   OtpVerificationView.id,

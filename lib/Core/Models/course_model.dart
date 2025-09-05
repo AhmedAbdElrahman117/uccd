@@ -7,7 +7,6 @@ class CourseModel {
   final String? imageName;
   final String? courseID;
   final List<dynamic>? courseGoals;
-  final List<dynamic>? coursePrerequests;
   final String instructor;
   final String instructorID;
   final String category;
@@ -20,9 +19,6 @@ class CourseModel {
   final Timestamp interviewEndDate;
   final int maxAcceptedStudents;
   final int? currentStudents;
-  double? overallRating;
-  int? ratingCount;
-  int? ratingSum;
   final Timestamp? createdAt;
 
   CourseModel({
@@ -41,14 +37,10 @@ class CourseModel {
     this.createdAt,
     required this.instructorID,
     this.courseGoals,
-    this.coursePrerequests,
     this.courseID,
     this.currentStudents,
     required this.categoryID,
     this.imageName,
-    this.overallRating,
-    this.ratingCount,
-    this.ratingSum,
   });
 
   factory CourseModel.formJson(Map<String, dynamic> map) {
@@ -72,9 +64,6 @@ class CourseModel {
       currentStudents: map['currentStudents'],
       categoryID: map['categoryID'],
       imageName: map['imageName'],
-      ratingCount: map['ratingCount'],
-      ratingSum: map['ratingSum'],
-      coursePrerequests: map['coursePrerequests'],
     );
   }
 
@@ -96,13 +85,10 @@ class CourseModel {
       'createdAt': Timestamp.now(),
       'instructorId': instructorID,
       'courseGoals': [],
-      'coursePrerequests': [],
       'courseID': courseID,
       'currentStudents': 0,
       'categoryID': categoryID,
       'isPending': true,
-      'ratingCount': 0,
-      'ratingSum': 0,
     };
   }
 
@@ -124,7 +110,6 @@ class CourseModel {
       'createdAt': Timestamp.now(),
       'instructorId': instructorID,
       'courseGoals': courseGoals,
-      'coursePrerequests': coursePrerequests,
       'courseID': null,
       'currentStudents': 0,
       'categoryID': categoryID,

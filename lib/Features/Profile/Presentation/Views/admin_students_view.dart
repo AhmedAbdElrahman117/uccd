@@ -4,19 +4,18 @@ import 'package:go_router/go_router.dart';
 import 'package:uccd/Core/Components/custom_loading_indicator.dart';
 import 'package:uccd/Core/Components/loading_indicator.dart';
 import 'package:uccd/Core/app_banners.dart';
-import 'package:uccd/Core/app_exception.dart';
 import 'package:uccd/Core/Components/custom_fab.dart';
 import 'package:uccd/Core/Components/data_error_widget.dart';
 import 'package:uccd/Core/Components/no_data_widget.dart';
-import 'package:uccd/Features/Profile/Presentation/Views%20Model/Admin%20Users%20Cubit/admin_users_cubit.dart';
-import 'package:uccd/Features/Profile/Presentation/Views%20Model/Admin%20Users%20Cubit/admin_users_states.dart';
+import 'package:uccd/Features/Profile/Presentation/Views%20Model/Admin%20Student%20Cubit/admin_student_cubit.dart';
+import 'package:uccd/Features/Profile/Presentation/Views%20Model/Admin%20Student%20Cubit/admin_student_states.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Students/students_list_view.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/add_student_view.dart';
 
 class AdminStudentsView extends StatefulWidget {
-  const AdminStudentsView({super.key, required this.cubit});
+  const AdminStudentsView({super.key});
 
-  final AdminUsersCubit cubit;
+  static const String id = '/StudentsView';
 
   @override
   State<AdminStudentsView> createState() => _AdminStudentsViewState();
@@ -25,93 +24,77 @@ class AdminStudentsView extends StatefulWidget {
 class _AdminStudentsViewState extends State<AdminStudentsView>
     with AutomaticKeepAliveClientMixin {
   @override
-  void initState() {
-    widget.cubit.getStudent();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        child: Stack(
-          children: [
-            BlocConsumer<AdminUsersCubit, AdminUsersStates>(
-              bloc: widget.cubit,
-              listener: _listener,
-              buildWhen: (previous, current) {
-                return current is StudentDataLoading ||
-                    current is StudentDataLoaded ||
-                    current is StudentDataEmpty ||
-                    current is AdminUsersInitialState ||
-                    current is StudentDataFailed;
-              },
-              builder: (context, state) {
-                switch (state) {
-                  case AdminUsersInitialState():
-                    return const SizedBox();
-                  case StudentDataLoading():
-                    return const LoadingIndicator();
-                  case StudentDataFailed():
-                    return const DataErrorWidget();
-                  case StudentDataEmpty():
-                    return const NoDataWidget(
-                      message: 'No Registered Users',
-                    );
-                  case StudentDataLoaded():
-                    return StudentsListView(
-                      students: state.students,
-                      cubit: widget.cubit,
-                    );
-                  default:
-                    return Container();
-                }
-              },
-            ),
-            BlocSelector<AdminUsersCubit, AdminUsersStates, bool>(
-              bloc: widget.cubit,
-              selector: (state) {
-                if (state is DeleteLoading) {
-                  return true;
-                }
-                return false;
-              },
-              builder: (context, state) {
-                return CustomLoadingIndicator(
-                  isLoading: state,
-                  child: const SizedBox(),
-                );
-              },
-            ),
-          ],
+    return BlocProvider(
+      create: (context) => AdminStudentCubit(),
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          child: Stack(
+            children: [
+              BlocConsumer<AdminStudentCubit, AdminStudentStates>(
+                listener: _listener,
+                buildWhen: (previous, current) {
+                  return current is DataLoading ||
+                      current is DataLoaded ||
+                      current is DataEmpty ||
+                      current is AddStudentInitialState ||
+                      current is DataFailed;
+                },
+                builder: (context, state) {
+                  switch (state) {
+                    case AddStudentInitialState():
+                      return const SizedBox();
+                    case DataLoading():
+                      return const LoadingIndicator();
+                    case DataFailed():
+                      return const DataErrorWidget();
+                    case DataEmpty():
+                      return const NoDataWidget(
+                        message: 'No Registered Users',
+                      );
+                    case DataLoaded():
+                      return StudentsListView(
+                        data: state.users,
+                      );
+                    default:
+                      return Container();
+                  }
+                },
+              ),
+              BlocSelector<AdminStudentCubit, AdminStudentStates, bool>(
+                selector: (state) {
+                  if (state is Loading) {
+                    return true;
+                  }
+                  return false;
+                },
+                builder: (context, state) {
+                  return CustomLoadingIndicator(
+                    isLoading: state,
+                    child: const SizedBox(),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: CustomFab(
-        icon: Icons.person_add,
-        onPressed: () async {
-          await context.push(AddStudentView.id);
-        },
+        floatingActionButton: CustomFab(
+          icon: Icons.person_add,
+          onPressed: () async {
+            await context.push(AddStudentView.id);
+          },
+        ),
       ),
     );
   }
 
-  void _listener(BuildContext context, AdminUsersStates state) {
-    if (state is StudentDeleteSuccess) {
-      AppBanners.showSuccess(
-        message: AppException.getLocalizedMessage(
-          state.successMessage,
-          context,
-        ),
-      );
-    } else if (state is StudentDeleteFailed) {
-      AppBanners.showFailed(
-        message: AppException.getLocalizedMessage(
-          state.errorMessage,
-          context,
-        ),
-      );
+  void _listener(BuildContext context, AdminStudentStates state) {
+    if (state is DeleteSuccess) {
+      AppBanners.showSuccess(message: state.successMessage);
+    } else if (state is DeleteFailed) {
+      AppBanners.showFailed(message: state.errorMessage);
     }
   }
 

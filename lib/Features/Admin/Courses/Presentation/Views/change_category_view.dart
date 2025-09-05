@@ -7,11 +7,9 @@ import 'package:uccd/Core/Components/overlay_background.dart';
 import 'package:uccd/Core/Components/section_title.dart';
 import 'package:uccd/Core/Models/course_model.dart';
 import 'package:uccd/Core/app_banners.dart';
-import 'package:uccd/Core/app_exception.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Add%20Course%20Cubit/add_course_cubit.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Add%20Course%20Cubit/add_course_states.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/category_menu_field.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class ChangeCategoryView extends StatefulWidget {
   const ChangeCategoryView({super.key, required this.course});
@@ -46,20 +44,10 @@ class _ChangeCategoryViewState extends State<ChangeCategoryView> {
           if (state is AddUpdateSuccess) {
             context.pop();
             context.pop();
-            AppBanners.showSuccess(
-              message: AppException.getLocalizedMessage(
-                state.successMessage,
-                context,
-              ),
-            );
+            AppBanners.showSuccess(message: state.successMessage);
           }
           if (state is AddUpdateFailed) {
-            AppBanners.showFailed(
-              message: AppException.getLocalizedMessage(
-                state.errorMessage,
-                context,
-              ),
-            );
+            AppBanners.showFailed(message: state.errorMessage);
           }
         },
         builder: (context, state) {
@@ -70,8 +58,8 @@ class _ChangeCategoryViewState extends State<ChangeCategoryView> {
                 mainAxisSize: MainAxisSize.min,
                 spacing: 16,
                 children: [
-                  SectionTitle(
-                    title: S.of(context).changeCategory,
+                  const SectionTitle(
+                    title: 'Change Category',
                   ),
                   CategoryMenuField(
                     categoryController: categoryController,
@@ -86,13 +74,13 @@ class _ChangeCategoryViewState extends State<ChangeCategoryView> {
                     child: SizedBox(
                       width: double.infinity,
                       child: CustomButton(
-                        title: S.of(context).change,
+                        title: 'Change',
                         onPressed: () async {
                           BlocProvider.of<AddCourseCubit>(context)
                               .changeCategory(
-                            course: widget.course,
-                            newCategoryName: categoryController.text,
+                            courseID: widget.course.courseID!,
                             oldCategoryID: widget.course.categoryID,
+                            newCategoryName: categoryController.text,
                             newCategoryID: categoryIDController.text,
                           );
                         },

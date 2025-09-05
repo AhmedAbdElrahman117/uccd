@@ -25,7 +25,7 @@ class LoginCubit extends Cubit<LoginStates> {
             password: password,
           )
           .timeout(
-            const Duration(seconds: 60),
+            const Duration(seconds: 30),
           );
 
       UserModel user = await save(
@@ -36,7 +36,6 @@ class LoginCubit extends Cubit<LoginStates> {
         user,
       );
     } on FirebaseAuthException catch (e) {
-      log(e.message ?? e.code);
       emit(
         LoginFailed(
           errorMessage: AppException.firebaseAuthLogin(e.code),
@@ -45,10 +44,11 @@ class LoginCubit extends Cubit<LoginStates> {
     } on TimeoutException {
       emit(
         LoginFailed(
-          errorMessage: 'connectionTimeout',
+          errorMessage: 'Connection Timeout',
         ),
       );
     } on Exception catch (e) {
+      log(e.toString());
       emit(
         LoginFailed(errorMessage: e.toString()),
       );
@@ -57,33 +57,20 @@ class LoginCubit extends Cubit<LoginStates> {
 
   Future<UserModel> save({required String id}) async {
     try {
-      var currentNotiToken = await FirebaseMessaging.instance.getToken();
       UserModel data = await getUserData(id: id);
       InternalStorage.setString('id', data.id!);
       InternalStorage.setString('role', data.role);
-      InternalStorage.setString('email', data.email);
-      InternalStorage.setString('name', data.name);
-      if (data.role == 'Student') {
-        InternalStorage.setString('department', data.department!);
-        InternalStorage.setString('year', data.year!);
-      }
-      if (data.notificationId == null ||
-          data.notificationId!.isEmpty ||
-          currentNotiToken != data.notificationId) {
+      if (data.notificationId == null || data.notificationId!.isEmpty) {
         await updateNotificationID(id: id);
       }
       return data;
     } catch (e) {
-      throw (e.toString());
+      rethrow;
     }
   }
 
   void checkRole(UserModel user) {
     switch (user.role) {
-      case 'SuperAdmin':
-        emit(
-          SuperAdminRole(),
-        );
       case 'Admin':
         emit(
           AdminRole(),
@@ -98,7 +85,7 @@ class LoginCubit extends Cubit<LoginStates> {
         );
       default:
         emit(
-          LoginFailed(errorMessage: 'noUser'),
+          LoginFailed(errorMessage: 'No User'),
         );
     }
   }

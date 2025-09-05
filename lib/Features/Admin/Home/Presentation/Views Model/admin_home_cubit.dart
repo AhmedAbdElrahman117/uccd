@@ -1,53 +1,37 @@
-import 'dart:async';
-
+import 'dart:developer';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rxdart/rxdart.dart';
-import 'package:uccd/Core/Models/dashboard_model.dart';
-import 'package:uccd/Features/Admin/Home/Data/admin_home_repo.dart';
+import 'package:uccd/Core/Models/course_model.dart';
 import 'package:uccd/Features/Admin/Home/Presentation/Views%20Model/admin_home_states.dart';
 
 class AdminHomeCubit extends Cubit<AdminHomeStates> {
   AdminHomeCubit() : super(AdminHomeInitialState());
 
-  AdminHomeRepo repo = AdminHomeRepo();
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  StreamSubscription? _dashboardSubscription;
-  void getStats() {
-    emit(AdminHomeLoading());
+  void addCourse(CourseModel course) async {
+    emit(AdminHomeLoadingState());
     try {
-      _dashboardSubscription = Rx.combineLatest5(
-        repo.getTotalAdmins(),
-        repo.getTotalCourses(),
-        repo.getTotalCategories(),
-        repo.getTotalInstructors(),
-        repo.getTotalStudents(),
-        (a, b, c, d, e) {
-          return DashboardModel(
-            totalAdmins: a,
-            totalCourses: b,
-            totalCategories: c,
-            totalInstructors: d,
-            activeStudents: e,
+      await firestore.collection('courses').add(
+            course.toMap(),
           );
-        },
-      ).listen(
-        (dashboardModel) {
-          emit(AdminHomeLoaded(stats: dashboardModel));
-        },
-      );
-    } catch (e) {
-      emit(
-        AdminHomeFailed(
-          errorMessage: e.toString(),
-        ),
-      );
+      emit(AdminHomeSuccessState());
+    } on Exception catch (e) {
+      emit(AdminHomeFailedState());
+      log('Add Course Error: ${e.toString()}');
     }
   }
 
-  @override
-  Future<void> close() {
-    _dashboardSubscription?.cancel();
-    _dashboardSubscription = null;
-    return super.close();
+  void addCategory(String category) async {
+    emit(AdminHomeLoadingState());
+    try {
+      await firestore.collection('category').add(
+        {'category': category},
+      );
+      emit(AdminHomeSuccessState());
+    } on Exception catch (e) {
+      emit(AdminHomeFailedState());
+      log('Add Category Error: ${e.toString()}');
+    }
   }
 }

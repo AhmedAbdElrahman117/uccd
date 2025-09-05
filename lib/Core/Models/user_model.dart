@@ -79,7 +79,7 @@ class UserModel {
     };
   }
 
-  bool compare(UserModel user) {
+  compare(UserModel user) {
     if (user.name == name &&
         user.email == email &&
         user.password == password &&

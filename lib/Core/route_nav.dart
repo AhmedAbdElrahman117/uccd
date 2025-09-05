@@ -8,23 +8,22 @@ import 'package:uccd/Features/Admin/Courses/Presentation/Views/admin_archive_stu
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/admin_course_ratings_view.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/interview_view.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/statistics_view.dart';
-import 'package:uccd/Features/Community/Presentation/Views/comments_screen.dart';
-import 'package:uccd/Features/Instructor/Presentation/instructor_view.dart';
+import 'package:uccd/Features/Community/Presentation/Views/comments_view.dart';
+import 'package:uccd/Features/Instructor/instructor_view.dart';
 import 'package:uccd/Features/Login/Presentation/Views%20Model/Register%20Form%20Cubit/register_form_cubit.dart';
 import 'package:uccd/Features/Login/Presentation/Views/otp_verification_view.dart';
 import 'package:uccd/Features/Login/Presentation/Views/register_confirmation_view.dart';
 import 'package:uccd/Features/Login/Presentation/Views/registeration_form_view.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/admin_category_view.dart';
+import 'package:uccd/Features/Profile/Presentation/Views/admin_instructors_view.dart';
+import 'package:uccd/Features/Profile/Presentation/Views/admin_students_view.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/add_student_view.dart';
 import 'package:uccd/Features/Admin/admin_view.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/admin_users_view.dart';
-import 'package:uccd/Features/Profile/Presentation/Views/logs_view.dart';
-import 'package:uccd/Features/Super%20Admin/Presentation/View/super_admin_view.dart';
 import 'package:uccd/Features/User/Home/Presentation/Views/course_details_view.dart';
 import 'package:uccd/Features/User/user_view.dart';
 import 'package:uccd/Features/Login/Presentation/Views/login_view.dart';
-
-import '../Features/Splash/Presentation/Views/splash_view.dart';
+import 'package:uccd/Features/Splash/Presentation/Views/splash_view.dart';
 
 class RouteNav {
   RouteNav._();
@@ -41,12 +40,15 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 400),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
@@ -82,12 +84,15 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 400),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
@@ -105,12 +110,15 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 400),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
@@ -128,12 +136,15 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 400),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
@@ -149,12 +160,15 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 400),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
@@ -170,12 +184,15 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 400),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
@@ -187,24 +204,6 @@ class RouteNav {
           return CustomTransitionPage(
             key: state.pageKey,
             child: const AdminView(),
-            transitionDuration: const Duration(milliseconds: 1200),
-            reverseTransitionDuration: const Duration(milliseconds: 1200),
-            transitionsBuilder:
-                (context, animation, secondaryAnimation, child) {
-              return FadeTransition(
-                opacity: animation,
-                child: child,
-              );
-            },
-          );
-        },
-      ),
-      GoRoute(
-        path: SuperAdminView.id,
-        pageBuilder: (context, state) {
-          return CustomTransitionPage(
-            key: state.pageKey,
-            child: const SuperAdminView(),
             transitionDuration: const Duration(milliseconds: 1200),
             reverseTransitionDuration: const Duration(milliseconds: 1200),
             transitionsBuilder:
@@ -231,12 +230,15 @@ class RouteNav {
             ),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(1, 0),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(1, 0),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
@@ -254,12 +256,15 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 600),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
@@ -277,83 +282,95 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 600),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
         },
       ),
       GoRoute(
-        path: CommentsScreen.id,
+        path: CommentsView.id,
         pageBuilder: (context, state) {
-          var post = state.extra as PostModel;
           return CustomTransitionPage(
             key: state.pageKey,
-            child: CommentsScreen(
-              postID: post.postID!,
+            child: CommentsView(
+              post: state.extra as PostModel,
             ),
             transitionDuration: const Duration(milliseconds: 600),
             reverseTransitionDuration: const Duration(milliseconds: 600),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
         },
       ),
-      // GoRoute(
-      //   path: AdminStudentsView.id,
-      //   pageBuilder: (context, state) {
-      //     return CustomTransitionPage(
-      //       key: state.pageKey,
-      //       child: const AdminStudentsView(),
-      //       transitionDuration: const Duration(milliseconds: 600),
-      //       reverseTransitionDuration: const Duration(milliseconds: 600),
-      //       transitionsBuilder:
-      //           (context, animation, secondaryAnimation, child) {
-      //         return SlideTransition(
-      //           position: Tween<Offset>(
-      //             begin: const Offset(0, 1),
-      //             end: Offset.zero,
-      //           ).animate(animation),
-      //           child: child,
-      //         );
-      //       },
-      //     );
-      //   },
-      // ),
-      // GoRoute(
-      //   path: AdminInstructorsView.id,
-      //   pageBuilder: (context, state) {
-      //     return CustomTransitionPage(
-      //       key: state.pageKey,
-      //       child: AdminInstructorsView(),
-      //       transitionDuration: const Duration(milliseconds: 600),
-      //       reverseTransitionDuration: const Duration(milliseconds: 600),
-      //       transitionsBuilder:
-      //           (context, animation, secondaryAnimation, child) {
-      //         return SlideTransition(
-      //           position: Tween<Offset>(
-      //             begin: const Offset(0, 1),
-      //             end: Offset.zero,
-      //           ).animate(animation),
-      //           child: child,
-      //         );
-      //       },
-      //     );
-      //   },
-      // ),
+      GoRoute(
+        path: AdminStudentsView.id,
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: const AdminStudentsView(),
+            transitionDuration: const Duration(milliseconds: 600),
+            reverseTransitionDuration: const Duration(milliseconds: 600),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  transformHitTests: false,
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
+              );
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: AdminInstructorsView.id,
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: const AdminInstructorsView(),
+            transitionDuration: const Duration(milliseconds: 600),
+            reverseTransitionDuration: const Duration(milliseconds: 600),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
+              );
+            },
+          );
+        },
+      ),
       GoRoute(
         path: AdminCategoryView.id,
         pageBuilder: (context, state) {
@@ -364,12 +381,15 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 600),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
@@ -387,12 +407,15 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 600),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
@@ -410,12 +433,15 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 600),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
@@ -431,12 +457,15 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 600),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
@@ -454,12 +483,15 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 600),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );
@@ -477,33 +509,15 @@ class RouteNav {
             reverseTransitionDuration: const Duration(milliseconds: 600),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
-              );
-            },
-          );
-        },
-      ),
-      GoRoute(
-        path: LogsView.id,
-        pageBuilder: (context, state) {
-          return CustomTransitionPage(
-            key: state.pageKey,
-            child: const LogsView(),
-            transitionDuration: const Duration(milliseconds: 600),
-            reverseTransitionDuration: const Duration(milliseconds: 600),
-            transitionsBuilder:
-                (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, 1),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
               );
             },
           );

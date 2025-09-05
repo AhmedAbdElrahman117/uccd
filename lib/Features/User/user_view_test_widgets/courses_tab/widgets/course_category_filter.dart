@@ -41,7 +41,6 @@ class CourseCategoryFilter extends StatelessWidget {
         cubit.filter(categoryToFilter);
       },
       options: displayOptions,
-      initialSelection: selectedDisplayOption,
     );
   }
 }

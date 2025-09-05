@@ -5,10 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uccd/Core/Models/course_model.dart';
-import 'package:uccd/Core/Models/log_model.dart';
-import 'package:uccd/Core/notification_api.dart';
 import 'package:uccd/Core/storage.dart';
-import 'package:uccd/main.dart';
 
 class AvailableCourseRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -32,7 +29,7 @@ class AvailableCourseRepo {
         .handleError(
           (error) {
             if (error is SocketException) {
-              throw ('noInternetConnection');
+              throw ('No Internet Connection');
             } else if (error is FirebaseException) {
               throw (error.message ?? error.code);
             } else {
@@ -87,29 +84,11 @@ class AvailableCourseRepo {
         const Duration(seconds: 30),
       );
 
-      LogModel log = LogModel(
-        userName: InternalStorage.getString('name'),
-        userEmail: InternalStorage.getString('email'),
-        action: 'Added New Course ${course.title}',
-        actionType: 'Add',
-        createdAt: Timestamp.now(),
-      );
-
-      await _firestore.collection('logs').add(
-            log.toMap(),
-          );
-
-      await FCMAPI.sendToTopic(
-        body:
-            'New course "${course.title}" is Available Now!\nCheck it out and join UCCD family.',
-        title: 'New Course Available',
-      );
-
-      return 'courseAddedSuccessfully';
+      return 'Course Added Successfully';
     } on TimeoutException {
-      throw ('connectionTimeout');
+      throw ('Connection Timeout');
     } on SocketException {
-      throw ('noInternetConnection');
+      throw ('No Internet Connection');
     } on StorageException catch (e) {
       throw (e.message);
     } on FirebaseException catch (e) {

@@ -6,7 +6,6 @@ import 'package:uccd/Core/app_text.dart';
 import 'package:uccd/Features/Login/Presentation/Views/Widgets/disability_section.dart';
 import 'package:uccd/Features/Login/Presentation/Views/Widgets/gradution_year_field.dart';
 import 'package:uccd/Features/Login/Presentation/Views/Widgets/phone_number_field.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class RegisterInfoPage extends StatelessWidget {
   const RegisterInfoPage({
@@ -34,15 +33,15 @@ class RegisterInfoPage extends StatelessWidget {
             height: MediaQuery.sizeOf(context).height * 0.2,
           ),
           const SizedBox(height: 30),
-          Center(
+          const Center(
             child: SectionTitle(
-              title: S.of(context).studentInfo,
+              title: 'Student Info',
             ),
           ),
           const SizedBox(height: 30),
           Center(
             child: Text(
-              S.of(context).studentInfoDescription,
+              'Let\'s Start by Providing us with some info',
               style: AppText.style16Regular(context),
             ),
           ),

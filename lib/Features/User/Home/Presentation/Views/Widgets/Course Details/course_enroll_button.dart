@@ -29,25 +29,31 @@ class CourseEnrollButton extends StatelessWidget {
         Color endColor = Colors.grey.shade700;
         IconData buttonIcon = Icons.access_time;
         if (state is StatusLoaded) {
-          // Map status keys to localized text
+          // Map status keys to localized text and set button properties
           switch (state.status) {
-            case 'enrollNow':
+            case 'Enroll Now':
               buttonText = S.of(context).enrollNow;
+              isEnabled = true; // Always enable when status is "enroll Now"
+              startColor = AppColor.primary;
+              endColor = AppColor.primary.withBlue(255);
+              buttonIcon = Icons.how_to_reg;
               break;
-            case 'enrolledInThisCategory':
+            case 'Enrolled In This Category':
               buttonText = S.of(context).enrolledInThisCategory;
+              isEnabled = false;
               break;
-            case 'courseFull':
+            case 'Course Full':
               buttonText = S.of(context).courseFull;
+              isEnabled = false;
               break;
             default:
               buttonText = state.status; // Fallback to raw status
-          }
-          isEnabled = state.canEnroll;
-          if (state.canEnroll) {
-            startColor = AppColor.primary;
-            endColor = AppColor.primary.withBlue(255);
-            buttonIcon = Icons.how_to_reg;
+              isEnabled = state.canEnroll;
+              if (state.canEnroll) {
+                startColor = AppColor.primary;
+                endColor = AppColor.primary.withBlue(255);
+                buttonIcon = Icons.how_to_reg;
+              }
           }
         }
 

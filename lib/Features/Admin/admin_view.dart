@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Features/Admin/Home/Presentation/Views/Widgets/admin_bottom_bar.dart';
-import 'package:uccd/Features/Admin/Courses/Presentation/Views/admin_courses_view.dart';
 import 'package:uccd/Features/Admin/Home/Presentation/Views/admin_home_view.dart';
-import 'package:uccd/Features/Community/Presentation/Views/community_tab.dart';
+import 'package:uccd/Features/Admin/Courses/Presentation/Views/admin_courses_view.dart';
+import 'package:uccd/Features/Community/Presentation/Views/community_view.dart';
 import 'package:uccd/Features/Profile/profile_view.dart';
 
 class AdminView extends StatefulWidget {
@@ -33,13 +33,11 @@ class _AdminViewState extends State<AdminView> with TickerProviderStateMixin {
         child: TabBarView(
           controller: tabController,
           physics: const NeverScrollableScrollPhysics(),
-          children: [
-            AdminHomeView(
-              tabController: tabController,
-            ),
-            const AdminCoursesView(),
-            const CommunityTab(),
-            const ProfileView(),
+          children: const [
+            AdminHomeView(),
+            AdminCoursesView(),
+            CommunityView(),
+            ProfileView(),
           ],
         ),
       ),

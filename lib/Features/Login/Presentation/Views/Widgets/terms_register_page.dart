@@ -7,7 +7,6 @@ import 'package:uccd/Core/app_text.dart';
 import 'package:uccd/Features/Login/Presentation/Views%20Model/Register%20Form%20Cubit/register_form_cubit.dart';
 import 'package:uccd/Features/Login/Presentation/Views%20Model/Register%20Form%20Cubit/register_form_states.dart';
 import 'package:uccd/Features/Login/Presentation/Views/Widgets/terms_conditions.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class TermsRegisterPage extends StatelessWidget {
   const TermsRegisterPage({super.key});
@@ -22,22 +21,22 @@ class TermsRegisterPage extends StatelessWidget {
           height: MediaQuery.sizeOf(context).height * 0.2,
         ),
         const SizedBox(height: 30),
-        Center(
+        const Center(
           child: SectionTitle(
-            title: S.of(context).TermsAndConditions,
+            title: 'Terms and Conditions',
           ),
         ),
         const SizedBox(height: 30),
         Center(
           child: Text(
-            S.of(context).readTerms,
+            'Please Read Terms and Condition Carefully before Proceed in',
             style: AppText.style16Regular(context),
           ),
         ),
         const SizedBox(height: 30),
         Center(
           child: Text(
-            '${S.of(context).TermsText1}\n\n${S.of(context).TermsText2}',
+            'I agree and authorize the UCCD to use my data and my photographs taken during my participation in the training programs and/or career development service offered by the center for the purposes of UCCD reporting, publications, and employer networking \n\nand authorizing UCCD app to collect Data about my participation in courses for analysis and improving user Experience',
             style: AppText.style16Bold(context),
           ),
         ),

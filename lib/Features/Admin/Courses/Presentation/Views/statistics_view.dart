@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,7 +8,6 @@ import 'package:uccd/Core/Components/data_error_widget.dart';
 import 'package:uccd/Core/Components/loading_indicator.dart';
 import 'package:uccd/Core/Components/page_indicator.dart';
 import 'package:uccd/Core/Models/course_model.dart';
-import 'package:uccd/Core/app_dates.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Statistics%20Cubit/statistics_cubit.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Statistics%20Cubit/statistics_states.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Statistics/course_statistics_box.dart';
@@ -14,7 +15,6 @@ import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Statistic
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Statistics/students_by_department_statistics.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Statistics/students_by_year_and_department.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Statistics/students_by_year_statistics.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class StatisticsView extends StatefulWidget {
   const StatisticsView({super.key, required this.course});
@@ -38,7 +38,7 @@ class _StatisticsViewState extends State<StatisticsView> {
       ),
       child: Scaffold(
         body: CustomSliverListView(
-          appBarTitle: S.of(context).statistics,
+          appBarTitle: 'Statistics',
           body: BlocBuilder<StatisticsCubit, StatisticsStates>(
             builder: (context, state) {
               switch (state) {
@@ -61,33 +61,19 @@ class _StatisticsViewState extends State<StatisticsView> {
                             children: [
                               CourseStatisticsBox(
                                 data: {
-                                  S.of(context).totalStudents:
-                                      AppDates.formatLocalizedNumber(
-                                          widget.course.maxAcceptedStudents,
-                                          context),
-                                  S.of(context).enrollments:
-                                      AppDates.formatLocalizedNumber(
-                                          state.statistics['Total'], context),
-                                  S.of(context).available:
-                                      AppDates.formatLocalizedNumber(
-                                          widget.course.maxAcceptedStudents -
-                                              state.statistics['Total'],
-                                          context),
+                                  'Total Students':
+                                      widget.course.maxAcceptedStudents,
+                                  'Enrollments': state.statistics['Total'],
+                                  'Available':
+                                      widget.course.maxAcceptedStudents -
+                                          state.statistics['Total'],
                                 },
                               ),
                               InterviewStatisticsBox(
                                 data: {
-                                  S.of(context).pending:
-                                      AppDates.formatLocalizedNumber(
-                                          state.statistics['Pending'], context),
-                                  S.of(context).accepted:
-                                      AppDates.formatLocalizedNumber(
-                                          state.statistics['Accepted'],
-                                          context),
-                                  S.of(context).rejected:
-                                      AppDates.formatLocalizedNumber(
-                                          state.statistics['Rejected'],
-                                          context),
+                                  'Pending': state.statistics['Pending'],
+                                  'Accepted': state.statistics['Accepted'],
+                                  'Rejected': state.statistics['Rejected'],
                                 },
                               ),
                             ],
@@ -109,28 +95,46 @@ class _StatisticsViewState extends State<StatisticsView> {
                             children: [
                               StudentsByDepartmentStatistics(
                                 data: {
-                                  (state.statistics['itPercent'] as num)
-                                      .toDouble(): state.statistics['It'],
-                                  (state.statistics['mechaPercent'] as num)
-                                      .toDouble(): state.statistics['Mecha'],
-                                  (state.statistics['autoPercent'] as num)
-                                      .toDouble(): state.statistics['Auto'],
-                                  (state.statistics['REPercent'] as num)
-                                      .toDouble(): state.statistics['RE'],
-                                  (state.statistics['OPPercent'] as num)
-                                      .toDouble(): state.statistics['O&P'],
+                                  calcPercentage(
+                                    state.statistics['It'],
+                                    state.statistics['Total'],
+                                  ): state.statistics['It'],
+                                  calcPercentage(
+                                    state.statistics['Mecha'],
+                                    state.statistics['Total'],
+                                  ): state.statistics['Mecha'],
+                                  calcPercentage(
+                                    state.statistics['Auto'],
+                                    state.statistics['Total'],
+                                  ): state.statistics['Auto'],
+                                  calcPercentage(
+                                    state.statistics['RE'],
+                                    state.statistics['Total'],
+                                  ): state.statistics['RE'],
+                                  calcPercentage(
+                                    state.statistics['O&P'],
+                                    state.statistics['Total'],
+                                  ): state.statistics['O&P'],
                                 },
                               ),
                               StudentsByYearStatistics(
                                 data: {
-                                  (state.statistics['FirstPercent'] as num)
-                                      .toDouble(): state.statistics['First'],
-                                  (state.statistics['SecondPercent'] as num)
-                                      .toDouble(): state.statistics['Second'],
-                                  (state.statistics['ThirdPercent'] as num)
-                                      .toDouble(): state.statistics['Third'],
-                                  (state.statistics['FourthPercent'] as num)
-                                      .toDouble(): state.statistics['Fourth'],
+                                  calcPercentage(
+                                    state.statistics['First'],
+                                    state.statistics['Total'],
+                                  ): state.statistics['First'],
+                                  calcPercentage(
+                                    state.statistics['Second'],
+                                    state.statistics['Total'],
+                                  ): state.statistics['Second'],
+                                  calcPercentage(
+                                    state.statistics['Third'],
+                                    state.statistics['Total'],
+                                  ): state.statistics['Third'],
+                                  calcPercentage(
+                                    state.statistics['Fourth'],
+                                    state.statistics['Total'],
+                                  ): state.statistics['Fourth'],
                                 },
                               ),
                             ],
@@ -165,5 +169,19 @@ class _StatisticsViewState extends State<StatisticsView> {
         ),
       ),
     );
+  }
+
+  double calcPercentage(num part, num total) {
+    double res = ((part / total) * 100);
+
+    return roundToDecimal(res);
+  }
+
+  double roundToDecimal(double value) {
+    if (value.isNaN || value.isInfinite) {
+      return 0.0;
+    }
+    num mod = pow(10.0, 1);
+    return ((value * mod).round().toDouble() / mod);
   }
 }

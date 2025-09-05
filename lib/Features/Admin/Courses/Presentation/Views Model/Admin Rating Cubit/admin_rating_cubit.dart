@@ -19,7 +19,9 @@ class AdminRatingCubit extends Cubit<AdminRatingStates> {
       (ratings) {
         ratings.isEmpty
             ? emit(AdminRatingEmpty())
-            : emit(AdminRatingLoaded(ratings: ratings));
+            : emit(
+                AdminRatingLoaded(ratings: ratings),
+              );
       },
       onError: (error) {
         emit(

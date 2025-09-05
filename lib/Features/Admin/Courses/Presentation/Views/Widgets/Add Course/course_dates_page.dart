@@ -4,7 +4,6 @@ import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Cou
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/course_start_date_field.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/interview_end_date_field.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/interview_start_date_field.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class CourseDatesPage extends StatefulWidget {
   const CourseDatesPage({
@@ -41,11 +40,11 @@ class _CourseDatesPageState extends State<CourseDatesPage>
               spacing: 20,
               children: [
                 Text(
-                  S.of(context).courseDates,
+                  'Course Dates',
                   style: AppText.style18Bold(context),
                 ),
                 Text(
-                  S.of(context).courseDatesDescription,
+                  'Now Let\'s set the Dates of the Course',
                   style: AppText.style16Regular(context),
                 ),
                 CourseStartDateField(

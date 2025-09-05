@@ -18,7 +18,7 @@ class AdminStudetnsRepo {
         .handleError(
       (error) {
         if (error is SocketException) {
-          throw ('noInternetConnection');
+          throw ('No Internet Connection');
         } else if (error is FirebaseException) {
           throw (error.code);
         } else {
@@ -53,15 +53,15 @@ class AdminStudetnsRepo {
             const Duration(seconds: 30),
           );
 
-      return 'studentAddedSuccessfully';
+      return 'Student Added Successfully';
     } on FirebaseAuthException catch (e) {
       throw (AppException.firebaseAuthSignup(e.code));
     } on FirebaseException catch (e) {
       throw (e.message ?? e.code);
     } on TimeoutException {
-      throw ('connectionTimeout');
+      throw ('Connection Timeout');
     } on SocketException {
-      throw ('noInternetConnection');
+      throw ('No Internet Connection');
     } on Exception catch (e) {
       throw (e.toString());
     }
@@ -110,13 +110,13 @@ class AdminStudetnsRepo {
         }
       }
       await _firestore.collection('users').doc(id).delete();
-      return 'userDeletedSuccessfully';
+      return 'User Deleted Successfully';
     } on FirebaseException catch (e) {
       throw (e.message ?? e.code);
     } on TimeoutException {
-      throw ('connectionTimeout');
+      throw ('Connection Timeout');
     } on SocketException {
-      throw ('noInternetConnection');
+      throw ('No Internet Connection');
     } on Exception catch (e) {
       throw (e.toString());
     }
@@ -151,13 +151,13 @@ class AdminStudetnsRepo {
         },
       );
 
-      return 'studentUpdatedSuccessfully';
+      return 'Student Updated Successfully';
     } on FirebaseException catch (e) {
       throw (e.message ?? e.code);
     } on TimeoutException {
-      throw ('connectionTimeout');
+      throw ('Connection Timeout');
     } on SocketException {
-      throw ('noInternetConnection');
+      throw ('No Internet Connection');
     } on Exception catch (e) {
       throw (e.toString());
     }
@@ -193,6 +193,7 @@ class AdminStudetnsRepo {
             .timeout(
               const Duration(seconds: 40),
             );
+        ;
 
         return courses;
       }

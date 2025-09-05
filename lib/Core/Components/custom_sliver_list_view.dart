@@ -21,6 +21,7 @@ class CustomSliverListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
+      physics: const ClampingScrollPhysics(),
       headerSliverBuilder: (context, innerBoxIsScrolled) {
         return [
           customWidget != null

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating/flutter_rating.dart';
-import 'package:intl/intl.dart';
 import 'package:uccd/Core/Components/adaptive_container.dart';
 import 'package:uccd/Core/Models/rating_model.dart';
 import 'package:uccd/Core/app_dates.dart';
@@ -69,7 +68,7 @@ class UserRatingCard extends StatelessWidget {
               ),
               if (rating.createdAt != null)
                 Text(
-                  DateFormat('MMM dd, yyyy').format(rating.createdAt!.toDate()),
+                  AppDates.timeStampToString(rating.createdAt!),
                   style: AppText.style12Regular(context).copyWith(
                     color: Colors.grey[600],
                   ),

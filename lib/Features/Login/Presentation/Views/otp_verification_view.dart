@@ -10,7 +10,6 @@ import 'package:uccd/Features/Login/Presentation/Views%20Model/Verification%20Cu
 import 'package:uccd/Features/Login/Presentation/Views/Widgets/info_text.dart';
 import 'package:uccd/Features/Login/Presentation/Views/Widgets/pin_field.dart';
 import 'package:uccd/Features/Login/Presentation/Views/Widgets/resent_code_text.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class OtpVerificationView extends StatefulWidget {
   const OtpVerificationView({super.key, required this.email});
@@ -48,7 +47,7 @@ class _OtpVerificationViewState extends State<OtpVerificationView> {
                   ),
                   Center(
                     child: Text(
-                      S.of(context).otpVerification,
+                      'OTP Verification',
                       style: AppText.style20Bold(context),
                     ),
                   ),

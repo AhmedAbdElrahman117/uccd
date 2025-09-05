@@ -14,12 +14,12 @@ class AdminInstructorsRepo {
     return _firestore
         .collection('users')
         .where('role', isEqualTo: 'Instructor')
-        .orderBy('createdAt', descending: true)
+        .orderBy('createdAt')
         .snapshots()
         .handleError(
       (error) {
         if (error is SocketException) {
-          throw ('noInternetConnection');
+          throw ('No Internet Connection');
         } else if (error is FirebaseException) {
           throw (error.code);
         } else {
@@ -54,13 +54,13 @@ class AdminInstructorsRepo {
             const Duration(seconds: 30),
           );
 
-      return 'instructorCreatedSuccessfully';
+      return 'Instructor Created Successfully';
     } on FirebaseAuthException catch (e) {
       throw (AppException.firebaseAuthSignup(e.code));
     } on SocketException {
-      throw ('noInternetConnection');
+      throw ('No Internet Connection');
     } on TimeoutException {
-      throw ('connectionTimeout');
+      throw ('Conntection Timeout');
     } on Exception catch (e) {
       throw (e.toString());
     }
@@ -85,11 +85,11 @@ class AdminInstructorsRepo {
 
       await _firestore.collection('users').doc(id).delete();
 
-      return 'instructorDeletedSuccessfully';
+      return 'Instructor Deleted Successfully';
     } on SocketException {
-      throw ('noInternetConnection');
+      throw ('No Internet Connection');
     } on TimeoutException {
-      throw ('connectionTimeout');
+      throw ('Conntection Timeout');
     } on Exception catch (e) {
       throw (e.toString());
     }
@@ -119,11 +119,11 @@ class AdminInstructorsRepo {
         const Duration(seconds: 30),
       );
 
-      return 'instructorUpdatedSuccessfully';
+      return 'Instructor Updated Successfully';
     } on SocketException {
-      throw ('noInternetConnection');
+      throw ('No Internet Connection');
     } on TimeoutException {
-      throw ('connectionTimeout');
+      throw ('Conntection Timeout');
     } on Exception catch (e) {
       throw (e.toString());
     }

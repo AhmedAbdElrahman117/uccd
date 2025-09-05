@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:uccd/Core/Components/custom_loading_indicator.dart';
 import 'package:uccd/Core/Components/loading_indicator.dart';
 import 'package:uccd/Core/app_banners.dart';
 import 'package:uccd/Core/Components/custom_fab.dart';
 import 'package:uccd/Core/Components/data_error_widget.dart';
 import 'package:uccd/Core/Components/no_data_widget.dart';
 import 'package:uccd/Core/overlay_controller.dart';
-import 'package:uccd/Features/Profile/Presentation/Views%20Model/Admin%20Users%20Cubit/admin_users_cubit.dart';
-import 'package:uccd/Features/Profile/Presentation/Views%20Model/Admin%20Users%20Cubit/admin_users_states.dart';
+import 'package:uccd/Features/Profile/Presentation/Views%20Model/Admin%20Instructor%20Cubit/admin_instructor_cubit.dart';
+import 'package:uccd/Features/Profile/Presentation/Views%20Model/Admin%20Instructor%20Cubit/admin_instructor_states.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Instructors/instructor_list_view.dart';
 
 class AdminInstructorsView extends StatefulWidget {
-  const AdminInstructorsView({super.key, required this.cubit});
+  const AdminInstructorsView({super.key});
 
-  final AdminUsersCubit cubit;
+  static const String id = '/InstructorsView';
 
   @override
   State<AdminInstructorsView> createState() => _AdminInstructorsViewState();
@@ -22,70 +23,80 @@ class AdminInstructorsView extends StatefulWidget {
 class _AdminInstructorsViewState extends State<AdminInstructorsView>
     with AutomaticKeepAliveClientMixin {
   @override
-  void initState() {
-    widget.cubit.getInstructors();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        child: BlocConsumer<AdminUsersCubit, AdminUsersStates>(
-          bloc: widget.cubit,
-          listener: _listener,
-          buildWhen: (previous, current) {
-            return current is InstructorDataLoading ||
-                current is InstructorDataLoaded ||
-                current is InstructorDataEmpty ||
-                current is AdminUsersInitialState ||
-                current is InstructorDataFailed;
-          },
-          builder: (context, state) {
-            switch (state) {
-              case AdminUsersInitialState():
-                return const SizedBox();
-              case InstructorDataLoading():
-                return const LoadingIndicator();
-              case InstructorDataFailed():
-                return DataErrorWidget(
-                  message: state.errorMessage,
-                );
-              case InstructorDataEmpty():
-                return const NoDataWidget(
-                  message: 'No Instrcutors',
-                );
-              case InstructorDataLoaded():
-                return InstructorListView(
-                  instructors: state.instructors,
-                  cubit: widget.cubit,
-                );
-              default:
-                return Container();
-            }
+    return BlocProvider(
+      create: (context) => AdminInstructorCubit(),
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          child: Stack(
+            children: [
+              BlocConsumer<AdminInstructorCubit, AdminInstructorStates>(
+                listener: _listener,
+                buildWhen: (previous, current) {
+                  return current is DataLoading ||
+                      current is DataLoaded ||
+                      current is DataEmpty ||
+                      current is InstructorInitialState ||
+                      current is DataFailed;
+                },
+                builder: (context, state) {
+                  switch (state) {
+                    case InstructorInitialState():
+                      return const SizedBox();
+                    case DataLoading():
+                      return const LoadingIndicator();
+                    case DataFailed():
+                      return const DataErrorWidget();
+                    case DataEmpty():
+                      return const NoDataWidget(
+                        message: 'No Instrcutors',
+                      );
+                    case DataLoaded():
+                      return InstructorListView(
+                        instructors: state.instructors,
+                      );
+                    default:
+                      return Container();
+                  }
+                },
+              ),
+              BlocSelector<AdminInstructorCubit, AdminInstructorStates, bool>(
+                selector: (state) {
+                  if (state is DeleteLoading) {
+                    return true;
+                  }
+                  return false;
+                },
+                builder: (context, state) {
+                  return CustomLoadingIndicator(
+                    isLoading: state,
+                    child: const SizedBox(
+                      width: double.infinity,
+                      height: double.infinity,
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: CustomFab(
+          icon: Icons.person_add,
+          onPressed: () {
+            OverlayController.showAddInstructorDialog(context);
           },
         ),
-      ),
-      floatingActionButton: CustomFab(
-        icon: Icons.person_add,
-        onPressed: () {
-          OverlayController.showAddInstructorDialog(context);
-        },
       ),
     );
   }
 
-  void _listener(BuildContext context, AdminUsersStates state) {
-    if (state is InstrcutorDeleteFailed) {
-      AppBanners.showFailed(
-        message: state.errorMessage,
-      );
-    } else if (state is InstrcutorDeleteSuccess) {
-      AppBanners.showSuccess(
-        message: state.successMessage,
-      );
+  void _listener(BuildContext context, AdminInstructorStates state) {
+    if (state is DeleteFailed) {
+      AppBanners.showFailed(message: state.errorMessage);
+    } else if (state is DeleteSuccess) {
+      AppBanners.showSuccess(message: state.successMessage);
     }
   }
 

@@ -1,6 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:uccd/Core/app_dates.dart';
 import 'package:uccd/Core/app_text.dart';
 
 class StudentLineChart extends StatefulWidget {
@@ -10,7 +9,7 @@ class StudentLineChart extends StatefulWidget {
     required this.rodColors,
   });
 
-  final Map<String, List<int>> data;
+  final Map<String, List<double>> data;
   final List<Color> rodColors;
 
   @override
@@ -77,7 +76,7 @@ class _StudentLineChartState extends State<StudentLineChart> {
           barGroups: groups,
           barTouchData: BarTouchData(
             touchTooltipData: BarTouchTooltipData(
-              tooltipBorderRadius: BorderRadius.circular(16),
+              tooltipRoundedRadius: 16,
               getTooltipColor: (group) {
                 return Colors.white;
               },
@@ -134,7 +133,8 @@ class _StudentLineChartState extends State<StudentLineChart> {
     return sum / items;
   }
 
-  BarChartGroupData createGroup(int x, List<int> rods, List<Color> rodColors) {
+  BarChartGroupData createGroup(
+      int x, List<double> rods, List<Color> rodColors) {
     return BarChartGroupData(
       x: x,
       barsSpace: 5,
@@ -143,7 +143,7 @@ class _StudentLineChartState extends State<StudentLineChart> {
           .entries
           .map(
             (e) => BarChartRodData(
-              toY: e.value.toDouble(),
+              toY: e.value,
               color: rodColors[e.key],
               width: 5,
             ),
@@ -159,7 +159,7 @@ class _StudentLineChartState extends State<StudentLineChart> {
     );
 
     return SideTitleWidget(
-      meta: meta,
+      axisSide: meta.axisSide,
       space: 16, //margin top
       child: text,
     );
@@ -180,10 +180,10 @@ class _StudentLineChartState extends State<StudentLineChart> {
     }
 
     return SideTitleWidget(
-      meta: meta,
+      axisSide: meta.axisSide,
       space: 0,
       child: Text(
-        AppDates.formatLocalizedNumber(percents.toInt(), context),
+        '${percents.toInt()}',
         style: AppText.style14Bold(context),
       ),
     );

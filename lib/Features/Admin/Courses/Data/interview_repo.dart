@@ -3,10 +3,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:uccd/Core/Models/course_model.dart';
-import 'package:uccd/Core/Models/log_model.dart';
 import 'package:uccd/Core/Models/student_model.dart';
-import 'package:uccd/Core/notification_api.dart';
-import 'package:uccd/main.dart';
 
 class InterviewRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -27,7 +24,7 @@ class InterviewRepo {
         .handleError(
       (error) {
         if (error is SocketException) {
-          throw ('noInternetConnection');
+          throw ('No Internet Connection');
         } else if (error is FirebaseException) {
           throw (error.message ?? error.code);
         } else {
@@ -45,23 +42,21 @@ class InterviewRepo {
     ).distinct();
   }
 
-  Future<void> acceptStudent({
-    required CourseModel course,
-    required StudentModel student,
-  }) async {
+  Future<void> acceptStudent(
+      {required CourseModel course, required String studentID}) async {
     try {
       await _firestore
           .collection('courses')
           .doc(course.courseID)
           .collection('students')
-          .doc(student.studentID)
+          .doc(studentID)
           .update(
         {
           'isAccepted': true,
         },
       );
 
-      await _firestore.collection('users').doc(student.studentID).update(
+      await _firestore.collection('users').doc(studentID).update(
         {
           'isEnrolled': true,
           'enrolledCategories': FieldValue.arrayUnion(
@@ -71,7 +66,7 @@ class InterviewRepo {
       );
       await _firestore
           .collection('users')
-          .doc(student.studentID)
+          .doc(studentID)
           .collection('courses')
           .doc(course.courseID)
           .update(
@@ -80,7 +75,7 @@ class InterviewRepo {
 
       var ref = await _firestore
           .collection('users')
-          .doc(student.studentID)
+          .doc(studentID)
           .collection('courses')
           .where('isAccepted', isNull: true)
           .where('id', isNotEqualTo: course.courseID)
@@ -95,7 +90,7 @@ class InterviewRepo {
             .collection('courses')
             .doc(ref.docs[i].get('id'))
             .collection('students')
-            .doc(student.studentID)
+            .doc(studentID)
             .get();
         enrolledCourses.add(x);
       }
@@ -115,31 +110,10 @@ class InterviewRepo {
           }
         },
       );
-
-      LogModel log = LogModel(
-        userName: InternalStorage.getString('name'),
-        userEmail: InternalStorage.getString('email'),
-        action: 'Accepted Student ${student.name} in Course ${course.title}',
-        actionType: 'Accept',
-        createdAt: Timestamp.now(),
-      );
-
-      await _firestore.collection('logs').add(
-            log.toMap(),
-          );
-
-      if (student.notificationID != null) {
-        await FCMAPI.sendToToken(
-          deviceToken: student.notificationID!,
-          body:
-              'You have been accepted in the course ${course.title}.\n Welcome to UCCD Family!',
-          title: 'Congratulations!',
-        );
-      }
     } on TimeoutException {
-      throw ('connectionTimeout');
+      throw ('Connection Timeout');
     } on SocketException {
-      throw ('noInternetConnection');
+      throw ('No Internet Connection');
     } on FirebaseException catch (e) {
       throw (e.message ?? e.code);
     } on Exception catch (e) {
@@ -147,46 +121,23 @@ class InterviewRepo {
     }
   }
 
-  Future<void> rejectStudent({
-    required CourseModel course,
-    required StudentModel student,
-  }) async {
+  Future<void> rejectStudent(
+      {required CourseModel course, required String studentID}) async {
     try {
       await _firestore
           .collection('courses')
           .doc(course.courseID)
           .collection('students')
-          .doc(student.studentID)
+          .doc(studentID)
           .update(
         {
           'isAccepted': false,
         },
       );
-
-      LogModel log = LogModel(
-        userName: InternalStorage.getString('name'),
-        userEmail: InternalStorage.getString('email'),
-        action: 'Rejected Student ${student.name} From Course ${course.title}',
-        actionType: 'Reject',
-        createdAt: Timestamp.now(),
-      );
-
-      await _firestore.collection('logs').add(
-            log.toMap(),
-          );
-
-      if (student.notificationID != null) {
-        await FCMAPI.sendToToken(
-          deviceToken: student.notificationID!,
-          body:
-              'You have been Rejected From course ${course.title}.\n We hope to see you in the future.',
-          title: 'Rejected',
-        );
-      }
     } on TimeoutException {
-      throw ('connectionTimeout');
+      throw ('Connection Timeout');
     } on SocketException {
-      throw ('noInternetConnection');
+      throw ('No Internet Connection');
     } on FirebaseException catch (e) {
       throw (e.message ?? e.code);
     } on Exception catch (e) {

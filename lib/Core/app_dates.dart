@@ -1,6 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:uccd/Core/constants.dart';
 
@@ -37,16 +35,12 @@ class AppDates {
     ).dateTime;
   }
 
-  static String timeStampToStringTime(Timestamp timeStamp) {
-    return Jiffy.parseFromMillisecondsSinceEpoch(
-      timeStamp.millisecondsSinceEpoch,
-    ).jm;
-  }
-
   static String postFormat(Timestamp date) {
     String interval = Jiffy.parseFromMillisecondsSinceEpoch(
       date.millisecondsSinceEpoch,
-    ).fromNow();
+    ).fromNow(
+      withPrefixAndSuffix: false,
+    );
 
     if (interval == 'a minute') {
       return '1 minute';
@@ -60,33 +54,5 @@ class AppDates {
       return '1 year';
     }
     return interval;
-  }
-
-  static String formatLocalizedNumber(num number, BuildContext context) {
-    final locale = Localizations.localeOf(context)
-        .toLanguageTag(); // e.g., "ar", "en", "ko"
-    final formatter = NumberFormat.decimalPattern(locale);
-    return formatter.format(number);
-  }
-
-  static String formatLocalizedNumberDigits(num number, BuildContext context) {
-    final locale = Localizations.localeOf(context)
-        .toLanguageTag(); // e.g., "ar", "en", "ko"
-    final formatter = NumberFormat.decimalPatternDigits(
-      decimalDigits: 1,
-      locale: locale,
-    );
-    return formatter.format(number);
-  }
-
-  static String formatLocalizedPercent(num number, BuildContext context) {
-    final locale = Localizations.localeOf(context)
-        .toLanguageTag(); // e.g., "ar", "en", "ko"
-    final formatter = NumberFormat.decimalPercentPattern(
-      locale: locale,
-      decimalDigits: number.toInt(),
-    );
-
-    return formatter.format(number);
   }
 }

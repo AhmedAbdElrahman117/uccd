@@ -59,7 +59,7 @@ class UserCourse extends StatelessWidget {
                   trailing: Hero(
                     tag: tag['Counter']!,
                     child: CounterBanner(
-                      current: course.currentStudents ?? 0,
+                      current: course.currentStudents!,
                       max: course.maxAcceptedStudents,
                     ),
                   ),

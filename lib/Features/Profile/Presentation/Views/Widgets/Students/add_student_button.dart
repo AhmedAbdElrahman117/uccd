@@ -5,7 +5,6 @@ import 'package:uccd/Core/Components/custom_button.dart';
 import 'package:uccd/Core/Models/user_model.dart';
 import 'package:uccd/Core/app_banners.dart';
 import 'package:uccd/Features/Profile/Presentation/Views%20Model/Add%20Student%20Cubit/add_student_cubit.dart';
-import 'package:uccd/generated/l10n.dart';
 
 class AddStudentButton extends StatelessWidget {
   const AddStudentButton({
@@ -39,9 +38,7 @@ class AddStudentButton extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: CustomButton(
-        title: isAdd
-            ? S.of(context).addButtonLabel
-            : S.of(context).editButtonLabel,
+        title: isAdd ? 'Add' : 'Edit',
         onPressed: () async {
           if (formKey.currentState!.validate()) {
             UserModel newStudent = UserModel(
@@ -67,9 +64,7 @@ class AddStudentButton extends StatelessWidget {
                 );
               } else {
                 context.pop();
-                AppBanners.showFailed(
-                  message: 'Nothing to Edit',
-                );
+                AppBanners.showFailed(message: 'Nothing to Edit');
               }
             }
           }

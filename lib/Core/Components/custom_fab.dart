@@ -20,7 +20,7 @@ class CustomFab extends StatelessWidget {
       heroTag: null,
       child: Icon(
         icon ?? Icons.add,
-        color: Colors.white,
+        color: Theme.of(context).iconTheme.color,
       ),
     );
   }

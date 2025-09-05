@@ -1,38 +1,25 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uccd/Core/Models/post_model.dart';
-import 'package:uccd/Features/Community/Data/commnuity_repo.dart';
+import 'package:uccd/Features/Community/Data/commnuity_repo_impl.dart';
 import 'package:uccd/Features/Community/Presentation/Views%20Model/Community%20Cubit/community_states.dart';
 
 class CommunityCubit extends Cubit<CommunityStates> {
   CommunityCubit() : super(CommunityInitialState()) {
     _getPosts();
-    log('started community');
   }
 
-  final CommnuityRepo repo = CommnuityRepo();
+  final CommnuityRepoImpl repo = CommnuityRepoImpl();
   StreamSubscription? postSubscription;
-  StreamSubscription? likeSubscription;
 
   void _getPosts() {
     emit(DataLoading());
     postSubscription = repo.getPosts().listen(
       (posts) {
-        if (posts.isEmpty) {
-          emit(DataEmpty());
-        } else {
-          emit(
-            DataLoaded(
-              posts: posts,
-            ),
-          );
-        }
+        posts.isEmpty ? emit(DataEmpty()) : emit(DataLoaded(posts: posts));
       },
       onError: (error) => emit(
-        DataFailed(
-          errorMessage: error.toString(),
-        ),
+        DataFailed(errorMessage: error),
       ),
     );
   }
@@ -54,7 +41,6 @@ class CommunityCubit extends Cubit<CommunityStates> {
   }
 
   void triggerLike({required String postID}) async {
-    emit(LikeLoading());
     try {
       String message = await repo.triggerLike(
         postID: postID,
@@ -63,12 +49,5 @@ class CommunityCubit extends Cubit<CommunityStates> {
     } catch (e) {
       emit(LikeFailed(errorMessage: e.toString()));
     }
-  }
-
-  @override
-  Future<void> close() {
-    postSubscription?.cancel();
-    log('closed community');
-    return super.close();
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uccd/Core/theme_helper.dart';
+import 'package:uccd/Core/app_color.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -18,19 +18,18 @@ class CustomButton extends StatelessWidget {
   final IconData? icon;
   final double? verticalSize;
   final Color? backgroundColor;
+
   @override
   Widget build(BuildContext context) {
     return Material(
-      borderRadius: ThemeHelper.borderRadius12,
+      borderRadius: BorderRadius.circular(12),
       color: onPressed == null
-          ? context.isDarkTheme
-              ? Colors.grey.shade800
-              : Colors.grey.shade400
-          : backgroundColor ?? ThemeHelper.appPrimaryColor,
-      elevation: ThemeHelper.elevation4,
+          ? Colors.grey.shade900
+          : backgroundColor ?? AppColor.primary,
+      elevation: 4,
       child: InkWell(
         onTap: onPressed,
-        borderRadius: ThemeHelper.borderRadius12,
+        borderRadius: BorderRadius.circular(12),
         child: Ink(
           padding: EdgeInsets.symmetric(
             vertical: verticalSize ?? 14,
@@ -53,8 +52,10 @@ class CustomButton extends StatelessWidget {
                 child: titleReplacement ??
                     Text(
                       title,
-                      style: ThemeHelper.style18Bold(context).copyWith(
+                      style: const TextStyle(
+                        fontSize: 18,
                         color: Colors.white,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
               ),

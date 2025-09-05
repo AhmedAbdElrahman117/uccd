@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:uccd/Core/app_dates.dart';
 import 'package:uccd/Core/app_text.dart';
 
 class CounterBanner extends StatelessWidget {
@@ -31,18 +30,11 @@ class CounterBanner extends StatelessWidget {
             Icons.people,
           ),
           Text(
-            '${localizeNumber(current, context)}/${localizeNumber(max, context)}',
+            '$current/$max',
             style: AppText.style14Bold(context),
           ),
         ],
       ),
     );
-  }
-
-  localizeNumber(int number, BuildContext context) {
-    if (number >= 1000) {
-      return '${(number / 1000).toStringAsFixed(1)}k';
-    }
-    return AppDates.formatLocalizedNumber(number, context);
   }
 }
