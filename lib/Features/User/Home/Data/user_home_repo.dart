@@ -17,8 +17,8 @@ class UserHomeRepo {
           descending: true,
         )
         .where(
-          'interviewEndDate',
-          isGreaterThanOrEqualTo: Timestamp.now(),
+          'interviewStartDate',
+          isGreaterThan: Timestamp.now(),
         )
         .orderBy(
           'createdAt',
@@ -28,7 +28,7 @@ class UserHomeRepo {
         .handleError(
       (error) {
         if (error is SocketException) {
-          throw ('No Internet Connection');
+          throw ('noInternetConnection');
         } else if (error is FirebaseException) {
           throw (error.message ?? error.code);
         } else {
@@ -61,25 +61,24 @@ class UserHomeRepo {
         .handleError(
       (error) {
         if (error is SocketException) {
-          throw ('No Internet Connection');
+          throw ('noInternetConnection');
         } else if (error is FirebaseException) {
-          throw (error.code);
+          throw (error.message ?? error.code);
         } else if (error is TimeoutException) {
-          throw ('Connection Timeout');
+          throw ('connectionTimeout');
         } else {
           throw (error.toString());
         }
       },
     ).map(
       (snapshot) {
-        List<dynamic> enrolledCategories = snapshot.get('enrolledCategories');
-
-        if (snapshot.get('id') == course.courseID) {
-          return 'Enrolled';
-        } else if (enrolledCategories.contains(course.categoryID)) {
-          return 'Enrolled in This Category';
+        List<dynamic>? enrolledCategories = snapshot.get('enrolledCategories');
+        if (enrolledCategories != null &&
+            enrolledCategories.isNotEmpty &&
+            enrolledCategories.contains(course.categoryID)) {
+          return 'Enrolled In This Category';
         } else if (course.maxAcceptedStudents == course.currentStudents) {
-          return 'Full';
+          return 'Course Full';
         } else {
           return 'Enroll Now';
         }
@@ -102,14 +101,14 @@ class UserHomeRepo {
       if (doc.exists) {
         return doc.data()!;
       } else {
-        throw ("No User");
+        throw ("no User");
       }
     } on SocketException {
-      throw ('No Internet Connection');
+      throw ('noInternetConnection');
     } on FirebaseException catch (error) {
       throw (error.message ?? error.code);
     } on TimeoutException {
-      throw ('Connection Timeout');
+      throw ('connectionTimeout');
     } on Exception catch (e) {
       throw (e.toString());
     }
@@ -151,12 +150,18 @@ class UserHomeRepo {
           'isAccepted': null,
         },
       );
+
+      await _firestore.collection('courses').doc(courseID).update(
+        {
+          'currentStudents': FieldValue.increment(1),
+        },
+      );
     } on SocketException {
-      throw ('No Internet Connection');
+      throw ('noInternetConnection');
     } on FirebaseException catch (error) {
       throw (error.message ?? error.code);
     } on TimeoutException {
-      throw ('Connection Timeout');
+      throw ('connectionTimeout');
     } on Exception catch (e) {
       throw (e.toString());
     }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Statistics/statistics_box.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class InterviewStatisticsBox extends StatelessWidget {
   const InterviewStatisticsBox({
@@ -19,7 +20,7 @@ class InterviewStatisticsBox extends StatelessWidget {
           Colors.green,
           Colors.red,
         ],
-        sectionTitle: 'Interview',
+        sectionTitle: S.of(context).interview,
         sections: data,
       ),
     );

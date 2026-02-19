@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Components/Fields/alpha_numeric_field.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class DurationField extends StatelessWidget {
   const DurationField({
@@ -14,8 +15,8 @@ class DurationField extends StatelessWidget {
     return Expanded(
       child: AlphaNumericField(
         controller: durationController,
-        label: 'Duration',
-        hint: 'Enter Course Duration',
+        label: S.of(context).durationLabel,
+        hint: S.of(context).durationHint,
         icon: Icons.watch_later_rounded,
         keyboardType: TextInputType.number,
       ),

@@ -23,7 +23,7 @@ class CourseInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: HeroTitle(
-        tag: tags['Title']!,
+        tag: tags['Title'] ?? 'title',
         fontSize: 22,
         title: title,
       ),
@@ -32,9 +32,9 @@ class CourseInfo extends StatelessWidget {
         style: AppText.style14Bold(context),
       ),
       trailing: Hero(
-        tag: tags['Counter']!,
+        tag: tags['Counter'] ?? 'counter',
         child: CounterBanner(
-          current: currentStudents!,
+          current: currentStudents ?? 0,
           max: maxAcceptedStudents,
         ),
       ),

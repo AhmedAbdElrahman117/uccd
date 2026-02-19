@@ -8,27 +8,29 @@ class ControlPanel extends StatelessWidget {
     required this.onEdit,
     required this.onDelete,
     required this.deleteMessage,
+    this.image,
+    this.confirmIcon,
   });
 
   final void Function() onEdit;
   final void Function() onDelete;
+  final String? image;
   final String deleteMessage;
+  final Icon? confirmIcon;
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      spacing: 16,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Expanded(
-          child: EditButton(
-            onPressed: onEdit,
-          ),
+        EditButton(
+          onPressed: onEdit,
         ),
-        Expanded(
-          child: DeleteButton(
-            message: deleteMessage,
-            onTapConfirm: onDelete,
-          ),
+        DeleteButton(
+          message: deleteMessage,
+          image: image,
+          onTapConfirm: onDelete,
+          confirmIcon: confirmIcon,
         ),
       ],
     );

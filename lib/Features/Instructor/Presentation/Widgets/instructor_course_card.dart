@@ -5,13 +5,18 @@ import 'package:uccd/Core/app_assets.dart';
 import 'package:uccd/Core/app_color.dart';
 import 'package:uccd/Core/app_text.dart';
 import 'package:uccd/Core/theme_helper.dart';
+import 'package:uccd/Core/app_dates.dart';
 import 'package:uccd/generated/l10n.dart';
 
 class InstructorCourseCard extends StatelessWidget {
   final CourseModel course;
   final VoidCallback? onTap;
 
-  const InstructorCourseCard({super.key, required this.course, this.onTap});
+  const InstructorCourseCard({
+    super.key,
+    required this.course,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +25,9 @@ class InstructorCourseCard extends StatelessWidget {
       child: Card(
         elevation: 12,
         shadowColor: Colors.black26,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(12),
@@ -86,9 +93,9 @@ class InstructorCourseCard extends StatelessWidget {
                               ),
                               Text(
                                 course.category,
-                                style: AppText.style12Bold(
-                                  context,
-                                ).copyWith(color: Colors.white),
+                                style: AppText.style12Bold(context).copyWith(
+                                  color: Colors.white,
+                                ),
                               ),
                             ],
                           ),
@@ -102,7 +109,7 @@ class InstructorCourseCard extends StatelessWidget {
                             ),
                             const SizedBox(width: 4),
                             Text(
-                              '${course.currentStudents ?? 0} / ${course.maxAcceptedStudents}',
+                              '${AppDates.formatLocalizedNumberDigits(course.currentStudents ?? 0, context)}/${AppDates.formatLocalizedNumberDigits(course.maxAcceptedStudents, context)}',
                               style: AppText.style12Regular(context),
                             ),
                           ],
@@ -120,7 +127,7 @@ class InstructorCourseCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          '${course.duration} ${S.of(context).Hour}',
+                          '${AppDates.formatLocalizedNumberDigits(course.duration, context)} ${S.of(context).Hour}',
                           style: AppText.style12Regular(context),
                         ),
                         const SizedBox(width: 16),
@@ -130,7 +137,7 @@ class InstructorCourseCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          '${S.of(context).room} ${course.roomNumber}',
+                          '${S.of(context).room} ${AppDates.formatLocalizedNumberDigits(course.roomNumber, context)}',
                           style: AppText.style12Regular(context),
                         ),
                       ],

@@ -14,8 +14,20 @@ class CourseCategoryFilter extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
+    // Get the currently selected category from the cubit
+    final selectedCategory = cubit.currentCategory;
+
     // Create display options with localized "All" and original category names
     final displayOptions = [S.of(context).all, ...categories];
+
+    // Map the cubit's current category to the display option
+    String? selectedDisplayOption;
+    if (selectedCategory == 'All') {
+      selectedDisplayOption = S.of(context).all;
+    } else {
+      selectedDisplayOption =
+          categories.contains(selectedCategory) ? selectedCategory : null;
+    }
 
     return FilterChips(
       onChange: (option) {
@@ -29,6 +41,7 @@ class CourseCategoryFilter extends StatelessWidget {
         cubit.filter(categoryToFilter);
       },
       options: displayOptions,
+      initialSelection: selectedDisplayOption,
     );
   }
 }

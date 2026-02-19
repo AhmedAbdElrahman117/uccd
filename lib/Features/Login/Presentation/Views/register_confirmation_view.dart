@@ -11,6 +11,7 @@ import 'package:uccd/Core/app_text.dart';
 import 'package:uccd/Features/Login/Presentation/Views%20Model/Register%20Form%20Cubit/register_form_cubit.dart';
 import 'package:uccd/Features/Login/Presentation/Views%20Model/Register%20Form%20Cubit/register_form_states.dart';
 import 'package:uccd/Features/User/user_view.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class RegisterConfirmationView extends StatelessWidget {
   const RegisterConfirmationView({super.key, required this.cubit});
@@ -125,16 +126,16 @@ class RegisterFailure extends StatelessWidget {
             ),
           ),
           Text(
-            'Registeration Failed',
+            S.of(context).registrationFailed,
             style: AppText.style24Bold(context),
           ),
           Text(
-            'Please Check your Internet Connection and try again',
+            S.of(context).checkInternetConnectionAndTryAgain,
             textAlign: TextAlign.center,
             style: AppText.style18Regular(context),
           ),
           CustomButton(
-            title: 'Try Again',
+            title: S.of(context).tryAgain,
             icon: FontAwesomeIcons.xmark,
             backgroundColor: Colors.red,
             onPressed: () {

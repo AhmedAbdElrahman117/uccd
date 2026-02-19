@@ -70,6 +70,7 @@ class UserCard extends StatelessWidget {
             onEdit: onEdit,
             onDelete: onDelete,
             deleteMessage: deleteMessage,
+            image: deleteImage,
           ),
         ],
       ),

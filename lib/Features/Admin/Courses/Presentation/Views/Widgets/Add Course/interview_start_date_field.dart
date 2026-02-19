@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:uccd/Core/Components/Fields/date_picker_field.dart';
 import 'package:uccd/Core/constants.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class InterviewStartDateField extends StatelessWidget {
   const InterviewStartDateField({
@@ -22,20 +23,20 @@ class InterviewStartDateField extends StatelessWidget {
   Widget build(BuildContext context) {
     return DatePickerField(
       dateController: interviewStartController,
-      label: 'Interview Start Date',
-      hint: 'Enter Interview Start Date',
+      label: S.of(context).interviewStartDate,
+      hint: S.of(context).enterInterviewStartDate,
       icon: FontAwesomeIcons.clipboardQuestion,
       validator: (value) {
         if (value!.isEmpty) {
-          return 'Start Date Required';
+          return S.of(context).startDateRequired;
         } else if (parseDate(interviewStartController.text)
             .isSameOrAfter(parseDate(interviewEndController.text))) {
-          return 'Interview Start Date must be before End Date';
+          return S.of(context).interviewStartDateBeforeEndDate;
         } else if (parseDate(interviewStartController.text)
                 .isSameOrAfter(parseDate(courseStartController.text)) ||
             parseDate(interviewStartController.text)
                 .isSameOrAfter(parseDate(courseEndController.text))) {
-          return 'Interview Start Date must be Before Courses';
+          return S.of(context).interviewStartDateBeforeCourses;
         }
         return null;
       },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Statistics/statistics_box.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class CourseStatisticsBox extends StatelessWidget {
   const CourseStatisticsBox({
@@ -7,7 +8,7 @@ class CourseStatisticsBox extends StatelessWidget {
     required this.data,
   });
 
-  final Map<String, num> data;
+  final Map<String, dynamic> data;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class CourseStatisticsBox extends StatelessWidget {
           Colors.blueAccent,
           Colors.deepOrange,
         ],
-        sectionTitle: 'Course',
+        sectionTitle: S.of(context).course,
         sections: data,
       ),
     );

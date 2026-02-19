@@ -11,6 +11,7 @@ import 'package:uccd/Core/app_banners.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Interview%20Cubit/interview_cubit.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Interview%20Cubit/interview_states.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Interview/interview_list.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class InterviewView extends StatefulWidget {
   const InterviewView({super.key, this.course});
@@ -48,20 +49,22 @@ class _InterviewViewState extends State<InterviewView>
             return Stack(
               children: [
                 CustomSliverListView(
-                  appBarTitle: 'Interview',
+                  appBarTitle: S.of(context).interview,
                   body: CustomScrollView(
                     slivers: [
                       SliverToBoxAdapter(
                         child: FilterChips(
-                          options: const [
-                            'All',
-                            'Pending',
-                            'Accepted',
-                            'Rejected',
+                          options: [
+                            S.of(context).all,
+                            S.of(context).pending,
+                            S.of(context).accepted,
+                            S.of(context).rejected,
                           ],
                           onChange: (option) {
+                            // Map localized option back to English for cubit
+                            String englishOption = _mapToEnglishOption(option);
                             BlocProvider.of<InterviewCubit>(context).filter(
-                              filter: option,
+                              filter: englishOption,
                             );
                           },
                         ),
@@ -88,10 +91,11 @@ class _InterviewViewState extends State<InterviewView>
                                 ),
                               );
                             case DataEmpty():
-                              return const SliverFillRemaining(
+                              return SliverFillRemaining(
                                 child: Center(
                                   child: NoDataWidget(
-                                    message: 'No Students to Interview',
+                                    message:
+                                        S.of(context).noStudentsToInterview,
                                   ),
                                 ),
                               );
@@ -142,13 +146,21 @@ class _InterviewViewState extends State<InterviewView>
   void _listener(BuildContext context, InterviewStates state) {
     if (state is InterviewSuccess) {
       AppBanners.showSuccess(
-        message: 'Student Accepted Successfully',
+        message: S.of(context).studentAcceptedSuccessfully,
       );
     } else if (state is InterviewFailed) {
       AppBanners.showFailed(
         message: state.errorMessage,
       );
     }
+  }
+
+  String _mapToEnglishOption(String localizedOption) {
+    if (localizedOption == S.of(context).all) return 'All';
+    if (localizedOption == S.of(context).pending) return 'Pending';
+    if (localizedOption == S.of(context).accepted) return 'Accepted';
+    if (localizedOption == S.of(context).rejected) return 'Rejected';
+    return localizedOption; // fallback
   }
 
   @override

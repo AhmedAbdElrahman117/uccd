@@ -7,6 +7,7 @@ import 'package:uccd/Core/Models/student_model.dart';
 import 'package:uccd/Core/app_assets.dart';
 import 'package:uccd/Core/app_dates.dart';
 import 'package:uccd/Core/app_text.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class StudentAllInfoView extends StatefulWidget {
   const StudentAllInfoView({super.key, required this.student});
@@ -29,39 +30,40 @@ class _StudentAllInfoViewState extends State<StudentAllInfoView> {
             mainAxisSize: MainAxisSize.min,
             spacing: 8,
             children: [
-              const CircleAvatar(
-                radius: 45,
-                child: Image(
-                  image: AssetImage(AppAssets.imagesUCCDGrouplogo2),
-                  fit: BoxFit.cover,
+              ListTile(
+                leading: const CircleAvatar(
+                  child: Image(
+                    image: AssetImage(AppAssets.imagesUCCDGrouplogo2),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                title: Text(
+                  '${widget.student.name}',
+                  style: AppText.style16Bold(context),
+                ),
+                subtitle: Text(
+                  '${widget.student.email}',
+                  style: AppText.style14Bold(context),
                 ),
               ),
-              const SizedBox(height: 8),
+              const Divider(),
               ExpandablePageView(
                 controller: pageController,
                 children: [
                   Column(
                     children: [
                       ListTile(
-                        leading: const Icon(FontAwesomeIcons.solidUser),
-                        title: Text(
-                          'Name: ${widget.student.name}',
-                          style: AppText.style16Bold(context),
-                        ),
-                        contentPadding: EdgeInsets.zero,
-                      ),
-                      ListTile(
-                        leading: const Icon(Icons.email),
-                        title: Text(
-                          'Email: ${widget.student.email}',
-                          style: AppText.style16Bold(context),
-                        ),
-                        contentPadding: EdgeInsets.zero,
-                      ),
-                      ListTile(
                         leading: const Icon(FontAwesomeIcons.solidAddressCard),
                         title: Text(
-                          'University ID: ${widget.student.universityID}',
+                          '${S.of(context).universityIdLabel}: ${widget.student.universityID}',
+                          style: AppText.style16Bold(context),
+                        ),
+                        contentPadding: EdgeInsets.zero,
+                      ),
+                      ListTile(
+                        leading: const Icon(FontAwesomeIcons.solidIdCard),
+                        title: Text(
+                          '${S.of(context).nationalIdLabel}: ${widget.student.nationalID}',
                           style: AppText.style16Bold(context),
                         ),
                         contentPadding: EdgeInsets.zero,
@@ -69,7 +71,7 @@ class _StudentAllInfoViewState extends State<StudentAllInfoView> {
                       ListTile(
                         leading: const Icon(FontAwesomeIcons.industry),
                         title: Text(
-                          'Department: ${widget.student.department}',
+                          '${S.of(context).departmentLabel}: ${widget.student.department}',
                           style: AppText.style14Bold(context),
                         ),
                         contentPadding: EdgeInsets.zero,
@@ -77,7 +79,7 @@ class _StudentAllInfoViewState extends State<StudentAllInfoView> {
                       ListTile(
                         leading: const Icon(FontAwesomeIcons.solidCalendar),
                         title: Text(
-                          'year: ${widget.student.year}',
+                          '${S.of(context).yearLabel}: ${widget.student.year}',
                           style: AppText.style16Bold(context),
                         ),
                         contentPadding: EdgeInsets.zero,
@@ -87,17 +89,9 @@ class _StudentAllInfoViewState extends State<StudentAllInfoView> {
                   Column(
                     children: [
                       ListTile(
-                        leading: const Icon(FontAwesomeIcons.solidIdCard),
-                        title: Text(
-                          'National ID: ${widget.student.nationalID}',
-                          style: AppText.style16Bold(context),
-                        ),
-                        contentPadding: EdgeInsets.zero,
-                      ),
-                      ListTile(
                         leading: const Icon(FontAwesomeIcons.venusMars),
                         title: Text(
-                          'Gender: ${widget.student.gender}',
+                          '${S.of(context).genderLabel}: ${widget.student.gender}',
                           style: AppText.style16Bold(context),
                         ),
                         contentPadding: EdgeInsets.zero,
@@ -105,7 +99,7 @@ class _StudentAllInfoViewState extends State<StudentAllInfoView> {
                       ListTile(
                         leading: const Icon(FontAwesomeIcons.accessibleIcon),
                         title: Text(
-                          'Disability: ${widget.student.disability}',
+                          '${S.of(context).disabilityLabel}: ${widget.student.disability}',
                           style: AppText.style16Bold(context),
                         ),
                         contentPadding: EdgeInsets.zero,
@@ -113,7 +107,7 @@ class _StudentAllInfoViewState extends State<StudentAllInfoView> {
                       ListTile(
                         leading: const Icon(FontAwesomeIcons.phone),
                         title: Text(
-                          'Phone Number: ${widget.student.phone}',
+                          '${S.of(context).phoneNumberLabel}: ${widget.student.phone}',
                           style: AppText.style16Bold(context),
                         ),
                         contentPadding: EdgeInsets.zero,
@@ -122,7 +116,7 @@ class _StudentAllInfoViewState extends State<StudentAllInfoView> {
                         leading:
                             const Icon(FontAwesomeIcons.solidCalendarCheck),
                         title: Text(
-                          'Graduation year: ${AppDates.timeStampToString(widget.student.expectedGraduationYear)}',
+                          '${S.of(context).graduationYearLabel}: ${AppDates.timeStampToString(widget.student.expectedGraduationYear)}',
                           style: AppText.style16Bold(context),
                         ),
                         contentPadding: EdgeInsets.zero,

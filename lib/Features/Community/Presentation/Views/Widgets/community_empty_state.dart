@@ -42,7 +42,7 @@ class CommunityEmptyState extends StatelessWidget {
           const SizedBox(height: 24),
           ElevatedButton.icon(
             onPressed: () {
-              OverlayController.showAddPostDialog(context);
+              OverlayController.showCreatePostDialog(context);
             },
             icon: const Icon(Icons.add),
             label: Text(S.of(context).createPostButton),

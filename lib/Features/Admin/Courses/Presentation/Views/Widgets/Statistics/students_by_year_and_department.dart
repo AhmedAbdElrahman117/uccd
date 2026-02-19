@@ -3,6 +3,7 @@ import 'package:uccd/Core/Components/adaptive_container.dart';
 import 'package:uccd/Core/Components/section_title.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Statistics/chart_details.dart';
 import 'package:uccd/Features/Admin/Home/Presentation/Views/Widgets/student_line_chart.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class StudentsByYearAndDepartment extends StatelessWidget {
   const StudentsByYearAndDepartment({
@@ -10,7 +11,7 @@ class StudentsByYearAndDepartment extends StatelessWidget {
     required this.data,
   });
 
-  final Map<String, List<double>> data;
+  final Map<String, List<int>> data;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +22,8 @@ class StudentsByYearAndDepartment extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 40,
         children: [
-          const SectionTitle(
-            title: 'Students By Department & year',
+          SectionTitle(
+            title: S.of(context).studentsByDepartmentAndYear,
           ),
           StudentLineChart(
             data: data,
@@ -33,12 +34,12 @@ class StudentsByYearAndDepartment extends StatelessWidget {
               Colors.purple,
             ],
           ),
-          const ChartDetails(
+          ChartDetails(
             chartDetails: {
-              '1st year': Colors.yellow,
-              '2nd year': Colors.redAccent,
-              '3rd year': Colors.indigoAccent,
-              '4th year': Colors.purple,
+              S.of(context).firstYear: Colors.yellow,
+              S.of(context).secondYear: Colors.redAccent,
+              S.of(context).thirdYear: Colors.indigoAccent,
+              S.of(context).fourthYear: Colors.purple,
             },
           ),
         ],

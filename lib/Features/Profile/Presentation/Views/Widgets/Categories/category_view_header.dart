@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Models/category_model.dart';
+import 'package:uccd/Core/app_dates.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Categories/category_theme_helper.dart';
 import 'package:uccd/generated/l10n.dart';
 
 class CategoryViewHeader extends StatelessWidget {
-  const CategoryViewHeader({super.key, required this.categories});
+  const CategoryViewHeader({
+    super.key,
+    required this.categories,
+  });
 
   final List<CategoryModel> categories;
 
@@ -19,9 +23,8 @@ class CategoryViewHeader extends StatelessWidget {
           end: Alignment.bottomRight,
           colors: CategoryThemeHelper.getHeaderGradientColors(context),
         ),
-        borderRadius: BorderRadius.circular(
-          CategoryThemeHelper.cardBorderRadius,
-        ),
+        borderRadius:
+            BorderRadius.circular(CategoryThemeHelper.cardBorderRadius),
         border: Border.all(
           color: CategoryThemeHelper.getCardBorderColor(context),
           width: 1,
@@ -32,9 +35,8 @@ class CategoryViewHeader extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: CategoryThemeHelper.getCategoryIconBackgroundColor(
-                context,
-              ),
+              color:
+                  CategoryThemeHelper.getCategoryIconBackgroundColor(context),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Icon(
@@ -50,9 +52,10 @@ class CategoryViewHeader extends StatelessWidget {
               children: [
                 Text(
                   S.of(context).categoriesOverview,
-                  style: CategoryThemeHelper.getCategoryTitleStyle(
-                    context,
-                  ).copyWith(fontSize: 16),
+                  style: CategoryThemeHelper.getCategoryTitleStyle(context)
+                      .copyWith(
+                    fontSize: 16,
+                  ),
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -65,24 +68,25 @@ class CategoryViewHeader extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: CategoryThemeHelper.getCategoryIconColor(
-                context,
-              ).withAlpha(26),
+              color: CategoryThemeHelper.getCategoryIconColor(context)
+                  .withAlpha(26),
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: CategoryThemeHelper.getCategoryIconColor(
-                  context,
-                ).withAlpha(77),
+                color: CategoryThemeHelper.getCategoryIconColor(context)
+                    .withAlpha(77),
                 width: 1,
               ),
             ),
             child: Text(
-              categories.length.toString(),
+              AppDates.formatLocalizedNumber(
+                categories.length,
+                context,
+              ),
               style: CategoryThemeHelper.getActionButtonTextStyle(context)
                   .copyWith(
-                    color: CategoryThemeHelper.getCategoryIconColor(context),
-                    fontWeight: FontWeight.bold,
-                  ),
+                color: CategoryThemeHelper.getCategoryIconColor(context),
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ],

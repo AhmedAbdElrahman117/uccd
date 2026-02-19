@@ -1,17 +1,30 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_otp/email_otp.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:toastification/toastification.dart';
 import 'package:uccd/Core/app_global_keys.dart';
 import 'package:uccd/Core/app_theme.dart';
-import 'package:uccd/Core/notifier.dart';
+import 'package:uccd/Core/notification_service.dart';
 import 'package:uccd/Core/route_nav.dart';
-import 'package:uccd/Features/Admin/Home/Presentation/Views%20Model/admin_home_cubit.dart';
-import 'package:uccd/Features/User/My%20Courses/Presentation/Views%20Model/user_course_cubit.dart';
+import 'package:uccd/Core/utils_provider.dart';
+import 'package:uccd/generated/l10n.dart';
+
+@pragma('vm:entry-point')
+Future<dynamic> firebaseMessagingBackgroundHandler(
+    RemoteMessage message) async {
+  if (message.notification != null) {
+    NotificationSystem.notificationController.createNotification(
+      title: message.notification?.title ?? 'No Title',
+      body: message.notification?.body ?? 'No Body',
+    );
+  }
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +34,10 @@ void main() async {
   FirebaseFirestore.instance.settings = const Settings(
     persistenceEnabled: false,
   );
+
+  NotificationService().init();
+
+  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
   await Supabase.initialize(
     url: 'https://zmoejgvxfufurmezwagi.supabase.co',
@@ -37,7 +54,12 @@ void main() async {
     otpLength: 5,
   );
 
-  runApp(const UCCD());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => UtilsProvider(),
+      child: const UCCD(),
+    ),
+  );
 }
 
 class UCCD extends StatelessWidget {
@@ -45,26 +67,27 @@ class UCCD extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => AdminHomeCubit()),
-        BlocProvider(create: (context) => UserCourseCubit()),
-      ],
-      child: ToastificationWrapper(
-        child: ValueListenableBuilder(
-          valueListenable: Notifier.theme,
-          builder: (context, value, child) {
-            return MaterialApp.router(
-              routerConfig: RouteNav.router,
-              debugShowCheckedModeBanner: false,
-              scaffoldMessengerKey: AppGlobalKeys.scaffoldKey,
-              theme: AppTheme.lightTheme(context),
-              darkTheme: AppTheme.darkTheme(context),
-              themeMode: value,
-            );
-          },
-        ),
-      ),
+    return Consumer<UtilsProvider>(
+      builder: (context, provider, child) {
+        return ToastificationWrapper(
+          child: MaterialApp.router(
+            routerConfig: RouteNav.router,
+            locale: provider.locale,
+            localizationsDelegates: [
+              S.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            debugShowCheckedModeBanner: false,
+            scaffoldMessengerKey: AppGlobalKeys.scaffoldKey,
+            theme: AppTheme.lightTheme(context),
+            darkTheme: AppTheme.darkTheme(context),
+            themeMode: provider.themeMode,
+          ),
+        );
+      },
     );
   }
 }
@@ -80,23 +103,11 @@ class InternalStorage {
     await userData.setString(key, value);
   }
 
-  static void setBool(String key, bool value) async {
-    await userData.setBool(key, value);
-  }
-
   static String getString(String key) {
     String? data = userData.getString(key);
     if (data != null) {
       return data;
     }
     return '';
-  }
-
-  static bool? getBool(String key) {
-    bool? data = userData.getBool(key);
-    if (data != null) {
-      return data;
-    }
-    return null;
   }
 }

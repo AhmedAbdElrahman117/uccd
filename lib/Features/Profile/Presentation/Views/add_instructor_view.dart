@@ -12,6 +12,7 @@ import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Instructors/add
 import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Instructors/instructor_email_field.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Instructors/instructor_name_field.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Instructors/instructor_password_field.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class AddInstructorView extends StatefulWidget {
   const AddInstructorView({super.key, this.currentInstructor});
@@ -59,8 +60,8 @@ class _AddInstructorViewState extends State<AddInstructorView> {
                   children: [
                     SectionTitle(
                       title: widget.currentInstructor == null
-                          ? 'Add Instructor'
-                          : 'Edit Instructor',
+                          ? S.of(context).addInstructorTitle
+                          : S.of(context).editInstructorTitle,
                     ),
                     InstructorNameField(
                       instructorName: instructorName,

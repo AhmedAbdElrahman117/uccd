@@ -7,6 +7,7 @@ import 'package:uccd/Core/app_color.dart';
 import 'package:uccd/Core/app_dates.dart';
 import 'package:uccd/Core/app_text.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Add%20Course%20Cubit/add_course_cubit.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class AddCourseButton extends StatelessWidget {
   const AddCourseButton({
@@ -32,10 +33,13 @@ class AddCourseButton extends StatelessWidget {
     required this.instructorIDController,
     required this.categoryIDController,
     this.currentCourse,
+    required this.prequesetsKey,
+    required this.prerequestsController,
   });
   final GlobalKey<FormState> goalsKey;
   final GlobalKey<FormState> infoKey;
   final GlobalKey<FormState> datesKey;
+  final GlobalKey<FormState> prequesetsKey;
   final PageController pageController;
   final TextEditingController titleController;
   final TextEditingController descriptionController;
@@ -54,6 +58,7 @@ class AddCourseButton extends StatelessWidget {
   final List<TextEditingController> goalsController;
   final TextEditingController imagePath;
   final CourseModel? currentCourse;
+  final List<TextEditingController> prerequestsController;
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +66,7 @@ class AddCourseButton extends StatelessWidget {
       onPressed: () async {
         if (infoKey.currentState!.validate() &&
             datesKey.currentState!.validate() &&
+            prequesetsKey.currentState!.validate() &&
             goalsKey.currentState!.validate()) {
           CourseModel course = CourseModel(
             title: titleController.text,
@@ -99,6 +105,12 @@ class AddCourseButton extends StatelessWidget {
                 return goalsController[index].text;
               },
             ),
+            coursePrerequests: List.generate(
+              prerequestsController.length,
+              (index) {
+                return prerequestsController[index].text;
+              },
+            ),
           );
           if (currentCourse == null) {
             BlocProvider.of<AddCourseCubit>(context).add(
@@ -117,7 +129,9 @@ class AddCourseButton extends StatelessWidget {
         }
       },
       label: Text(
-        currentCourse == null ? 'Add' : 'Edit',
+        currentCourse == null
+            ? S.of(context).addButtonLabel
+            : S.of(context).editButtonLabel,
         style: AppText.style14Bold(context),
       ),
       icon: Icon(
@@ -144,10 +158,15 @@ class AddCourseButton extends StatelessWidget {
         pageController,
         1,
       );
-    } else if (datesKey.currentState!.validate() == false) {
+    } else if (prequesetsKey.currentState!.validate() == false) {
       BlocProvider.of<AddCourseCubit>(context).jumpToPage(
         pageController,
         2,
+      );
+    } else if (datesKey.currentState!.validate() == false) {
+      BlocProvider.of<AddCourseCubit>(context).jumpToPage(
+        pageController,
+        3,
       );
     }
   }

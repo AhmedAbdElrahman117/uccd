@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
 import 'package:uccd/Core/Components/custom_loading_indicator.dart';
-import 'package:uccd/Core/Components/overlay_background.dart';
 import 'package:uccd/Core/Models/course_model.dart';
 import 'package:uccd/Core/app_banners.dart';
 import 'package:uccd/Core/app_text.dart';
-import 'package:uccd/Core/overlay_controller.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Available%20Course%20Cubit/available_course_cubit.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Available%20Course%20Cubit/available_course_states.dart';
-import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Available/course_delete_button.dart';
-import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Available/course_edit_button.dart';
-import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Available/course_interview_button.dart';
-import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Available/course_statisitcs_button.dart';
-import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Available/menu_button.dart';
+import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Available/Components/enhanced_overlay_background.dart';
+import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Available/Components/enhanced_statistics_button.dart';
+import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Available/Components/enhanced_interview_button.dart';
+import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Available/Components/enhanced_edit_button.dart';
+import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Available/Components/enhanced_change_instructor_button.dart';
+import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Available/Components/enhanced_change_category_button.dart';
+import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Available/Components/enhanced_delete_button.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class AdminCourseMenu extends StatelessWidget {
   const AdminCourseMenu({
@@ -32,62 +33,46 @@ class AdminCourseMenu extends StatelessWidget {
         listener: _listener,
         child: Stack(
           children: [
-            OverlayBackground(
+            EnhancedOverlayBackground(
+              padding: EdgeInsets.all(20),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 spacing: 20,
                 children: [
                   Text(
-                    'Panel',
+                    S.of(context).controlPanel,
                     style: AppText.style20Bold(context),
                   ),
-                  GridView(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 30,
-                      mainAxisSpacing: 30,
-                      mainAxisExtent: 120,
-                    ),
+                  MasonryGridView(
                     shrinkWrap: true,
+                    gridDelegate:
+                        const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                    ),
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20,
                     padding: EdgeInsets.zero,
                     children: [
-                      CourseStatisitcsButton(
+                      EnhancedStatisticsButton(
                         course: course,
                       ),
-                      CourseInterviewButton(
+                      EnhancedInterviewButton(
                         course: course,
                       ),
-                      CourseEditButton(
+                      EnhancedEditButton(
                         course: course,
                       ),
-                      MenuButton(
-                        title: 'Change Instructor',
-                        icon: FontAwesomeIcons.userGear,
-                        backgroundColor: Colors.brown,
-                        onTap: () {
-                          OverlayController.showChangeInstructor(
-                            context,
-                            course,
-                          );
-                        },
+                      EnhancedChangeInstructorButton(
+                        course: course,
                       ),
-                      MenuButton(
-                        title: 'Change Category',
-                        icon: Icons.category,
-                        backgroundColor: Colors.blueGrey,
-                        onTap: () {
-                          OverlayController.showChangeCategory(
-                            context,
-                            course,
-                          );
-                        },
+                      EnhancedChangeCategoryButton(
+                        course: course,
                       ),
-                      CourseDeleteButton(
+                      EnhancedDeleteButton(
                         course: course,
                       ),
                     ],
-                  ),
+                  )
                 ],
               ),
             ),
@@ -113,10 +98,14 @@ class AdminCourseMenu extends StatelessWidget {
 
   void _listener(BuildContext context, AvailableCourseStates state) {
     if (state is DeleteSuccess) {
-      AppBanners.showSuccess(message: state.successMessage);
+      AppBanners.showSuccess(
+        message: state.successMessage,
+      );
       context.pop();
     } else if (state is DeleteFailed) {
-      AppBanners.showFailed(message: state.errorMessage);
+      AppBanners.showFailed(
+        message: state.errorMessage,
+      );
     }
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Models/course_model.dart';
 import 'package:uccd/Core/app_assets.dart';
+import 'package:uccd/Core/app_dates.dart';
 import 'package:uccd/Core/theme_helper.dart';
 import 'package:uccd/Core/Components/cached_image.dart';
 import 'package:uccd/Features/User/Home/Presentation/Views/course_details_view.dart';
@@ -27,9 +28,8 @@ class CourseProgressCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final cardColor = isDarkMode ? const Color(0xFF252525) : Colors.white;
-    final borderColor = isDarkMode
-        ? const Color(0xFF3D3D3D)
-        : const Color(0xFFEAEAEA);
+    final borderColor =
+        isDarkMode ? const Color(0xFF3D3D3D) : const Color(0xFFEAEAEA);
     final textColor = isDarkMode ? Colors.white : Colors.black87;
     final secondaryTextColor = isDarkMode ? Colors.white70 : Colors.black54;
 
@@ -75,18 +75,18 @@ class CourseProgressCard extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: ThemeHelper.style16Bold(
-                          context,
-                        ).copyWith(color: textColor),
+                        style: ThemeHelper.style16Bold(context).copyWith(
+                          color: textColor,
+                        ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 4),
                       Text(
                         instructor,
-                        style: ThemeHelper.style14Regular(
-                          context,
-                        ).copyWith(color: secondaryTextColor),
+                        style: ThemeHelper.style14Regular(context).copyWith(
+                          color: secondaryTextColor,
+                        ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -113,10 +113,10 @@ class CourseProgressCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 12),
                 Text(
-                  progress.toString(),
-                  style: ThemeHelper.style14Bold(
-                    context,
-                  ).copyWith(color: ThemeHelper.appPrimaryColor),
+                  AppDates.formatLocalizedPercent(progress, context),
+                  style: ThemeHelper.style14Bold(context).copyWith(
+                    color: ThemeHelper.appPrimaryColor,
+                  ),
                 ),
               ],
             ),
@@ -129,9 +129,7 @@ class CourseProgressCard extends StatelessWidget {
 
 class CourseDetailsNavigator {
   static void navigateToCourseDetails(
-    BuildContext context,
-    CourseModel course,
-  ) {
+      BuildContext context, CourseModel course) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => CourseDetailsView(
@@ -141,6 +139,7 @@ class CourseDetailsNavigator {
             'title': 'course_title',
             'counter': 'course_counter',
           },
+          hideEnrollButton: true,
         ),
       ),
     );

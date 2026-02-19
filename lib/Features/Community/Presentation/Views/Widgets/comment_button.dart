@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:uccd/Core/Models/post_model.dart';
 import 'package:uccd/Core/app_text.dart';
-import 'package:uccd/Features/Community/Presentation/Views/comments_view.dart';
+import 'package:uccd/Features/Community/Presentation/Views/comments_screen.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class CommentButton extends StatelessWidget {
   const CommentButton({
@@ -18,7 +19,7 @@ class CommentButton extends StatelessWidget {
       child: IconButton(
         onPressed: () async {
           await context.push(
-            CommentsView.id,
+            CommentsScreen.id,
             extra: post,
           );
         },
@@ -31,14 +32,13 @@ class CommentButton extends StatelessWidget {
               color: Theme.of(context).iconTheme.color,
             ),
             Text(
-              'Comment (${post.commentsCount})',
+              S.of(context).commentsButtonLabel,
               style: AppText.style16Bold(context),
             ),
           ],
         ),
         style: IconButton.styleFrom(
-          foregroundColor: Colors.white,
-          padding: const EdgeInsets.symmetric(vertical: 12),
+          padding: const EdgeInsets.symmetric(vertical: 4),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),

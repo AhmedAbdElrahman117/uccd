@@ -12,7 +12,7 @@ class UserData extends StatelessWidget {
     return Flexible(
       child: ListTile(
         title: Text(
-          'Hello, ${InternalStorage.userData.getString('name')?.split(' ').first ?? ''}',
+          'Hello, ${InternalStorage.getString('name').split(' ').first}',
           style: AppText.style20Bold(context),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,

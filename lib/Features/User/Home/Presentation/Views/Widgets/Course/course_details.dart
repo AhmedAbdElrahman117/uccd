@@ -7,6 +7,7 @@ import 'package:uccd/Core/Components/Hero/hero_location.dart';
 import 'package:uccd/Core/Components/adaptive_container.dart';
 import 'package:uccd/Core/Components/custom_info.dart';
 import 'package:uccd/Core/app_dates.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class CourseDetails extends StatelessWidget {
   const CourseDetails({
@@ -18,6 +19,7 @@ class CourseDetails extends StatelessWidget {
     required this.interviewEndDate,
     required this.duration,
     required this.roomNumber,
+    required this.isDarkMode,
   });
 
   final Timestamp courseStartDate;
@@ -27,6 +29,7 @@ class CourseDetails extends StatelessWidget {
   final int duration;
   final int roomNumber;
   final Map<String, String> tags;
+  final bool isDarkMode;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +46,7 @@ class CourseDetails extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         children: [
           HeroDate(
-            tag: tags['CourseDate']!,
+            tag: tags['CourseDate'] ?? 'courseDate',
             date: AppDates.timeStampToString(
               courseStartDate,
             ),
@@ -55,7 +58,7 @@ class CourseDetails extends StatelessWidget {
             icon: FontAwesomeIcons.solidCalendarCheck,
           ),
           HeroDate(
-            tag: tags['InterviewDate']!,
+            tag: tags['InterviewDate'] ?? 'interviewDate',
             date: AppDates.timeStampToString(
               interviewStartDate,
             ),
@@ -68,195 +71,23 @@ class CourseDetails extends StatelessWidget {
             icon: FontAwesomeIcons.clipboardCheck,
           ),
           HeroDuration(
-            tag: tags['Duration']!,
-            duration: '$duration Hour',
+            tag: tags['Duration'] ?? 'duration',
+            duration:
+                '${getLocalizedNumber(roomNumber, context)} ${S.of(context).Hour}',
           ),
           HeroLocation(
-            tag: tags['Location']!,
-            location: '$roomNumber',
+            tag: tags['Location'] ?? 'location',
+            location: getLocalizedNumber(
+              roomNumber,
+              context,
+            ),
           ),
         ],
       ),
     );
   }
+
+  String getLocalizedNumber(num number, BuildContext context) {
+    return AppDates.formatLocalizedNumber(number, context);
+  }
 }
-
-// HeroImage(
-//               tag: widget.tags['Image']!,
-//               verticalPadding: 30,
-//               imageHeight: MediaQuery.sizeOf(context).height * 0.42,
-//               image: widget.course.imageLink,
-//             ),
-            // ListTile(
-            //   title: HeroTitle(
-            //     tag: widget.tags['Title']!,
-            //     fontSize: 22,
-            //     title: widget.course.title,
-            //   ),
-            //   subtitle: Text(
-            //     widget.course.category,
-            //     style: AppText.style14Bold(context),
-            //   ),
-            //   trailing: Hero(
-            //     tag: widget.tags['Counter']!,
-            //     child: CounterBanner(
-            //       current: widget.course.currentStudents!,
-            //       max: widget.course.maxAcceptedStudents,
-            //     ),
-            //   ),
-            //   contentPadding: EdgeInsets.zero,
-            // ),
-            // CourseInstructorDetails(
-            //   instructorName: widget.course.instructor,
-            // ),
-            // GridView(
-            //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            //     crossAxisCount: 2,
-            //     mainAxisExtent: 60,
-            //   ),
-            //   shrinkWrap: true,
-            //   physics: const NeverScrollableScrollPhysics(),
-            //   children: [
-            //     HeroDate(
-            //       tag: widget.tags['CourseDate']!,
-            //       date: AppDates.timeStampToString(
-            //         widget.course.courseStartDate,
-            //       ),
-            //     ),
-            //     CustomInfo(
-            //       info: AppDates.timeStampToString(
-            //         widget.course.courseEndDate,
-            //       ),
-            //       icon: FontAwesomeIcons.solidCalendarCheck,
-            //     ),
-            //     HeroDate(
-            //       tag: widget.tags['InterviewDate']!,
-            //       date: AppDates.timeStampToString(
-            //         widget.course.interviewStartDate,
-            //       ),
-            //       icon: FontAwesomeIcons.clipboardQuestion,
-            //     ),
-            //     CustomInfo(
-            //       info: AppDates.timeStampToString(
-            //         widget.course.interviewEndDate,
-            //       ),
-            //       icon: FontAwesomeIcons.clipboardCheck,
-            //     ),
-            //     HeroDuration(
-            //       tag: widget.tags['Duration']!,
-            //       duration: '${widget.course.duration} Hour',
-            //     ),
-            //     HeroLocation(
-            //       tag: widget.tags['Location']!,
-            //       location: '${widget.course.roomNumber}',
-            //     ),
-            //   ],
-            // ),
-            // AdaptiveContainer(
-            //   allPadding: 12,
-            //   child: Column(
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: [
-            //       CourseLearningsSection(
-            //         goals: widget.course.courseGoals,
-            //       ),
-            //       ItemDescription(
-            //         description: widget.course.description,
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            // SizedBox(height: 12),
-
-// ListView(
-//           padding: const EdgeInsets.symmetric(horizontal: 16),
-//           children: [
-            // ListTile(
-            //   title: HeroTitle(
-            //     tag: widget.tags['Title']!,
-            //     fontSize: 22,
-            //     title: widget.course.title,
-            //   ),
-            //   subtitle: Text(
-            //     widget.course.category,
-            //     style: AppText.style14Bold(context),
-            //   ),
-            //   trailing: Hero(
-            //     tag: widget.tags['Counter']!,
-            //     child: CounterBanner(
-            //       current: widget.course.currentStudents!,
-            //       max: widget.course.maxAcceptedStudents,
-            //     ),
-            //   ),
-            //   contentPadding: EdgeInsets.zero,
-            // ),
-            // CourseInstructorDetails(
-            //   instructorName: widget.course.instructor,
-            // ),
-            // HeroImage(
-            //   tag: widget.tags['Image']!,
-            //   verticalPadding: 30,
-            //   imageHeight: MediaQuery.sizeOf(context).height * 0.25,
-            //   image: widget.course.imageLink,
-            //   isLargeImage: true,
-            // ),
-            // GridView(
-            //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            //     crossAxisCount: 2,
-            //     mainAxisExtent: 60,
-            //   ),
-            //   shrinkWrap: true,
-            //   physics: const NeverScrollableScrollPhysics(),
-            //   children: [
-            //     HeroDate(
-            //       tag: widget.tags['CourseDate']!,
-            //       date: AppDates.timeStampToString(
-            //         widget.course.courseStartDate,
-            //       ),
-            //     ),
-            //     CustomInfo(
-            //       info: AppDates.timeStampToString(
-            //         widget.course.courseEndDate,
-            //       ),
-            //       icon: FontAwesomeIcons.solidCalendarCheck,
-            //     ),
-            //     HeroDate(
-            //       tag: widget.tags['InterviewDate']!,
-            //       date: AppDates.timeStampToString(
-            //         widget.course.interviewStartDate,
-            //       ),
-            //       icon: FontAwesomeIcons.clipboardQuestion,
-            //     ),
-            //     CustomInfo(
-            //       info: AppDates.timeStampToString(
-            //         widget.course.interviewEndDate,
-            //       ),
-            //       icon: FontAwesomeIcons.clipboardCheck,
-            //     ),
-            //     HeroDuration(
-            //       tag: widget.tags['Duration']!,
-            //       duration: '${widget.course.duration} Hour',
-            //     ),
-            //     HeroLocation(
-            //       tag: widget.tags['Location']!,
-            //       location: '${widget.course.roomNumber}',
-            //     ),
-            //   ],
-            // ),
-            // AdaptiveContainer(
-            //   allPadding: 12,
-            //   child: Column(
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: [
-            //       CourseLearningsSection(
-            //         goals: widget.course.courseGoals,
-            //       ),
-            //       ItemDescription(
-            //         description: widget.course.description,
-            //       ),
-            //     ],
-            //   ),
-            // ),
-//             const SizedBox(height: 16),
-//           ],
-//         ),

@@ -144,7 +144,7 @@ class _CommunityTabState extends State<CommunityTab>
           child: FloatingActionButton.extended(
             backgroundColor: AppColor.primary,
             onPressed: () {
-              OverlayController.showAddPostDialog(context);
+              OverlayController.showCreatePostDialog(context);
             },
             label: Text(
               S.of(context).createPostButton,

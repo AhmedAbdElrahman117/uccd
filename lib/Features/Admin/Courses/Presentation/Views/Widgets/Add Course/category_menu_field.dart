@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Add%20Course%20Cubit/add_course_cubit.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Add%20Course%20Cubit/add_course_states.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class CategoryMenuField extends StatefulWidget {
   const CategoryMenuField({
@@ -37,13 +38,13 @@ class _CategoryMenuFieldState extends State<CategoryMenuField> {
           decoration: InputDecoration(
             prefixIcon: const Icon(Icons.person),
             hintText: state is DataLoading
-                ? 'Loading'
+                ? S.of(context).loadingText
                 : state is DataFailed
                     ? state.errorMessage
                     : state is DataEmpty
-                        ? 'No Categories Registered'
+                        ? S.of(context).noCategoriesRegistered
                         : state is CategoriesLoaded
-                            ? 'Categories'
+                            ? S.of(context).categoriesLabel
                             : '',
             enabled: state is CategoriesLoaded && widget.enabled!,
           ),
@@ -73,7 +74,7 @@ class _CategoryMenuFieldState extends State<CategoryMenuField> {
               : null,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Select Category';
+              return S.of(context).selectCategory;
             }
             return null;
           },

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uccd/Core/Components/custom_button.dart';
 import 'package:uccd/Core/Models/category_model.dart';
 import 'package:uccd/Features/Profile/Presentation/Views%20Model/Add%20Category%20Cubit/add_category_cubit.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class AddCategoryButton extends StatelessWidget {
   const AddCategoryButton({
@@ -22,7 +23,9 @@ class AddCategoryButton extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: CustomButton(
-        title: category == null ? 'Add' : 'Edit',
+        title: category == null
+            ? S.of(context).addButtonLabel
+            : S.of(context).editButtonLabel,
         onPressed: () {
           if (_categoryFormKey.currentState!.validate()) {
             CategoryModel newcategory = CategoryModel(

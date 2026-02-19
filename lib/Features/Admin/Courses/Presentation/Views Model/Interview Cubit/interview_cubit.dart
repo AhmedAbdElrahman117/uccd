@@ -100,12 +100,15 @@ class InterviewCubit extends Cubit<InterviewStates> {
     }
   }
 
-  void accept({required CourseModel course, required String studentID}) async {
+  void accept({
+    required CourseModel course,
+    required StudentModel student,
+  }) async {
     emit(InterviewLoading());
     try {
       await repo.acceptStudent(
         course: course,
-        studentID: studentID,
+        student: student,
       );
       emit(InterviewSuccess());
     } catch (e) {
@@ -115,12 +118,15 @@ class InterviewCubit extends Cubit<InterviewStates> {
     }
   }
 
-  void reject({required CourseModel course, required String studentID}) async {
+  void reject({
+    required CourseModel course,
+    required StudentModel student,
+  }) async {
     emit(InterviewLoading());
     try {
       await repo.rejectStudent(
         course: course,
-        studentID: studentID,
+        student: student,
       );
       emit(InterviewSuccess());
     } catch (e) {

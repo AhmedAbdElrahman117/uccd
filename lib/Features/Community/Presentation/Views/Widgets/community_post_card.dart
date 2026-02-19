@@ -126,12 +126,18 @@ class CommunityPostCard extends StatelessWidget {
                     children: [
                       Text(
                         S.of(context).likesCount(
-                              post.likesCount.toString(),
+                              AppDates.formatLocalizedNumber(
+                                post.likesCount ?? 0,
+                                context,
+                              ),
                             ),
                       ),
                       Text(
                         S.of(context).commentsCount(
-                              post.commentsCount.toString(),
+                              AppDates.formatLocalizedNumber(
+                                post.commentsCount ?? 0,
+                                context,
+                              ),
                             ),
                       ),
                     ],

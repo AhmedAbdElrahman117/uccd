@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Add%20Course%20Cubit/add_course_cubit.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Add%20Course%20Cubit/add_course_states.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class InstructorMenuField extends StatefulWidget {
   const InstructorMenuField({
@@ -39,13 +40,13 @@ class _InstructorMenuFieldState extends State<InstructorMenuField>
           decoration: InputDecoration(
             prefixIcon: const Icon(Icons.person),
             hintText: state is DataLoading
-                ? 'Loading'
+                ? S.of(context).loadingText
                 : state is DataFailed
                     ? state.errorMessage
                     : state is DataEmpty
-                        ? 'No Instructors Registered'
+                        ? S.of(context).noInstructorsRegistered
                         : state is InstructorsLoaded
-                            ? 'Instrcutors'
+                            ? S.of(context).instructorsLabel
                             : '',
             enabled: state is InstructorsLoaded && widget.enabled!,
           ),
@@ -76,7 +77,7 @@ class _InstructorMenuFieldState extends State<InstructorMenuField>
               : null,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Select One Instructor';
+              return S.of(context).selectOneInstructor;
             }
             return null;
           },

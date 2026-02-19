@@ -17,75 +17,91 @@ class UserHomeCubit extends Cubit<UserHomeStates> {
   StreamSubscription? subscription;
   List<CourseModel> courses = [];
   List<CategoryModel> categories = [];
-  String currentCategory = 'All';
-  String searchQuery = '';
+  // Track current filter and search state
+  String _currentCategory = 'All';
+  String _currentSearchQuery = '';
 
-  bool get isFiltered => currentCategory != 'All' || searchQuery.isNotEmpty;
+  // Getter methods to access filtering state
+  String get currentCategory => _currentCategory;
+  String get currentSearchQuery => _currentSearchQuery;
+  bool get isFiltered =>
+      _currentSearchQuery.isNotEmpty || _currentCategory != 'All';
 
   void getCourses() {
     emit(DataLoading());
-    subscription =
-        Rx.combineLatest2(
-          repo.getCourses(),
-          categoryRepo.getCategories(),
-          (a, b) => {'courses': a, 'categories': b},
-        ).listen((event) {
-          courses = event['courses'] as List<CourseModel>;
-          categories = event['categories'] as List<CategoryModel>;
-          event['courses']!.isEmpty
-              ? emit(DataEmpty())
-              : emit(
-                  DataLoaded(
-                    courses: event['courses'] as List<CourseModel>,
-                    categories: event['categories'] as List<CategoryModel>,
-                  ),
-                );
-        }, onError: (error) => DataFailed(errorMessage: error.toString()));
+    subscription = Rx.combineLatest2(
+      repo.getCourses(),
+      categoryRepo.getCategories(),
+      (a, b) => {
+        'courses': a,
+        'categories': b,
+      },
+    ).listen(
+      (event) {
+        courses = event['courses'] as List<CourseModel>;
+        categories = event['categories'] as List<CategoryModel>;
+        // Apply any existing filters once data is loaded
+        _applyFilters();
+      },
+      onError: (error) => emit(DataFailed(
+        errorMessage: error.toString(),
+      )),
+    );
   }
 
-  void filter(String option) {
-    currentCategory = option;
+  // Filter by category
+  void filter(String category) {
+    _currentCategory = category;
     _applyFilters();
   }
 
+  // Search with the given query
   void search(String query) {
-    searchQuery = query.toLowerCase();
+    _currentSearchQuery = query;
     _applyFilters();
   }
 
+  // Reset all filters
   void resetFilters() {
-    currentCategory = 'All';
-    searchQuery = '';
+    _currentCategory = 'All';
+    _currentSearchQuery = '';
     _applyFilters();
   }
 
+  // Apply both category and search filters
   void _applyFilters() {
-    var filteredCourses = courses;
+    // First filter by category
+    List<CourseModel> filteredCourses = _currentCategory == 'All'
+        ? courses
+        : courses
+            .where((course) => course.category == _currentCategory)
+            .toList();
 
-    // Apply category filter
-    if (currentCategory != 'All') {
+    // Then apply search if we have a query
+    if (_currentSearchQuery.isNotEmpty) {
       filteredCourses = filteredCourses
-          .where((element) => element.category == currentCategory)
+          .where((course) =>
+              course.title
+                  .toLowerCase()
+                  .contains(_currentSearchQuery.toLowerCase()) ||
+              course.instructor
+                  .toLowerCase()
+                  .contains(_currentSearchQuery.toLowerCase()) ||
+              course.description
+                  .toLowerCase()
+                  .contains(_currentSearchQuery.toLowerCase()))
           .toList();
     }
 
-    // Apply search filter
-    if (searchQuery.isNotEmpty) {
-      filteredCourses = filteredCourses
-          .where(
-            (course) =>
-                course.title.toLowerCase().contains(searchQuery) ||
-                course.instructor.toLowerCase().contains(searchQuery) ||
-                course.category.toLowerCase().contains(searchQuery),
-          )
-          .toList();
-    }
-
-    if (filteredCourses.isEmpty) {
-      emit(DataEmpty());
-    } else {
-      emit(DataLoaded(courses: filteredCourses, categories: categories));
-    }
+    // Emit appropriate state
+    filteredCourses.isEmpty
+        ? emit(DataEmpty())
+        : emit(
+            DataLoaded(
+              courses: filteredCourses,
+              categories: categories,
+            ),
+          );
   }
 
   @override

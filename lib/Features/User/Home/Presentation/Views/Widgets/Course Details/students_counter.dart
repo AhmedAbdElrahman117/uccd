@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uccd/Core/app_dates.dart';
 import 'package:uccd/Core/app_text.dart';
 import 'package:uccd/generated/l10n.dart';
 
@@ -17,10 +18,16 @@ class CourseEnrollmentCounter extends StatelessWidget {
     return Row(
       spacing: 4,
       children: [
-        const Icon(Icons.people, size: 16, color: Colors.grey),
+        const Icon(
+          Icons.people,
+          size: 16,
+          color: Colors.grey,
+        ),
         Text(
-          '${currentStudents ?? 0}/$maxStudents ${S.of(context).Student}',
-          style: AppText.style14Regular(context).copyWith(color: Colors.grey),
+          '${AppDates.formatLocalizedNumber(currentStudents ?? 0, context)}/${AppDates.formatLocalizedNumber(maxStudents, context)} ${S.of(context).Student}',
+          style: AppText.style14Regular(context).copyWith(
+            color: Colors.grey,
+          ),
         ),
       ],
     );

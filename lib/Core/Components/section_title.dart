@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uccd/Core/app_text.dart';
+import 'package:uccd/Core/theme_helper.dart';
 
 class SectionTitle extends StatelessWidget {
   const SectionTitle({
@@ -8,12 +8,11 @@ class SectionTitle extends StatelessWidget {
   });
 
   final String title;
-
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: AppText.style20Bold(context),
+      style: ThemeHelper.style20Bold(context),
       textAlign: TextAlign.start,
     );
   }

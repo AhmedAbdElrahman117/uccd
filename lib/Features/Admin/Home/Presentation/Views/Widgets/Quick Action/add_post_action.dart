@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/overlay_controller.dart';
 import 'package:uccd/Features/Admin/Home/Presentation/Views/Widgets/Quick%20Action/action_card.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class AddPostAction extends StatelessWidget {
   const AddPostAction({
@@ -10,9 +11,9 @@ class AddPostAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ActionCard(
-      title: 'Add Post',
+      title: S.of(context).addPost,
       onTap: () {
-        OverlayController.showAddPostDialog(context);
+        OverlayController.showCreatePostDialog(context);
       },
     );
   }

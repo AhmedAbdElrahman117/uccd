@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:uccd/Core/Models/post_model.dart';
 import 'package:uccd/Core/app_banners.dart';
+import 'package:uccd/Core/app_exception.dart';
 import 'package:uccd/Core/app_color.dart';
 import 'package:uccd/Core/app_text.dart';
 import 'package:uccd/Features/Community/Presentation/Views Model/Add Post Cubit/add_post_cubit.dart';
@@ -75,7 +76,10 @@ class _CreatePostDialogState extends State<CreatePostDialog> {
     );
 
     // Use the AddPostCubit to handle the post creation
-    _addPostCubit.addPost(post: post, image: _selectedImage);
+    _addPostCubit.addPost(
+      post: post,
+      image: _selectedImage,
+    );
   }
 
   @override
@@ -94,7 +98,12 @@ class _CreatePostDialogState extends State<CreatePostDialog> {
               _errorMessage = null;
             });
           } else if (state is AddUpdateSuccess) {
-            AppBanners.showSuccess(message: state.successMessage);
+            AppBanners.showSuccess(
+              message: AppException.getLocalizedMessage(
+                state.successMessage,
+                context,
+              ),
+            );
             Navigator.pop(context);
           } else if (state is AddUpdateFailed) {
             setState(() {
@@ -121,13 +130,16 @@ class _CreatePostDialogState extends State<CreatePostDialog> {
                     children: [
                       Text(
                         S.of(context).createPostDialogTitle,
-                        style: AppText.style18Bold(
-                          context,
-                        ).copyWith(color: textColor),
+                        style: AppText.style18Bold(context).copyWith(
+                          color: textColor,
+                        ),
                       ),
                       IconButton(
                         onPressed: () => Navigator.pop(context),
-                        icon: Icon(Icons.close, color: textColor),
+                        icon: Icon(
+                          Icons.close,
+                          color: textColor,
+                        ),
                       ),
                     ],
                   ),
@@ -138,21 +150,18 @@ class _CreatePostDialogState extends State<CreatePostDialog> {
                     children: [
                       CircleAvatar(
                         radius: 20,
-                        backgroundColor: AppColor.primary.withValues(
-                          alpha: 0.2,
-                        ),
+                        backgroundColor:
+                            AppColor.primary.withValues(alpha: 0.2),
                         backgroundImage:
                             InternalStorage.getString('profileImage').isNotEmpty
-                            ? NetworkImage(
-                                InternalStorage.getString('profileImage'),
-                              )
-                            : null,
+                                ? NetworkImage(
+                                    InternalStorage.getString('profileImage'))
+                                : null,
                         child: InternalStorage.getString('profileImage').isEmpty
                             ? Text(
                                 InternalStorage.getString('name').isNotEmpty
-                                    ? InternalStorage.getString(
-                                        'name',
-                                      )[0].toUpperCase()
+                                    ? InternalStorage.getString('name')[0]
+                                        .toUpperCase()
                                     : '?',
                                 style: const TextStyle(
                                   fontSize: 18,
@@ -165,9 +174,9 @@ class _CreatePostDialogState extends State<CreatePostDialog> {
                       const SizedBox(width: 12),
                       Text(
                         InternalStorage.getString('name'),
-                        style: AppText.style14Bold(
-                          context,
-                        ).copyWith(color: textColor),
+                        style: AppText.style14Bold(context).copyWith(
+                          color: textColor,
+                        ),
                       ),
                     ],
                   ),
@@ -179,9 +188,8 @@ class _CreatePostDialogState extends State<CreatePostDialog> {
                     style: TextStyle(color: textColor),
                     decoration: InputDecoration(
                       hintText: S.of(context).postContentHint,
-                      hintStyle: TextStyle(
-                        color: textColor.withValues(alpha: 0.6),
-                      ),
+                      hintStyle:
+                          TextStyle(color: textColor.withValues(alpha: 0.6)),
                       border: InputBorder.none,
                       enabledBorder: InputBorder.none,
                       focusedBorder: InputBorder.none,
@@ -238,7 +246,10 @@ class _CreatePostDialogState extends State<CreatePostDialog> {
                       padding: const EdgeInsets.only(top: 8),
                       child: Text(
                         _errorMessage!,
-                        style: const TextStyle(color: Colors.red, fontSize: 14),
+                        style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 14,
+                        ),
                       ),
                     ),
 
@@ -264,9 +275,7 @@ class _CreatePostDialogState extends State<CreatePostDialog> {
                           backgroundColor: AppColor.primary,
                           foregroundColor: Colors.white,
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 24,
-                            vertical: 12,
-                          ),
+                              horizontal: 24, vertical: 12),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
@@ -280,7 +289,9 @@ class _CreatePostDialogState extends State<CreatePostDialog> {
                                   strokeWidth: 2,
                                 ),
                               )
-                            : Text(S.of(context).Post),
+                            : Text(
+                                S.of(context).Post,
+                              ),
                       ),
                     ],
                   ),

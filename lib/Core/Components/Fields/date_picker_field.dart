@@ -39,12 +39,15 @@ class DatePickerField extends StatelessWidget {
           () async {
             DateTime? selectedDate = await showDatePicker(
               context: context,
+              locale: Localizations.localeOf(context),
               firstDate: DateTime(2018),
               lastDate: DateTime(2500),
               currentDate: DateTime.now(),
             );
             if (selectedDate != null) {
-              Jiffy date = Jiffy.parseFromDateTime(selectedDate);
+              Jiffy date = Jiffy.parseFromDateTime(
+                selectedDate,
+              );
               dateController.text = date.format(pattern: dateFormat);
             }
           },

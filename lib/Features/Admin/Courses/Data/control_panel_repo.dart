@@ -5,8 +5,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uccd/Core/Models/course_model.dart';
+import 'package:uccd/Core/Models/log_model.dart';
 import 'package:uccd/Core/Models/user_model.dart';
 import 'package:uccd/Core/storage.dart';
+import 'package:uccd/main.dart';
 
 class ControlPanelRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -49,11 +51,22 @@ class ControlPanelRepo {
 
       await _firestore.collection('courses').doc(course.courseID).delete();
 
-      return 'Course Deleted Successfully';
+      LogModel log = LogModel(
+        userName: InternalStorage.getString('name'),
+        userEmail: InternalStorage.getString('email'),
+        action: 'Deleted Course ${course.title}',
+        actionType: 'Delete',
+        createdAt: Timestamp.now(),
+      );
+
+      _firestore.collection('logs').add(
+            log.toMap(),
+          );
+      return 'courseDeletedSuccessfully';
     } on TimeoutException {
-      throw ('Connection Timeout');
+      throw ('connectionTimeout');
     } on SocketException {
-      throw ('No Internet Connection');
+      throw ('noInternetConnection');
     } on StorageException catch (e) {
       throw (e.message);
     } on FirebaseException catch (e) {
@@ -97,17 +110,29 @@ class ControlPanelRepo {
           'interviewEndDate': newCourse.interviewEndDate,
           'maxAcceptedStudents': newCourse.maxAcceptedStudents,
           'courseGoals': newCourse.courseGoals,
-          'imageLink': newCourse.imageLink ?? link,
-          'imageName': newCourse.imageName ?? image?.name,
+          'imageLink': link,
+          'imageName': image?.name,
         },
       ).timeout(
         const Duration(seconds: 40),
       );
-      return 'Course Updated Successfully';
+
+      LogModel log = LogModel(
+        userName: InternalStorage.getString('name'),
+        userEmail: InternalStorage.getString('email'),
+        action: 'Updated Course ${newCourse.title}',
+        actionType: 'Update',
+        createdAt: Timestamp.now(),
+      );
+
+      _firestore.collection('logs').add(
+            log.toMap(),
+          );
+      return 'courseUpdatedSuccessfully';
     } on TimeoutException {
-      throw ('Connection Timeout');
+      throw ('connectionTimeout');
     } on SocketException {
-      throw ('No Internet Connection');
+      throw ('noInternetConnection');
     } on StorageException catch (e) {
       throw (e.message);
     } on FirebaseException catch (e) {
@@ -118,7 +143,7 @@ class ControlPanelRepo {
   }
 
   Future<String> editCourseCategory({
-    required String courseID,
+    required CourseModel course,
     required String oldCategoryID,
     required String newCategoryName,
     required String newCategoryID,
@@ -126,7 +151,7 @@ class ControlPanelRepo {
     try {
       var enrolledStudents = await _firestore
           .collection('courses')
-          .doc(courseID)
+          .doc(course.courseID)
           .collection('students')
           .get();
 
@@ -141,7 +166,7 @@ class ControlPanelRepo {
             .contains(newCategoryName)) {
           await _firestore
               .collection('courses')
-              .doc(courseID)
+              .doc(course.courseID)
               .collection('students')
               .doc(user.id)
               .delete();
@@ -150,7 +175,7 @@ class ControlPanelRepo {
               .collection('users')
               .doc(user.id)
               .collection('courses')
-              .doc(courseID)
+              .doc(course.courseID)
               .delete();
         } else {
           await _firestore.collection('users').doc(user.id).update(
@@ -166,18 +191,30 @@ class ControlPanelRepo {
         }
       }
 
-      await _firestore.collection('courses').doc(courseID).update(
+      await _firestore.collection('courses').doc(course.courseID).update(
         {
           'category': newCategoryName,
           'categoryID': newCategoryID,
         },
       );
 
-      return 'Category Changed Successfully';
+      LogModel log = LogModel(
+        userName: InternalStorage.getString('name'),
+        userEmail: InternalStorage.getString('email'),
+        action:
+            'Updated Course ${course.title} Category From ${course.category} To $newCategoryName',
+        actionType: 'Update',
+        createdAt: Timestamp.now(),
+      );
+
+      _firestore.collection('logs').add(
+            log.toMap(),
+          );
+      return 'categoryChangedSuccessfully';
     } on TimeoutException {
-      throw ('Connection Timeout');
+      throw ('connectionTimeout');
     } on SocketException {
-      throw ('No Internet Connection');
+      throw ('noInternetConnection');
     } on FirebaseException catch (e) {
       throw (e.message ?? e.code);
     } on Exception catch (e) {

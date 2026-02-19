@@ -1,16 +1,19 @@
+import 'package:flutter/material.dart';
+import 'package:uccd/generated/l10n.dart';
+
 class AppException {
   static String firebaseAuthSignup(String code) {
     switch (code) {
       case 'email-already-in-use':
-        return 'Email Already in Use';
+        return 'emailAlreadyInUse';
       case 'invalid-email':
-        return 'Invalid Email';
+        return 'authInvalidEmail';
       case 'operation-not-allowed':
-        return 'Email is Not Enabled Contact Support';
+        return 'emailNotEnabled';
       case 'too-many-requests':
-        return 'Try Again Later';
+        return 'tryAgainLater';
       case 'network-request-failed':
-        return 'Check Your Internet Connection And Try Again Later';
+        return 'checkInternetConnection';
       default:
         return '';
     }
@@ -19,24 +22,58 @@ class AppException {
   static String firebaseAuthLogin(String code) {
     switch (code) {
       case 'user-disabled':
-        return 'User Account is Diabled Contact Support';
+        return 'userAccountDisabled';
       case 'user-not-found':
-        return 'No Such Email Found';
+        return 'noSuchEmailFound';
       case 'invalid-email':
-        return 'Invalid Email';
+        return 'authInvalidEmail';
       case 'wrong-password':
-        return 'Wrong Password';
+        return 'wrongPassword';
       case 'INVALID_LOGIN_CREDENTIALS':
       case 'invalid-credential':
-        return 'Email Or Password is Invalid';
+        return 'emailOrPasswordInvalid';
       case 'operation-not-allowed':
-        return 'Email is Not Enabled Contact Support';
+        return 'emailNotEnabled';
       case 'too-many-requests':
-        return 'Try Again Later';
+        return 'tryAgainLater';
       case 'network-request-failed':
-        return 'Check Your Internet Connection And Try Again Later';
+        return 'checkInternetConnection';
       default:
-        return 'Unknown Error';
+        return 'unknownError';
+    }
+  }
+
+  /// Translates error message keys to localized strings
+  static String getLocalizedMessage(String errorKey, BuildContext context) {
+    switch (errorKey) {
+      case 'emailAlreadyInUse':
+        return S.of(context).emailAlreadyInUse;
+      case 'authInvalidEmail':
+        return S.of(context).authInvalidEmail;
+      case 'emailNotEnabled':
+        return S.of(context).emailNotEnabled;
+      case 'tryAgainLater':
+        return S.of(context).tryAgainLater;
+      case 'checkInternetConnection':
+        return S.of(context).checkInternetConnection;
+      case 'userAccountDisabled':
+        return S.of(context).userAccountDisabled;
+      case 'noSuchEmailFound':
+        return S.of(context).noSuchEmailFound;
+      case 'wrongPassword':
+        return S.of(context).wrongPassword;
+      case 'emailOrPasswordInvalid':
+        return S.of(context).emailOrPasswordInvalid;
+      case 'unknownError':
+        return S.of(context).unknownError;
+      case 'connectionTimeout':
+        return S.of(context).connectionTimeout;
+      case 'noUser':
+        return S.of(context).noUser;
+      case 'noUserFoundContactSupport':
+        return S.of(context).noUserFoundContactSupport;
+      default:
+        return errorKey; // Return the key itself if not found
     }
   }
 }

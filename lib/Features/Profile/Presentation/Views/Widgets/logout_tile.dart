@@ -5,23 +5,27 @@ import 'package:uccd/Core/overlay_controller.dart';
 import 'package:uccd/Features/Login/Presentation/Views/login_view.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/Widgets/custom_tile.dart';
 import 'package:uccd/main.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class LogoutTile extends StatelessWidget {
   const LogoutTile({super.key});
-
   @override
   Widget build(BuildContext context) {
     return CustomTile(
-      title: 'Logout',
+      title: S.of(context).logout,
       icon: Icons.logout_outlined,
       onTap: () {
         OverlayController.showLogoutDialog(
           context,
-          message: 'Are you sure you want to Logout',
+          message: S.of(context).logoutConfirmation,
           onConfirm: () async {
             InternalStorage.setString('id', '');
+            InternalStorage.setString('role', '');
+            InternalStorage.setString('email', '');
+            InternalStorage.setString('name', '');
+            InternalStorage.setString('department', '');
+            InternalStorage.setString('year', '');
             await FirebaseAuth.instance.signOut();
-            // ignore: use_build_context_synchronously
             context.go(LoginView.id);
           },
         );

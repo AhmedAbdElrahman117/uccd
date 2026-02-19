@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Components/Fields/custom_password_field.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class LoginPasswordField extends StatelessWidget {
   const LoginPasswordField({
@@ -8,16 +9,12 @@ class LoginPasswordField extends StatelessWidget {
   });
 
   final TextEditingController passwordController;
-
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30, bottom: 50),
-      child: CustomPasswordField(
-        passwordController: passwordController,
-        label: 'Password',
-        hint: 'Enter your Password',
-      ),
+    return CustomPasswordField(
+      passwordController: passwordController,
+      label: S.of(context).password,
+      hint: S.of(context).passwordHint,
     );
   }
 }

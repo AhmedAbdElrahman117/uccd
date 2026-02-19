@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:uccd/Core/app_text.dart';
+import 'package:uccd/Core/theme_helper.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -43,7 +43,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.textController,
-      style: AppText.style16Bold(context).copyWith(
+      style: ThemeHelper.style16Bold(context).copyWith(
         fontWeight: FontWeight.w400,
       ),
       inputFormatters: widget.keyboardType == TextInputType.number
@@ -53,18 +53,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
       autocorrect: false,
       enableSuggestions: false,
       keyboardType: widget.keyboardType ?? TextInputType.text,
-      decoration: InputDecoration(
+      decoration: ThemeHelper.getInputDecoration(
+        context,
         labelText: widget.label,
         hintText: widget.hint,
-        hintFadeDuration: const Duration(milliseconds: 100),
-        alignLabelWithHint: true,
-        prefixIcon: Icon(
-          widget.icon,
-          size: 26,
-          color: Theme.of(context).iconTheme.color,
-        ),
+        prefixIcon: widget.icon != null
+            ? Icon(
+                widget.icon,
+                size: 26,
+                color: context.iconColor,
+              )
+            : null,
         suffixIcon: widget.suffix,
-      ).applyDefaults(Theme.of(context).inputDecorationTheme),
+      ),
       validator: widget.validator,
       onTap: widget.onTap,
       canRequestFocus: widget.canRequestFocus ?? true,

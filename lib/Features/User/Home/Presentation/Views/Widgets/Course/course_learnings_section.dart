@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:uccd/Core/app_text.dart';
+import 'package:uccd/Features/User/Home/Presentation/Views/Widgets/Course%20Details/course_section_title.dart';
 import 'package:uccd/Features/User/Home/Presentation/Views/Widgets/Course/course_learnings_list.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class CourseLearningsSection extends StatelessWidget {
   const CourseLearningsSection({
@@ -14,21 +15,18 @@ class CourseLearningsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Visibility(
       visible: goals != null && goals!.isNotEmpty,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 16,
-          children: [
-            Text(
-              'What you\'ill learn:',
-              style: AppText.style22Bold(context),
-            ),
-            CourseLearningsList(
-              goals: goals,
-            ),
-          ],
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CourseSectionTitle(
+            title: S.of(context).WhatYouWillLearn,
+            icon: Icons.school,
+          ),
+          const SizedBox(height: 16),
+          CourseLearningsList(
+            goals: goals,
+          ),
+        ],
       ),
     );
   }

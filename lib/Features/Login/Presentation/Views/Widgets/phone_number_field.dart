@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Components/Fields/alpha_numeric_field.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class PhoneNumberField extends StatelessWidget {
   const PhoneNumberField({
@@ -13,18 +14,18 @@ class PhoneNumberField extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlphaNumericField(
       controller: phoneNumberController,
-      label: 'Phone',
-      hint: 'Enter your Phone Number',
+      label: S.of(context).phoneNumber,
+      hint: S.of(context).phoneNumberHint,
       keyboardType: TextInputType.number,
       icon: Icons.phone,
       validator: (value) {
         final regex = RegExp(r'^(010|011|012|015)[0-9]{8}$');
         if (value!.isEmpty) {
-          return 'Required Field';
+          return S.of(context).requiredField;
         } else if (value.length < 11) {
-          return 'Phone Number are less Than 11 Numbers';
+          return S.of(context).phoneNumberTooShort;
         } else if (!regex.hasMatch(value)) {
-          return 'Invalid Phone Number';
+          return S.of(context).invalidPhoneNumber;
         }
         return null;
       },

@@ -1,51 +1,62 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uccd/Core/Models/comment_model.dart';
+import 'package:uccd/Core/app_color.dart';
 import 'package:uccd/Features/Community/Presentation/Views%20Model/Comments%20Cubit/comment_cubit.dart';
-import 'package:uccd/Features/Community/Presentation/Views%20Model/Comments%20Cubit/comment_states.dart';
 import 'package:uccd/main.dart';
 
 class AddCommentButton extends StatelessWidget {
   const AddCommentButton({
     super.key,
+    required this.isLoading,
+    required this.formKey,
+    required this.commentCubit,
     required this.commentController,
-    required this.commentsKey,
-    required this.postID,
   });
 
+  final bool isLoading;
+  final GlobalKey<FormState> formKey;
+  final CommentCubit commentCubit;
   final TextEditingController commentController;
-  final GlobalKey<FormState> commentsKey;
-  final String postID;
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<CommentCubit, CommentStates>(
-      listener: (context, state) {
-        if (state is CommentSuccess) {
-          commentController.clear();
-        }
-      },
-      builder: (context, state) {
-        return IconButton(
-          onPressed: state is CommentLoading
-              ? null
-              : () {
-                  if (commentsKey.currentState!.validate()) {
-                    CommentModel comment = CommentModel(
+    return Material(
+      color: AppColor.primary,
+      borderRadius: BorderRadius.circular(25),
+      child: InkWell(
+        onTap: isLoading
+            ? null
+            : () {
+                if (formKey.currentState?.validate() ?? false) {
+                  commentCubit.comment(
+                    comment: CommentModel(
                       userName: InternalStorage.getString('name'),
-                      comment: commentController.text,
-                    );
-                    BlocProvider.of<CommentCubit>(context).comment(
-                      comment: comment,
-                    );
-                  }
-                },
-          icon: Icon(
-            Icons.send,
-            color: state is CommentLoading ? Colors.grey : Colors.white,
-          ),
-        );
-      },
+                      comment: commentController.text.trim(),
+                      commentAt: Timestamp.now(),
+                    ),
+                  );
+                }
+              },
+        borderRadius: BorderRadius.circular(25),
+        child: Container(
+          padding: const EdgeInsets.all(10),
+          child: isLoading
+              ? const SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                  ),
+                )
+              : const Icon(
+                  Icons.send_rounded,
+                  color: Colors.white,
+                  size: 24,
+                ),
+        ),
+      ),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:uccd/Core/Components/overlay_background.dart';
 import 'package:uccd/Core/app_text.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class DialogOverlay extends StatelessWidget {
   const DialogOverlay({
@@ -13,6 +14,7 @@ class DialogOverlay extends StatelessWidget {
     this.onCancel,
     required this.confirmButtonColor,
     this.onConfirm,
+    this.confirmIcon,
   });
 
   final String image;
@@ -22,6 +24,7 @@ class DialogOverlay extends StatelessWidget {
   final Color confirmButtonColor;
   final void Function()? onCancel;
   final void Function()? onConfirm;
+  final Icon? confirmIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +33,6 @@ class DialogOverlay extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Image.asset(
-          //   image,
-          //   width: 75,
-          //   height: 75,
-          // ),
           Lottie.asset(
             image,
             width: 120,
@@ -42,6 +40,9 @@ class DialogOverlay extends StatelessWidget {
             repeat: false,
             frameRate: FrameRate.max,
             fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) {
+              return Text(error.toString());
+            },
           ),
           const SizedBox(height: 24),
           Text(
@@ -60,25 +61,30 @@ class DialogOverlay extends StatelessWidget {
             spacing: 32,
             children: [
               Expanded(
-                child: OutlinedButton(
+                child: OutlinedButton.icon(
                   onPressed: onCancel,
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                   ),
-                  child: Text(
-                    'Cancel',
+                  icon: Icon(
+                    Icons.close,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                  label: Text(
+                    S.of(context).cancel,
                     style: AppText.style14Bold(context),
                   ),
                 ),
               ),
               Expanded(
-                child: ElevatedButton(
+                child: ElevatedButton.icon(
                   onPressed: onConfirm,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: confirmButtonColor,
                     padding: const EdgeInsets.symmetric(vertical: 12),
                   ),
-                  child: Text(
+                  icon: confirmIcon,
+                  label: Text(
                     confirmButtonText,
                     style: const TextStyle(
                       color: Colors.white,

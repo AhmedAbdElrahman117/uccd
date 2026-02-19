@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class StudentDepartmentMenu extends StatefulWidget {
   const StudentDepartmentMenu({super.key, required this.departmentController});
@@ -10,26 +11,32 @@ class StudentDepartmentMenu extends StatefulWidget {
 }
 
 class _StudentDepartmentMenuState extends State<StudentDepartmentMenu> {
-  final Map<String, String> departments = {
-    'Information Technology': 'Information Technology',
-    'Mechatronics': 'Mechatronics',
-    'Autotronics': 'Autotronics',
-    'Renewable Energy': 'Renewable Energy',
-    'O&P': 'O&P',
-  };
+  Map<String, String> _getDepartments(BuildContext context) {
+    return {
+      S.of(context).informationTechnology: 'Information Technology',
+      S.of(context).mechatronics: 'Mechatronics',
+      S.of(context).autotronics: 'Autotronics',
+      S.of(context).renewableEnergy: 'Renewable Energy',
+      S.of(context).orthoticsProsthetics: 'O&P',
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
+    final departments = _getDepartments(context);
     return DropdownButtonFormField(
-      decoration: const InputDecoration(
-        prefixIcon: Icon(Icons.person),
-        hintText: 'Department',
+      decoration: InputDecoration(
+        prefixIcon: const Icon(Icons.person),
+        hintText: S.of(context).departmentHint,
       ),
-      value: departments[widget.departmentController.text],
-      items: departments.entries.indexed
+      value: departments.values.contains(widget.departmentController.text)
+          ? widget.departmentController.text
+          : null,
+      items: departments.entries
           .map(
             (e) => DropdownMenuItem(
-              value: e.$2.value,
-              child: Text(e.$2.key),
+              value: e.value,
+              child: Text(e.key),
             ),
           )
           .toList(),
@@ -38,7 +45,7 @@ class _StudentDepartmentMenuState extends State<StudentDepartmentMenu> {
       },
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Select Department';
+          return S.of(context).selectDepartment;
         }
         return null;
       },

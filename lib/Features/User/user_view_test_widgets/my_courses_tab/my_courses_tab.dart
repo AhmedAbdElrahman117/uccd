@@ -39,9 +39,8 @@ class _MyCoursesTabState extends State<MyCoursesTab>
   Widget build(BuildContext context) {
     super.build(context);
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final backgroundColor = isDarkMode
-        ? const Color(0xFF1A1A1A)
-        : const Color(0xFFF7F7F7);
+    final backgroundColor =
+        isDarkMode ? const Color(0xFF1A1A1A) : const Color(0xFFF7F7F7);
     final textColor = isDarkMode ? Colors.white : Colors.black87;
     return BlocProvider(
       create: (context) => _myCoursesCubit,
@@ -59,9 +58,13 @@ class _MyCoursesTabState extends State<MyCoursesTab>
               child: BlocBuilder<MyCoursesCubit, MyCoursesStates>(
                 builder: (context, state) {
                   if (state is DataLoading) {
-                    return Center(child: mainLoading);
+                    return Center(
+                      child: mainLoading,
+                    );
                   } else if (state is DataFailed) {
-                    return DataErrorWidget(message: state.errorMessage);
+                    return DataErrorWidget(
+                      message: state.errorMessage,
+                    );
                   } else if (state is DataEmpty) {
                     return MyCoursesEmptyState(
                       context: context,
@@ -83,7 +86,9 @@ class _MyCoursesTabState extends State<MyCoursesTab>
                           ),
                           progress: state.data[index].progress,
                           onTap: () {
-                            _navigateToCourseDetails(state.data[index].course);
+                            _navigateToCourseDetails(
+                              state.data[index].course,
+                            );
                           },
                         );
                       },
@@ -121,7 +126,11 @@ class _MyCoursesTabState extends State<MyCoursesTab>
       MaterialPageRoute(
         builder: (context) => CourseDetailsView(
           course: course,
-          tags: {'category': course.category, 'instructor': course.instructor},
+          tags: {
+            'category': course.category,
+            'instructor': course.instructor,
+          },
+          hideEnrollButton: true,
         ),
       ),
     );

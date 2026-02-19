@@ -10,7 +10,10 @@ import 'package:uccd/Features/User/user_view_test_widgets/home_tab/section_heade
 import 'package:uccd/generated/l10n.dart';
 
 class ProgressCourses extends StatelessWidget {
-  const ProgressCourses({super.key, required this.tabController});
+  const ProgressCourses({
+    super.key,
+    required this.tabController,
+  });
 
   final TabController tabController;
 
@@ -34,10 +37,13 @@ class ProgressCourses extends StatelessWidget {
                 case InitialState():
                   return const SizedBox();
                 case DataLoading():
-                  return Center(child: mainLoading);
+                  return Center(
+                    child: mainLoading,
+                  );
                 case DataEmpty():
                   return NoDataWidget(
                     message: S.of(context).noCoursesInProgress,
+                    showImage: false,
                   );
                 case DataFailed():
                   return DataErrorWidget(
@@ -46,22 +52,23 @@ class ProgressCourses extends StatelessWidget {
                   );
                 case DataLoaded():
                   return Column(
-                    children: state.data.indexed.map((course) {
-                      return CourseProgressCard(
-                        title: state.data[course.$1].course.title,
-                        instructor: state.data[course.$1].course.instructor,
-                        progress: state.data[course.$1].progress,
-                        progressText: state.data[course.$1].progressText,
-                        course: state
-                            .data[course.$1]
-                            .course, // Pass the course object
-                        onTap: () =>
-                            CourseDetailsNavigator.navigateToCourseDetails(
-                              context,
-                              state.data[course.$1].course,
-                            ),
-                      );
-                    }).toList(),
+                    children: state.data.indexed.map(
+                      (course) {
+                        return CourseProgressCard(
+                          title: state.data[course.$1].course.title,
+                          instructor: state.data[course.$1].course.instructor,
+                          progress: state.data[course.$1].progress,
+                          progressText: state.data[course.$1].progressText,
+                          course: state
+                              .data[course.$1].course, // Pass the course object
+                          onTap: () =>
+                              CourseDetailsNavigator.navigateToCourseDetails(
+                            context,
+                            state.data[course.$1].course,
+                          ),
+                        );
+                      },
+                    ).toList(),
                   );
               }
             },

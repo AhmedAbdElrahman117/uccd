@@ -6,6 +6,7 @@ import 'package:uccd/Core/Components/section_title.dart';
 import 'package:uccd/Core/Models/course_model.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Add%20Course%20Cubit/add_course_cubit.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/instructor_menu_field.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class ChangeInstructorView extends StatefulWidget {
   const ChangeInstructorView({super.key, required this.course});
@@ -41,7 +42,7 @@ class _ChangeInstructorViewState extends State<ChangeInstructorView> {
           mainAxisSize: MainAxisSize.min,
           spacing: 16,
           children: [
-            const SectionTitle(title: 'Change Instrcutor'),
+            SectionTitle(title: S.of(context).changeInstructor),
             InstructorMenuField(
               instructorController: instructorController,
               instructorIDController: instructorIDController,
@@ -55,7 +56,7 @@ class _ChangeInstructorViewState extends State<ChangeInstructorView> {
               child: SizedBox(
                 width: double.infinity,
                 child: CustomButton(
-                  title: 'Change',
+                  title: S.of(context).change,
                   onPressed: () {},
                 ),
               ),

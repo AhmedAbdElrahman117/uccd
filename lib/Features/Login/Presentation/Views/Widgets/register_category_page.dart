@@ -11,6 +11,7 @@ import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/admin_cou
 import 'package:uccd/Features/Login/Presentation/Views%20Model/Register%20Form%20Cubit/register_form_cubit.dart';
 import 'package:uccd/Features/Login/Presentation/Views%20Model/Register%20Form%20Cubit/register_form_states.dart';
 import 'package:uccd/Features/Login/Presentation/Views/Widgets/category_chips.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class RegisterCategoryPage extends StatefulWidget {
   const RegisterCategoryPage({super.key});
@@ -38,15 +39,15 @@ class _RegisterCategoryPageState extends State<RegisterCategoryPage>
           height: MediaQuery.sizeOf(context).height * 0.2,
         ),
         const SizedBox(height: 30),
-        const Center(
+        Center(
           child: SectionTitle(
-            title: 'Student Interests',
+            title: S.of(context).studentInterests,
           ),
         ),
         const SizedBox(height: 30),
         Center(
           child: Text(
-            'What Categories of Courses or Fields you are interested in',
+            S.of(context).studentInterestsDescription,
             style: AppText.style16Regular(context),
           ),
         ),

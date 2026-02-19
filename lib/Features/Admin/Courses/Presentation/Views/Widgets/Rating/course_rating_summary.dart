@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Models/rating_model.dart';
 import 'package:uccd/Core/app_color.dart';
+import 'package:uccd/Core/app_dates.dart';
 import 'package:uccd/Core/app_text.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Rating/rating_metric.dart';
 import 'package:uccd/generated/l10n.dart';
@@ -42,7 +43,10 @@ class CourseRatingSummary extends StatelessWidget {
           Row(
             spacing: 12,
             children: [
-              const Icon(Icons.analytics_outlined, color: AppColor.primary),
+              const Icon(
+                Icons.analytics_outlined,
+                color: AppColor.primary,
+              ),
               Text(
                 S.of(context).ratingOverview,
                 style: AppText.style18Bold(context),
@@ -81,13 +85,18 @@ class CourseRatingSummary extends StatelessWidget {
           const SizedBox(height: 12),
           Row(
             children: [
-              Icon(Icons.people_outline, size: 16, color: Colors.grey[600]),
+              Icon(
+                Icons.people_outline,
+                size: 16,
+                color: Colors.grey[600],
+              ),
               const SizedBox(width: 4),
               Text(
-                S.of(context).reviewsCount(ratings.length.toString()),
-                style: AppText.style14Regular(
-                  context,
-                ).copyWith(color: Colors.grey[600]),
+                S.of(context).reviewsCount(
+                    AppDates.formatLocalizedNumber(ratings.length, context)),
+                style: AppText.style14Regular(context).copyWith(
+                  color: Colors.grey[600],
+                ),
               ),
             ],
           ),

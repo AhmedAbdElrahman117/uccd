@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uccd/Core/app_text.dart';
+import 'package:uccd/Core/theme_helper.dart';
 
 class CustomInfo extends StatelessWidget {
   const CustomInfo({
@@ -9,30 +9,46 @@ class CustomInfo extends StatelessWidget {
     this.fontSize,
     this.fontColor,
     this.width,
+    this.iconColor,
   });
 
   final String info;
   final IconData icon;
   final double? fontSize;
   final Color? fontColor;
+  final Color? iconColor;
   final double? width;
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      type: MaterialType.transparency,
-      child: ListTile(
-        leading: Icon(
-          icon,
-          color: Theme.of(context).iconTheme.color,
-          size: 20,
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(6),
+          decoration: BoxDecoration(
+            color: (iconColor ?? ThemeHelper.appPrimaryColor).withValues(
+              alpha: 0.1,
+            ),
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            icon,
+            color: iconColor ?? ThemeHelper.appPrimaryColor,
+            size: 18,
+          ),
         ),
-        title: Text(
-          info,
-          style: AppText.style14Bold(context),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Text(
+            info,
+            style: ThemeHelper.style14Regular(context).copyWith(
+              color: fontColor,
+              height: 1.5,
+            ),
+          ),
         ),
-        contentPadding: EdgeInsets.zero,
-      ),
+      ],
     );
   }
 }

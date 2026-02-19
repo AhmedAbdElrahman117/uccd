@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:uccd/Core/app_text.dart';
+import 'package:uccd/Core/theme_helper.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class CustomPasswordField extends StatefulWidget {
   const CustomPasswordField({
@@ -36,24 +39,18 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.passwordController,
-      style: TextStyle(
-        color: Theme.of(context).brightness.index == 1
-            ? Colors.black
-            : Colors.white,
-        fontSize: 20,
-      ),
+      style: AppText.style14Regular(context),
       focusNode: focusNode,
       cursorOpacityAnimates: true,
       obscureText: isSelected,
-      decoration: InputDecoration(
+      decoration: ThemeHelper.getInputDecoration(
+        context,
         labelText: widget.label,
         hintText: widget.hint,
-        hintFadeDuration: const Duration(milliseconds: 100),
-        alignLabelWithHint: true,
         prefixIcon: Icon(
-          Icons.lock,
+          Icons.lock_outline,
           size: 24,
-          color: Theme.of(context).iconTheme.color,
+          color: context.iconColor,
         ),
         suffixIcon: Visibility(
           visible: isFocused,
@@ -64,23 +61,26 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
             },
             icon: Icon(
               Icons.visibility,
-              color: Theme.of(context).iconTheme.color,
+              color: context.iconColor,
             ),
             selectedIcon: Icon(
               Icons.visibility_off,
-              color: Theme.of(context).iconTheme.color,
+              color: context.iconColor,
             ),
             isSelected: isSelected,
             style: IconButton.styleFrom(),
-            padding: const EdgeInsets.only(right: 12),
+            padding: const EdgeInsets.only(
+              right: 16,
+              left: 16,
+            ),
           ),
         ),
-      ).applyDefaults(Theme.of(context).inputDecorationTheme),
+      ),
       validator: (value) {
         if (value!.isEmpty) {
-          return 'Password Required';
+          return S.of(context).passwordRequired;
         } else if (value.length < 8) {
-          return 'Password must be at Least 8 Characters';
+          return S.of(context).passwordLengthError;
         }
         return null;
       },
@@ -94,39 +94,3 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
     );
   }
 }
-// InputDecoration(
-//         border: border(),
-//         enabledBorder: border(),
-//         focusedBorder: border(color: Colors.green),
-//         errorBorder: border(color: Colors.red),
-        // labelText: widget.label,
-//         labelStyle: const TextStyle(
-//           color: Colors.black,
-//           fontSize: 18,
-//         ),
-        // hintText: widget.hint,
-        // hintFadeDuration: const Duration(milliseconds: 100),
-        // alignLabelWithHint: true,
-//         hintStyle: TextStyle(
-//           color: Colors.grey.shade500,
-//           fontSize: 20,
-//         ),
-        // prefixIcon: const Icon(
-        //   FontAwesomeIcons.lock,
-        //   size: 20,
-        // ),
-        // suffixIcon: Visibility(
-        //   visible: isFocused,
-        //   child: IconButton(
-        //     onPressed: () {
-        //       isSelected = !isSelected;
-        //       setState(() {});
-        //     },
-        //     icon: const Icon(FontAwesomeIcons.solidEye),
-        //     selectedIcon: const Icon(FontAwesomeIcons.solidEyeSlash),
-        //     isSelected: isSelected,
-        //     style: IconButton.styleFrom(),
-        //     padding: const EdgeInsets.only(right: 12),
-        //   ),
-        // ),
-//       ),

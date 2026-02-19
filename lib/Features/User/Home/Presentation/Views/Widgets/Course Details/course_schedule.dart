@@ -40,6 +40,7 @@ class CourseSchedule extends StatelessWidget {
             icon: Icons.calendar_today,
           ),
           CourseDetails(
+            isDarkMode: isDarkMode,
             courseEndDate: courseEndDate,
             courseStartDate: courseStartDate,
             duration: duration,

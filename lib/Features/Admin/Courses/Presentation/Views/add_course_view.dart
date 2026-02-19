@@ -5,6 +5,7 @@ import 'package:jiffy/jiffy.dart';
 import 'package:uccd/Core/Components/custom_loading_indicator.dart';
 import 'package:uccd/Core/Models/course_model.dart';
 import 'package:uccd/Core/app_banners.dart';
+import 'package:uccd/Core/app_exception.dart';
 import 'package:uccd/Core/app_text.dart';
 import 'package:uccd/Core/constants.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Add%20Course%20Cubit/add_course_cubit.dart';
@@ -12,6 +13,7 @@ import 'package:uccd/Features/Admin/Courses/Presentation/Views%20Model/Add%20Cou
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/add_course_pages.dart';
 import 'package:uccd/Core/Components/page_indicator.dart';
 import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/Add%20Course/next_previous_add_buttons.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class AddCourseView extends StatefulWidget {
   const AddCourseView({super.key, this.currentCourse});
@@ -27,6 +29,7 @@ class _AddCourseViewState extends State<AddCourseView> {
   final GlobalKey<FormState> _infoKey = GlobalKey();
   final GlobalKey<FormState> _goalsKey = GlobalKey();
   final GlobalKey<FormState> _datesKey = GlobalKey();
+  final GlobalKey<FormState> _prequesetsKey = GlobalKey();
   late TextEditingController titleController;
   late TextEditingController descriptionController;
   late TextEditingController instructorController;
@@ -43,6 +46,7 @@ class _AddCourseViewState extends State<AddCourseView> {
   final TextEditingController imagePath = TextEditingController();
   late List<TextEditingController> goalsController;
   final PageController pageController = PageController();
+  late List<TextEditingController> prerequestsController;
 
   @override
   void initState() {
@@ -123,6 +127,18 @@ class _AddCourseViewState extends State<AddCourseView> {
               );
             },
           );
+
+    prerequestsController = widget.currentCourse == null
+        ? [TextEditingController()]
+        : List.generate(
+            widget.currentCourse!.coursePrerequests?.length ?? 1,
+            (index) {
+              return TextEditingController(
+                text: widget.currentCourse!.coursePrerequests?[index] ??
+                    'sakmklmsav',
+              );
+            },
+          );
     super.initState();
   }
 
@@ -140,8 +156,8 @@ class _AddCourseViewState extends State<AddCourseView> {
                   appBar: AppBar(
                     title: Text(
                       widget.currentCourse == null
-                          ? 'Add Course'
-                          : 'Edit Course',
+                          ? S.of(context).addCourseTitle
+                          : S.of(context).editCourseTitle,
                       style: AppText.style20Bold(context),
                     ),
                   ),
@@ -171,11 +187,13 @@ class _AddCourseViewState extends State<AddCourseView> {
                           goalsController: goalsController,
                           imagePath: imagePath,
                           currentCourse: widget.currentCourse,
+                          prequesetsKey: _prequesetsKey,
+                          prerequestsController: prerequestsController,
                         ),
                       ),
                       PageIndicator(
                         pageController: pageController,
-                        pagesCount: 4,
+                        pagesCount: 5,
                         onDotClicked: (index) {
                           BlocProvider.of<AddCourseCubit>(context)
                               .animateToPage(
@@ -189,6 +207,7 @@ class _AddCourseViewState extends State<AddCourseView> {
                         infoKey: _infoKey,
                         datesKey: _datesKey,
                         goalsKey: _goalsKey,
+                        prequesetsKey: _prequesetsKey,
                         titleController: titleController,
                         descriptionController: descriptionController,
                         instructorController: instructorController,
@@ -205,6 +224,7 @@ class _AddCourseViewState extends State<AddCourseView> {
                         imagePath: imagePath,
                         goalsController: goalsController,
                         currentCourse: widget.currentCourse,
+                        prerequestsController: prerequestsController,
                       ),
                     ],
                   ),
@@ -239,22 +259,31 @@ class _AddCourseViewState extends State<AddCourseView> {
       } else {
         context.pop();
       }
-      AppBanners.showSuccess(message: state.successMessage);
+      AppBanners.showSuccess(
+        message: AppException.getLocalizedMessage(
+          state.successMessage,
+          context,
+        ),
+      );
     } else if (state is AddUpdateFailed) {
+      final localizedError = AppException.getLocalizedMessage(
+        state.errorMessage,
+        context,
+      );
       showDialog(
         context: context,
         builder: (context) {
           return Material(
             child: Center(
               child: Text(
-                state.errorMessage,
+                localizedError,
                 style: AppText.style16Regular(context),
               ),
             ),
           );
         },
       );
-      AppBanners.showFailed(message: state.errorMessage);
+      AppBanners.showFailed(message: localizedError);
     }
   }
 }

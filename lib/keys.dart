@@ -1,3 +1,0 @@
-const String supaUrl = 'https://zmoejgvxfufurmezwagi.supabase.co';
-const String supaAnonKey =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inptb2VqZ3Z4ZnVmdXJtZXp3YWdpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MTgxNzEsImV4cCI6MjA1Mzk5NDE3MX0.Vf5LNNTgWB8JUjbuICWvs8JXt8_C-EuKvyk4qtMyAZQ';

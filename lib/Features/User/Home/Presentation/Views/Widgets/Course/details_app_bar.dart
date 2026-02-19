@@ -22,7 +22,7 @@ class DetailsAppBar extends StatelessWidget {
       ),
       flexibleSpace: FlexibleSpaceBar(
         background: HeroImage(
-          tag: tags['Image']!,
+          tag: tags['Image'] ?? 'image',
           verticalPadding: 30,
           imageHeight: MediaQuery.sizeOf(context).height * 0.42,
           image: imageLink,

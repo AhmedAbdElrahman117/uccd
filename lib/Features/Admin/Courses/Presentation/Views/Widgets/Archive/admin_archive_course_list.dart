@@ -10,24 +10,65 @@ class AdminArchiveCourseList extends StatelessWidget {
   });
 
   final List<CourseModel> courses;
-
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: courses.length,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 28,
-        vertical: 12,
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: isDarkMode
+              ? [
+                  const Color(0xFF0F172A),
+                  const Color(0xFF1E293B).withValues(alpha: 0.3),
+                ]
+              : [
+                  const Color(0xFFF8FAFC),
+                  const Color(0xFFE2E8F0).withValues(alpha: 0.3),
+                ],
+          stops: const [0.0, 1.0],
+        ),
       ),
-      itemBuilder: (context, index) => Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        child: AdminArchiveCourse(
-          tags: TagGenerator.generateMap(
-            'ArchiveCourses',
-            index,
+      child: ListView.builder(
+        itemCount: courses.length,
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20.0,
+          vertical: 16.0,
+        ),
+        physics: const BouncingScrollPhysics(),
+        itemBuilder: (context, index) => AnimatedContainer(
+          duration: Duration(milliseconds: 200 + (index * 50)),
+          curve: Curves.easeOutBack,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 12.0,
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: isDarkMode
+                        ? Colors.black.withValues(alpha: 0.3)
+                        : Colors.black.withValues(alpha: 0.08),
+                    blurRadius: 16,
+                    offset: const Offset(0, 6),
+                    spreadRadius: -2,
+                  ),
+                ],
+              ),
+              child: AdminArchiveCourse(
+                tags: TagGenerator.generateMap(
+                  'ArchiveCourses',
+                  index,
+                ),
+                course: courses[index],
+                imageHeight: MediaQuery.sizeOf(context).height * 0.2,
+              ),
+            ),
           ),
-          course: courses[index],
-          imageHeight: MediaQuery.sizeOf(context).height * 0.2,
         ),
       ),
     );

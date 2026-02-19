@@ -6,10 +6,12 @@ import 'package:uccd/Core/Components/overlay_background.dart';
 import 'package:uccd/Core/Components/section_title.dart';
 import 'package:uccd/Core/Models/category_model.dart';
 import 'package:uccd/Core/app_banners.dart';
+import 'package:uccd/Core/app_exception.dart';
 import 'package:uccd/Features/Profile/Presentation/Views%20Model/Add%20Category%20Cubit/add_category_cubit.dart';
 import 'package:uccd/Features/Profile/Presentation/Views%20Model/Add%20Category%20Cubit/add_category_states.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Categories/add_category_button.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Categories/category_name_field.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class AddCategoryView extends StatefulWidget {
   const AddCategoryView({
@@ -53,8 +55,8 @@ class _AddCategoryViewState extends State<AddCategoryView> {
                   children: [
                     SectionTitle(
                       title: widget.category == null
-                          ? 'Add Category'
-                          : 'Edit Category',
+                          ? S.of(context).addCategoryTitle
+                          : S.of(context).editCategoryTitle,
                     ),
                     CategoryNameField(
                       categoryName: categoryName,
@@ -93,10 +95,20 @@ class _AddCategoryViewState extends State<AddCategoryView> {
 
   void _listener(BuildContext context, AddCategoryStates state) {
     if (state is AddUpdateSuccess) {
-      AppBanners.showSuccess(message: state.successMessage);
+      AppBanners.showSuccess(
+        message: AppException.getLocalizedMessage(
+          state.successMessage,
+          context,
+        ),
+      );
       context.pop();
     } else if (state is AddUpdateFailed) {
-      AppBanners.showFailed(message: state.errorMessage);
+      AppBanners.showFailed(
+        message: AppException.getLocalizedMessage(
+          state.errorMessage,
+          context,
+        ),
+      );
     }
   }
 }

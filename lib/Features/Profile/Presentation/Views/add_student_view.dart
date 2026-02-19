@@ -5,6 +5,7 @@ import 'package:uccd/Core/Components/custom_app_bar.dart';
 import 'package:uccd/Core/Components/custom_loading_indicator.dart';
 import 'package:uccd/Core/Models/user_model.dart';
 import 'package:uccd/Core/app_banners.dart';
+import 'package:uccd/Core/app_exception.dart';
 import 'package:uccd/Features/Profile/Presentation/Views%20Model/Add%20Student%20Cubit/add_student_cubit.dart';
 import 'package:uccd/Features/Profile/Presentation/Views%20Model/Add%20Student%20Cubit/add_student_states.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Students/add_student_button.dart';
@@ -15,6 +16,7 @@ import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Students/studen
 import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Students/student_password_field.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Students/student_university_id_field.dart';
 import 'package:uccd/Features/Profile/Presentation/Views/Widgets/Students/students_year_menu.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class AddStudentView extends StatefulWidget {
   const AddStudentView({super.key, this.student});
@@ -72,7 +74,9 @@ class _AddStudentViewState extends State<AddStudentView> {
           children: [
             Scaffold(
               appBar: CustomAppBar(
-                title: widget.student == null ? 'Add Student' : 'Edit Student',
+                title: widget.student == null
+                    ? S.of(context).addStudentTitle
+                    : S.of(context).editStudentTitle,
               ),
               body: Form(
                 key: studentFormKey,
@@ -146,10 +150,20 @@ class _AddStudentViewState extends State<AddStudentView> {
 
   void _listener(BuildContext context, AddStudentStates state) {
     if (state is AddUpdateSuccess) {
-      AppBanners.showSuccess(message: state.successMessage);
+      AppBanners.showSuccess(
+        message: AppException.getLocalizedMessage(
+          state.successMessage,
+          context,
+        ),
+      );
       context.pop();
     } else if (state is AddUpdateFailed) {
-      AppBanners.showFailed(message: state.errorMessage);
+      AppBanners.showFailed(
+        message: AppException.getLocalizedMessage(
+          state.errorMessage,
+          context,
+        ),
+      );
     }
   }
 }

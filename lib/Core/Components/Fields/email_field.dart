@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Components/Fields/custom_text_field.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class EmailField extends StatelessWidget {
   const EmailField({
@@ -22,9 +23,9 @@ class EmailField extends StatelessWidget {
       icon: Icons.email,
       validator: (value) {
         if (value!.isEmpty) {
-          return 'Email Required';
-        } else if (value.endsWith('@btu.edu.eg')) {
-          return 'University Email Only';
+          return S.of(context).emailRequired;
+        } else if (value.endsWith('@btu.edu.eg') == false) {
+          return S.of(context).universityEmailsOnly;
         }
         return null;
       },

@@ -33,7 +33,7 @@ class LogCard extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          '${log.userEmail}\n${AppDates.timeStampToString(log.createdAt)}',
+          '${log.userEmail}\n${AppDates.timeStampToStringTime(log.createdAt)}',
         ),
       ),
     );

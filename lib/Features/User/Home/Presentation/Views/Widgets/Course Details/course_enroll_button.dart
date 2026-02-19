@@ -99,7 +99,7 @@ class CourseEnrollButton extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       state is StatusLoading
-                          ? mainLoading
+                          ? getSubLoading(size: 40)
                           : Row(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uccd/Core/Models/dashboard_model.dart';
+import 'package:uccd/Core/app_dates.dart';
 import 'package:uccd/Core/app_text.dart';
 import 'package:uccd/Features/Admin/Home/Presentation/Views/Widgets/AppBar/user_logo.dart';
 import 'package:uccd/Features/Admin/Home/Presentation/Views/Widgets/Themes/admin_home_theme_helper.dart';
@@ -22,11 +23,11 @@ class AdminAppBar extends StatelessWidget {
   final List<Widget>? actions;
   final DashboardModel? dashboardData;
   String _formatNumber(int? number, BuildContext context) {
-    if (number == null) return '0';
+    if (number == null) return AppDates.formatLocalizedNumber(0, context);
     if (number >= 1000) {
-      return '${(number / 1000).toStringAsFixed(1)}K';
+      return '${AppDates.formatLocalizedNumberDigits(number / 1000, context)}k';
     }
-    return number.toString();
+    return AppDates.formatLocalizedNumber(number, context);
   }
 
   @override
@@ -66,14 +67,17 @@ class AdminAppBar extends StatelessWidget {
                       const SizedBox(height: 4),
                       Text(
                         userName,
-                        style: AppText.style20Bold(
-                          context,
-                        ).copyWith(color: Colors.white),
+                        style: AppText.style20Bold(context).copyWith(
+                          color: Colors.white,
+                        ),
                       ),
                     ],
                   ),
                 ),
-                GestureDetector(onTap: onProfileTap, child: const UserLogo()),
+                GestureDetector(
+                  onTap: onProfileTap,
+                  child: const UserLogo(),
+                ),
               ],
             ),
             const SizedBox(height: 16),
@@ -93,10 +97,8 @@ class AdminAppBar extends StatelessWidget {
                     context,
                     icon: Icons.people_outline,
                     label: S.of(context).activeStudents,
-                    value: _formatNumber(
-                      dashboardData?.activeStudents,
-                      context,
-                    ),
+                    value:
+                        _formatNumber(dashboardData?.activeStudents, context),
                   ),
                 ),
               ],
@@ -125,11 +127,17 @@ class AdminAppBar extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Icon(icon, color: Colors.white, size: 20),
+          Icon(
+            icon,
+            color: Colors.white,
+            size: 20,
+          ),
           const SizedBox(height: 4),
           Text(
             value,
-            style: AppText.style14Bold(context).copyWith(color: Colors.white),
+            style: AppText.style14Bold(context).copyWith(
+              color: Colors.white,
+            ),
           ),
           Text(
             label,

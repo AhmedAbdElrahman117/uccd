@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:uccd/Core/app_color.dart';
 import 'package:uccd/Core/app_text.dart';
 
-//TODO textThemes
-
 class AppTheme {
   static ThemeData lightTheme(BuildContext context) {
     return ThemeData(

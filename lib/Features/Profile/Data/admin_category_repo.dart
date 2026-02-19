@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:uccd/Core/Models/category_model.dart';
+import 'package:uccd/Core/Models/log_model.dart';
+import 'package:uccd/main.dart';
 
 class AdminCategoryRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -10,7 +12,7 @@ class AdminCategoryRepo {
     return _firestore.collection('category').snapshots().handleError(
       (error) {
         if (error is SocketException) {
-          throw ('No Internet Connection');
+          throw ('noInternetConnection');
         } else if (error is FirebaseException) {
           throw (error.code);
         } else {
@@ -49,11 +51,23 @@ class AdminCategoryRepo {
         const Duration(seconds: 30),
       );
 
-      return 'Category Added Successfully';
+      LogModel log = LogModel(
+        userName: InternalStorage.getString('name'),
+        userEmail: InternalStorage.getString('email'),
+        action: 'Added New Category ${category.name}',
+        actionType: 'Add',
+        createdAt: Timestamp.now(),
+      );
+
+      _firestore.collection('logs').add(
+            log.toMap(),
+          );
+
+      return 'categoryAddedSuccessfully';
     } on TimeoutException {
-      throw ('Check your Internet Connection and try again');
+      throw ('connectionTimeout');
     } on SocketException {
-      throw ('No Internet Connection');
+      throw ('noInternetConnection');
     } on FirebaseException catch (e) {
       throw (e.message ?? e.code);
     } on Exception catch (e) {
@@ -61,17 +75,29 @@ class AdminCategoryRepo {
     }
   }
 
-  Future<String> deleteCategory({required String id}) async {
+  Future<String> deleteCategory({required CategoryModel category}) async {
     try {
-      await _firestore.collection('category').doc(id).delete().timeout(
+      await _firestore.collection('category').doc(category.id).delete().timeout(
             const Duration(seconds: 30),
           );
 
-      return 'Category Deleted Successfully';
+      LogModel log = LogModel(
+        userName: InternalStorage.getString('name'),
+        userEmail: InternalStorage.getString('email'),
+        action: 'Deleted Category ${category.name}',
+        actionType: 'Delete',
+        createdAt: Timestamp.now(),
+      );
+
+      _firestore.collection('logs').add(
+            log.toMap(),
+          );
+
+      return 'categoryDeletedSuccessfully';
     } on TimeoutException {
-      throw ('Check your Internet Connection and try again');
+      throw ('connectionTimeout');
     } on SocketException {
-      throw ('No Internet Connection');
+      throw ('noInternetConnection');
     } on FirebaseException catch (e) {
       throw (e.message ?? e.code);
     } on Exception catch (e) {
@@ -85,11 +111,23 @@ class AdminCategoryRepo {
         {'name': category.name},
       );
 
-      return 'Category Updated Successfully';
+      LogModel log = LogModel(
+        userName: InternalStorage.getString('name'),
+        userEmail: InternalStorage.getString('email'),
+        action: 'Updated Category ${category.name}',
+        actionType: 'Update',
+        createdAt: Timestamp.now(),
+      );
+
+      _firestore.collection('logs').add(
+            log.toMap(),
+          );
+
+      return 'categoryUpdatedSuccessfully';
     } on TimeoutException {
-      throw ('Check your Internet Connection and try again');
+      throw ('connectionTimeout');
     } on SocketException {
-      throw ('No Internet Connection');
+      throw ('noInternetConnection');
     } on FirebaseException catch (e) {
       throw (e.message ?? e.code);
     } on Exception catch (e) {

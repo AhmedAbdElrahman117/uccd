@@ -32,7 +32,7 @@ class CategoryDeleteButton extends StatelessWidget {
           onConfirm: () {
             context.pop();
             BlocProvider.of<AdminCategoryCubit>(context).delete(
-              id: category.id!,
+              category: category,
             );
           },
         );

@@ -2,8 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uccd/Core/Models/post_model.dart';
+import 'package:uccd/Core/app_color.dart';
 import 'package:uccd/Core/app_text.dart';
 import 'package:uccd/Features/Community/Presentation/Views%20Model/Community%20Cubit/community_cubit.dart';
+import 'package:uccd/generated/l10n.dart';
 import 'package:uccd/main.dart';
 
 class LikeButton extends StatelessWidget {
@@ -39,19 +41,33 @@ class LikeButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               spacing: 14,
               children: [
-                Icon(
-                  isLiked(snapshot),
-                  color: Theme.of(context).iconTheme.color,
+                AnimatedCrossFade(
+                  firstChild: const Icon(
+                    Icons.thumb_up_alt,
+                    color: AppColor.primary,
+                  ),
+                  secondChild: Icon(
+                    Icons.thumb_up_alt_outlined,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                  crossFadeState: isLiked(snapshot)
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
+                  duration: const Duration(milliseconds: 200),
+                  reverseDuration: const Duration(milliseconds: 200),
                 ),
                 Text(
-                  'Like (${post.likesCount!})',
-                  style: AppText.style16Bold(context),
+                  S.of(context).likeButtonLabel,
+                  style: AppText.style16Bold(context).copyWith(
+                    color: isLiked(snapshot)
+                        ? AppColor.primary
+                        : Theme.of(context).textTheme.bodyLarge!.color,
+                  ),
                 ),
               ],
             ),
             style: IconButton.styleFrom(
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(vertical: 12),
+              padding: const EdgeInsets.symmetric(vertical: 4),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -64,9 +80,9 @@ class LikeButton extends StatelessWidget {
 
   isLiked(AsyncSnapshot<DocumentSnapshot<Map<String, dynamic>>> snapshot) {
     if (snapshot.hasData && !snapshot.hasError && snapshot.data!.exists) {
-      return Icons.thumb_up_alt;
+      return true;
     } else {
-      return Icons.thumb_up_alt_outlined;
+      return false;
     }
   }
 }

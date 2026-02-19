@@ -20,9 +20,8 @@ class RecentCourseCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final cardColor = isDarkMode ? const Color(0xFF252525) : Colors.white;
-    final borderColor = isDarkMode
-        ? const Color(0xFF3D3D3D)
-        : const Color(0xFFEAEAEA);
+    final borderColor =
+        isDarkMode ? const Color(0xFF3D3D3D) : const Color(0xFFEAEAEA);
     final textColor = isDarkMode ? Colors.white : Colors.black87;
 
     return GestureDetector(
@@ -60,9 +59,9 @@ class RecentCourseCard extends StatelessWidget {
                 children: [
                   Text(
                     course.title,
-                    style: ThemeHelper.style14Bold(
-                      context,
-                    ).copyWith(color: textColor),
+                    style: ThemeHelper.style14Bold(context).copyWith(
+                      color: textColor,
+                    ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -97,13 +96,13 @@ class RecentCourseCard extends StatelessWidget {
                         ),
                         child: Text(
                           S.of(context).enroll,
-                          style: ThemeHelper.style12Bold(
-                            context,
-                          ).copyWith(color: Colors.white),
+                          style: ThemeHelper.style12Bold(context).copyWith(
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ],
-                  ),
+                  )
                 ],
               ),
             ),
@@ -123,6 +122,7 @@ class RecentCourseCard extends StatelessWidget {
             'title': 'course_title',
             'counter': 'course_counter',
           },
+          hideEnrollButton: false,
         ),
       ),
     );

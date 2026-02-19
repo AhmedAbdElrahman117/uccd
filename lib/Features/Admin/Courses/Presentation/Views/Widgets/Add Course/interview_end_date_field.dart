@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:uccd/Core/Components/Fields/date_picker_field.dart';
 import 'package:uccd/Core/constants.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class InterviewEndDateField extends StatelessWidget {
   const InterviewEndDateField({
@@ -22,20 +23,20 @@ class InterviewEndDateField extends StatelessWidget {
   Widget build(BuildContext context) {
     return DatePickerField(
       dateController: interviewEndController,
-      label: 'Interview End Date',
-      hint: 'Enter Interview End Date',
+      label: S.of(context).interviewEndDate,
+      hint: S.of(context).enterInterviewEndDate,
       icon: FontAwesomeIcons.clipboardCheck,
       validator: (value) {
         if (value!.isEmpty) {
-          return 'End Date Required';
+          return S.of(context).endDateRequired;
         } else if (parseDate(interviewEndController.text)
             .isSameOrBefore(parseDate(interviewStartController.text))) {
-          return 'Interview End Date must be After Start Date';
+          return S.of(context).interviewEndDateAfterStartDate;
         } else if (parseDate(interviewEndController.text)
                 .isSameOrAfter(parseDate(courseStartController.text)) ||
             parseDate(interviewEndController.text)
                 .isSameOrAfter(parseDate(courseEndController.text))) {
-          return 'Interview End Date must be Before Courses';
+          return S.of(context).interviewEndDateBeforeCourses;
         }
         return null;
       },

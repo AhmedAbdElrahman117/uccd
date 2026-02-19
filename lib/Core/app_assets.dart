@@ -1,14 +1,14 @@
 // ignore_for_file: prefer_single_quotes
 class AppAssets {
   AppAssets._();
-  
+
   static const String imagesBTU = "assets/images/BTU.png";
 
   static const String imagesBTUCircle = "assets/images/BTU_circle.png";
 
   static const String imagesCheck = "assets/images/check.json";
 
-  static const String imagesDelete = "assets/images/delete.png";
+  static const String imagesDelete = "assets/images/delete.json";
 
   static const String imagesFail = "assets/images/fail.json";
 
@@ -38,11 +38,14 @@ class AppAssets {
 
   static const String imagesPubspec = "assets/images/pubspec.lock";
 
+  static const String imagesRemoveUser = "assets/images/remove_user.json";
+
   static const String imagesServerDown1 = "assets/images/ServerDown1.svg";
 
   static const String imagesServerDown2 = "assets/images/ServerDown2.svg";
 
-  static const String imagesTermsConditions = "assets/images/TermsConditions.svg";
+  static const String imagesTermsConditions =
+      "assets/images/TermsConditions.svg";
 
   static const String imagesUCCDGrouplogo2 = "assets/images/UCCDGrouplogo2.png";
 
@@ -52,4 +55,3 @@ class AppAssets {
 
   static const String imagesUCCDLogo2 = "assets/images/UCCDLogo2.png";
 }
-

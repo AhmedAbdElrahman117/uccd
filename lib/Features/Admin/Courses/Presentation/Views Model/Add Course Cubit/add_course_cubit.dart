@@ -60,7 +60,8 @@ class AddCourseCubit extends Cubit<AddCourseStates> {
   }
 
   void add({required CourseModel course, XFile? pickedImage}) async {
-    if (validateDate(course: course) == null) {
+    String? validationError = validateDate(course: course);
+    if (validationError == null) {
       emit(AddUpdateLoading());
       try {
         String message = await repo.addCourse(
@@ -79,6 +80,10 @@ class AddCourseCubit extends Cubit<AddCourseStates> {
           AddUpdateFailed(errorMessage: e.toString()),
         );
       }
+    } else {
+      emit(
+        AddUpdateFailed(errorMessage: validationError),
+      );
     }
   }
 
@@ -86,20 +91,20 @@ class AddCourseCubit extends Cubit<AddCourseStates> {
     if (course.courseStartDate.compareTo(course.courseEndDate).isNegative ==
             false &&
         course.courseStartDate.compareTo(course.courseEndDate) == 0) {
-      return 'Invalid Course Dates';
+      return 'invalidCourseDates';
     } else if (course.interviewStartDate
                 .compareTo(course.interviewEndDate)
                 .isNegative ==
             false &&
         course.interviewStartDate.compareTo(course.interviewEndDate) == 0) {
-      return 'Invalid Interview Dates';
+      return 'invalidInterviewDates';
     } else if (course.interviewStartDate
                 .compareTo(course.courseStartDate)
                 .isNegative ==
             false &&
         course.interviewEndDate.compareTo(course.courseStartDate).isNegative ==
             false) {
-      return 'Interview Dates must be before Course Dates';
+      return 'interviewBeforeCourse';
     } else {
       return null;
     }
@@ -130,7 +135,7 @@ class AddCourseCubit extends Cubit<AddCourseStates> {
   }
 
   void changeCategory({
-    required String courseID,
+    required CourseModel course,
     required String oldCategoryID,
     required String newCategoryName,
     required String newCategoryID,
@@ -139,7 +144,7 @@ class AddCourseCubit extends Cubit<AddCourseStates> {
 
     try {
       String message = await panelRepo.editCourseCategory(
-        courseID: courseID,
+        course: course,
         oldCategoryID: oldCategoryID,
         newCategoryName: newCategoryName,
         newCategoryID: newCategoryID,

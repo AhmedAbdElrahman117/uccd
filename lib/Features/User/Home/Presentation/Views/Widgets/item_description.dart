@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:uccd/Core/app_text.dart';
+import 'package:uccd/Features/User/Home/Presentation/Views/Widgets/Course%20Details/course_section_background.dart';
+import 'package:uccd/Features/User/Home/Presentation/Views/Widgets/Course%20Details/course_section_title.dart';
+import 'package:uccd/generated/l10n.dart';
 
 class ItemDescription extends StatelessWidget {
   const ItemDescription({
@@ -11,22 +13,23 @@ class ItemDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 16,
-        children: [
-          Text(
-            'Description:',
-            style: AppText.style22Bold(context),
-          ),
-          Text(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 16,
+      children: [
+        CourseSectionTitle(
+          title: S.of(context).descriptionLabel,
+          icon: Icons.description,
+        ),
+        CourseSectionBackground(
+          child: Text(
             description,
-            style: AppText.style18Bold(context),
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  height: 1.5,
+                ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

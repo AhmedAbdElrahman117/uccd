@@ -82,7 +82,7 @@ class _SuperAdminUsersViewState extends State<SuperAdminUsersView> {
       ),
       floatingActionButton: CustomFab(
         onPressed: () {
-          OverlayController.showAddInstructorDialog(
+          OverlayController.showAddAdminDialog(
             context,
           );
         },

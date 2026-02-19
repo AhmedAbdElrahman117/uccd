@@ -2,6 +2,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uccd/Core/Components/data_error_widget.dart';
 import 'package:uccd/Core/app_banners.dart';
+import 'package:uccd/Core/app_exception.dart';
 import 'package:uccd/Core/constants.dart';
 import 'package:uccd/Features/Community/Presentation/Views Model/Comments Cubit/comment_cubit.dart';
 import 'package:uccd/Features/Community/Presentation/Views Model/Comments Cubit/comment_states.dart';
@@ -12,7 +13,10 @@ import 'package:uccd/Features/Community/Presentation/Views/Widgets/comments_empt
 import 'package:uccd/generated/l10n.dart';
 
 class CommentsScreen extends StatefulWidget {
-  const CommentsScreen({super.key, required this.postID});
+  const CommentsScreen({
+    super.key,
+    required this.postID,
+  });
 
   final String postID;
 
@@ -37,14 +41,12 @@ class _CommentsScreenState extends State<CommentsScreen> {
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final backgroundColor = isDarkMode
-        ? const Color(0xFF1A1A1A)
-        : const Color(0xFFF7F7F7);
+    final backgroundColor =
+        isDarkMode ? const Color(0xFF1A1A1A) : const Color(0xFFF7F7F7);
     final cardColor = isDarkMode ? const Color(0xFF252525) : Colors.white;
     final textColor = isDarkMode ? Colors.white : Colors.black87;
-    final subTextColor = isDarkMode
-        ? Colors.grey.shade400
-        : Colors.grey.shade700;
+    final subTextColor =
+        isDarkMode ? Colors.grey.shade400 : Colors.grey.shade700;
 
     return BlocProvider.value(
       value: _commentCubit,
@@ -75,7 +77,9 @@ class _CommentsScreenState extends State<CommentsScreen> {
                           if (state is DataLoading) {
                             return SliverFillRemaining(
                               hasScrollBody: false,
-                              child: Center(child: mainLoading),
+                              child: Center(
+                                child: mainLoading,
+                              ),
                             );
                           } else if (state is DataFailed) {
                             return SliverFillRemaining(
@@ -89,7 +93,9 @@ class _CommentsScreenState extends State<CommentsScreen> {
                               ),
                             );
                           } else if (state is DataEmpty) {
-                            return CommentsEmptyState(textColor: textColor);
+                            return CommentsEmptyState(
+                              textColor: textColor,
+                            );
                           } else if (state is DataLoaded) {
                             return SliverPadding(
                               padding: const EdgeInsets.all(16),
@@ -110,16 +116,25 @@ class _CommentsScreenState extends State<CommentsScreen> {
                           // Initial state or unknown state
                           return SliverFillRemaining(
                             hasScrollBody: false,
-                            child: Center(child: mainLoading),
+                            child: Center(
+                              child: mainLoading,
+                            ),
                           );
                         },
-                      ),
+                      )
                     ],
                   ),
                 ),
                 SafeArea(
                   bottom: true,
-                  child: CommentField(postID: widget.postID),
+                  child: CommentField(
+                    commentController: _commentController,
+                    commentCubit: _commentCubit,
+                    formKey: _formKey,
+                    cardColor: cardColor,
+                    isDarkMode: isDarkMode,
+                    textColor: textColor,
+                  ),
                 ),
               ],
             ),
@@ -131,11 +146,21 @@ class _CommentsScreenState extends State<CommentsScreen> {
 
   void _listener(BuildContext context, CommentStates state) {
     if (state is CommentSuccess) {
-      AppBanners.showSuccess(message: state.successMessage);
+      AppBanners.showSuccess(
+        message: AppException.getLocalizedMessage(
+          state.successMessage,
+          context,
+        ),
+      );
     } else if (state is CommentLoading) {
       _commentController.clear();
     } else if (state is CommentFailed) {
-      AppBanners.showFailed(message: state.errorMessage);
+      AppBanners.showFailed(
+        message: AppException.getLocalizedMessage(
+          state.errorMessage,
+          context,
+        ),
+      );
     }
   }
 

@@ -31,6 +31,8 @@ class NextPreviousAddButtons extends StatefulWidget {
     required this.instructorIDController,
     required this.categoryIDController,
     this.currentCourse,
+    required this.prequesetsKey,
+    required this.prerequestsController,
   })  : _infoKey = infoKey,
         _datesKey = datesKey;
 
@@ -38,6 +40,7 @@ class NextPreviousAddButtons extends StatefulWidget {
   final GlobalKey<FormState> _infoKey;
   final GlobalKey<FormState> _datesKey;
   final GlobalKey<FormState> goalsKey;
+  final GlobalKey<FormState> prequesetsKey;
   final TextEditingController titleController;
   final TextEditingController descriptionController;
   final TextEditingController instructorIDController;
@@ -54,6 +57,7 @@ class NextPreviousAddButtons extends StatefulWidget {
   final List<TextEditingController> goalsController;
   final TextEditingController imagePath;
   final CourseModel? currentCourse;
+  final List<TextEditingController> prerequestsController;
 
   @override
   State<NextPreviousAddButtons> createState() => _NextPreviousAddButtonsState();
@@ -92,10 +96,11 @@ class _NextPreviousAddButtonsState extends State<NextPreviousAddButtons> {
                 },
               ),
               Visibility(
-                visible: index != 3,
+                visible: index != 4,
                 replacement: AddCourseButton(
                   infoKey: widget._infoKey,
                   datesKey: widget._datesKey,
+                  prequesetsKey: widget.prequesetsKey,
                   pageController: widget.pageController,
                   titleController: widget.titleController,
                   descriptionController: widget.descriptionController,
@@ -117,6 +122,7 @@ class _NextPreviousAddButtonsState extends State<NextPreviousAddButtons> {
                   imagePath: widget.imagePath,
                   goalsKey: widget.goalsKey,
                   currentCourse: widget.currentCourse,
+                  prerequestsController: widget.prerequestsController,
                 ),
                 child: NextPageButton(
                   onPressed: () {

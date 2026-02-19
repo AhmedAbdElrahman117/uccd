@@ -15,7 +15,9 @@ class RecentCoursesCarousel extends StatelessWidget {
     return BlocBuilder<UserHomeCubit, UserHomeStates>(
       builder: (context, state) {
         if (state is DataLoading) {
-          return Center(child: mainLoading);
+          return Center(
+            child: mainLoading,
+          );
         } else if (state is DataFailed) {
           return Center(
             child: Padding(
@@ -27,24 +29,29 @@ class RecentCoursesCarousel extends StatelessWidget {
             ),
           );
         } else if (state is DataEmpty) {
-          return NoDataWidget(message: S.of(context).noCoursesAvailable);
+          return NoDataWidget(
+            message: S.of(context).noCoursesAvailable,
+            showImage: false,
+          );
         } else if (state is DataLoaded) {
           return SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Row(
-              children: state.courses.take(5).indexed.map((e) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
-                  ),
-                  child: RecentCourseCard(
-                    course: state.courses[e.$1],
-                    index: e.$1,
-                  ),
-                );
-              }).toList(),
+              children: state.courses.take(5).indexed.map(
+                (e) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
+                    child: RecentCourseCard(
+                      course: state.courses[e.$1],
+                      index: e.$1,
+                    ),
+                  );
+                },
+              ).toList(),
             ),
           );
         }

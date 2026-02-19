@@ -5,27 +5,24 @@ import 'package:uccd/main.dart';
 class StudentModel {
   final String? name;
   final String? studentID;
-  final String gender; ////
-  final String disability; ////
+  final String gender;
+  final String disability;
   final String? nationalID;
   final String? universityID;
   final String? email;
-  final String phone; ////
+  final String phone;
   final String? department;
   final String? year;
-  final Timestamp expectedGraduationYear; ////
+  final Timestamp expectedGraduationYear;
   final String? notificationID;
-  final Timestamp? registeredAt; //
-  final List<dynamic>? absenceDates;
-  final List<dynamic>? attendanceDates;
-  final bool? isAccepted; //
+  final Timestamp? registeredAt;
+  final bool? isAccepted;
+  List<dynamic>? attendanceDates;
+  List<dynamic>? absenceDates;
   bool? isAttended;
 
   StudentModel({
     this.name,
-    this.isAttended,
-    this.absenceDates,
-    this.attendanceDates,
     required this.gender,
     required this.disability,
     this.nationalID,
@@ -39,6 +36,9 @@ class StudentModel {
     this.registeredAt,
     this.isAccepted,
     this.studentID,
+    this.attendanceDates,
+    this.absenceDates,
+    this.isAttended,
   });
 
   factory StudentModel.fromUser(UserModel user) {
@@ -57,6 +57,8 @@ class StudentModel {
       year: user.year,
       studentID: InternalStorage.getString('id'),
       isAccepted: null,
+      absenceDates: [],
+      attendanceDates: [],
     );
   }
 
@@ -76,6 +78,8 @@ class StudentModel {
       'registeredAt': Timestamp.now(),
       'isAccepted': null,
       'studentID': InternalStorage.getString('id'),
+      'attendanceDates': attendanceDates,
+      'absenceDates': absenceDates,
     };
   }
 
@@ -95,6 +99,8 @@ class StudentModel {
       isAccepted: map['isAccepted'],
       registeredAt: map['registeredAt'],
       studentID: map['studentID'],
+      attendanceDates: map['attendanceDates'],
+      absenceDates: map['absenceDates'],
     );
   }
 }

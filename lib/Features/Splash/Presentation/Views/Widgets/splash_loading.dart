@@ -21,7 +21,7 @@ class SplashLoading extends StatelessWidget {
           SizedBox(
             width: SplashThemeHelper.loadingIconSize,
             height: SplashThemeHelper.loadingIconSize,
-            child: mainLoading,
+            child: getSubLoading(size: SplashThemeHelper.loadingIconSize),
           ),
           const SizedBox(height: SplashThemeHelper.loadingSpacing),
           Text(

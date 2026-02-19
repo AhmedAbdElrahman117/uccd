@@ -11,7 +11,6 @@ class CustomLoadingIndicator extends StatelessWidget {
 
   final Widget child;
   final bool isLoading;
-
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
