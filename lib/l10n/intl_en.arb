@@ -1,0 +1,844 @@
+{
+    "splashText":"University Center for Career Development",
+    "splashLoading":"Loading...",
+    "welcomeTo":"Welcome to",
+    "loginButton":"Login",
+    "contactSupport":"Contact Support",
+    "orDivider":"or",
+    "uccdMobileApp":"UCCD Mobile App",
+    "versionNumber":"Version 1.0.0",
+    "universityEmail":"University Email",
+    "universityEmailHint":"Enter your University Email",
+    "password":"Password",
+    "passwordHint":"Enter your Password",
+    "emailRequired":"Email field is required",
+    "invalidEmail":"Please enter a valid email address",
+    "onlyBtuEmail":"Only BTU university emails (@btu.edu.eg) are allowed",
+    "emailUsernameTooShort":"Email username must be at least 3 characters",
+    "studentInterests":"Student Interests",
+    "studentInterestsDescription":"What Categories of Courses or Fields you are interested in",
+    "studentInfo":"Student Info",
+    "studentInfoDescription":"Let's Start by Providing us with some info",
+    "phoneNumber":"Phone",
+    "phoneNumberHint":"Enter your Phone Number",
+    "requiredField":"Required Field",
+    "phoneNumberTooShort":"Phone Number are less Than 11 Numbers",
+    "invalidPhoneNumber":"Invalid Phone Number",
+    "graduationYear":"Graduation year",
+    "graduationYearHint":"Enter your Expected Graduation year",
+    "dateRequired":"Date Required",
+    "graduationYearIncorrect":"Graduation year is Incorrect",
+    "verificationEmailSent":"We Sent a Verification Email to ",
+    "verificationEmailInbox":" with an OTP Number please Check your Inbox",
+    "otpVerification":"OTP Verification",
+    "didntRecieveCode":"Didn't receive a code?",
+    "rensendCode":"Resend Code",
+    "Disability":"Disability",
+    "yes":"Yes",
+    "No":"No",
+    "Next":"Next",
+    "Back":"Back",
+    "Submit":"Submit",
+    "TermsAndConditions":"Terms and Conditions",
+    "readTerms":"Please Read Terms and Condition Carefully before Proceed in",
+    "TermsText1":"I agree and authorize the UCCD to use my data and my photographs taken during my participation in the training programs and/or career development service offered by the center for the purposes of UCCD reporting, publications, and employer networking",
+    "TermsText2":"and authorizing UCCD app to collect Data about my participation in courses for analysis and improving user Experience",    "IAgree": "I Agree",
+    "onTerms":"on Terms and Condition of UCCD Center",    "home": "Home",
+    "courses": "Courses",
+    "myCourses": "My Courses",
+    "community": "Community",    "profile": "Profile",    "assignedCourses": "Assigned Courses",
+    "noCoursesAssignedYet": "No courses assigned yet",
+    "coursesWillAppearAssigned": "Courses will appear here once they are assigned to you",
+    "errorLoadingCourses": "Error loading courses",
+    "quickActions": "Quick Actions",
+    "addCourse": "Add Course",
+    "createNewCourse": "Create new course",
+    "addCategory": "Add Category",
+    "manageCategories": "Manage categories",
+    "addPost": "Add Post",
+    "communityPost": "Community post",
+    "addInstructor": "Add Instructor",
+    "newInstructor": "New instructor",
+    "addStudent": "Add Student",
+    "registerStudent": "Register student",
+    "actions": "Actions",
+    "adminDashboard": "Admin Dashboard",
+    "welcomeBack": "Welcome back,",
+    "admin": "Admin",
+    "totalCourses": "Total Courses",
+    "activeStudents": "Active Students",
+    "studentsByYear": "Students By year",
+    "studentsByDepartments": "Students By Departments",
+    "studentsByDepartmentAndYear": "Students By Department & year",
+    "changeInstructor": "Change Instrcutor",
+    "change": "Change",
+    "interview": "Interview",
+    "statistics": "Statistics",    
+    "changeCategory": "Change Category",    
+    "retry": "Retry",
+    "multipleCheck": "Multiple Check",
+    "dashboard": "Dashboard",
+    "admins": "Admins",
+    "categories": "Categories",
+    "instructors": "Instructors",
+    "courseAnalytics": "Course Analytics",
+    "settings": "Settings",
+    "dashboardOverview": "Dashboard Overview",
+    "course": "Course",    
+    "reject": "Reject",    
+    "LiveData":"Live Data",
+    "SystemConfiguration":"System configuration",
+    "coursesManagement": "Courses Management",
+    "students": "Students",
+    "sendNotification": "Send Notification",
+    "sendAll": "Send All",
+    "ratings": "Ratings",    
+    "accept": "Accept",
+    "edit": "Edit",
+    "delete": "Delete",
+    "noAcceptedStudents": "No Accepted Students",
+    "attend": "Attend",
+    "absent": "Absent",
+    "invalidCourseDates": "Invalid Course Dates",
+    "invalidInterviewDates": "Invalid Interview Dates",
+    "interviewDatesBeforeCourseDates": "Interview Dates must be before Course Dates",
+    "maxAcceptedStudents": "Max Accepted Students",
+    "enterMaxAcceptedStudents": "Enter Max Accepted Students",
+    "enterInterviewStartDate": "Enter Interview Start Date",
+    "enterInterviewEndDate": "Enter Interview End Date",
+    "interviewStartDate": "Interview Start Date",
+    "interviewEndDate": "Interview End Date",
+    "startDateRequired": "Start Date Required",
+    "endDateRequired": "End Date Required",
+    "interviewStartDateBeforeEndDate": "Interview Start Date must be before End Date",
+    "interviewEndDateAfterStartDate": "Interview End Date must be after Start Date",
+    "interviewStartDateBeforeCourses": "Interview Start Date must be Before Courses",
+    "interviewEndDateBeforeCourses": "Interview End Date must be Before Courses",
+    "availableCourses":"Available",
+    "archivedCourses":"Archived",
+    "ManageCourses":"Manage Course",    
+    "Archived": "Archived",
+    "Active": "Active",
+    "Student": "Student",
+    "controlPanel": "Control Panel",
+    "all": "All",
+    "pending": "Pending",
+    "accepted": "Accepted",
+    "rejected": "Rejected",
+    "studentAcceptedSuccessfully": "Student Accepted Successfully",
+    "enrollments": "Enrollments",
+    "available": "Available",    
+    "totalStudents": "Total Students",
+    "noStudentsToInterview": "No Students to Interview",
+    "statisticsButtonTitle": "Statistics",
+    "statisticsButtonTooltip": "View course statistics and analytics",
+    "statisticsButtonSemanticLabel": "View statistics for {courseName}",
+    "@statisticsButtonSemanticLabel": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },
+    "interviewButtonTitle": "Interview",
+    "interviewButtonTooltip": "Manage course interviews and applications",
+    "interviewButtonSemanticLabel": "Manage interviews for {courseName}",
+    "@interviewButtonSemanticLabel": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },
+    "editButtonTitle": "Edit",
+    "editButtonTooltip": "Edit course information and settings",
+    "editButtonSemanticLabel": "Edit {courseName}",
+    "@editButtonSemanticLabel": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },
+    "changeInstructorButtonTitle": "Change Instructor",
+    "changeInstructorButtonTooltip": "Change course instructor",
+    "changeInstructorButtonSemanticLabel": "Change instructor for {courseName}",
+    "@changeInstructorButtonSemanticLabel": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },
+    "changeCategoryButtonTitle": "Change Category",
+    "changeCategoryButtonTooltip": "Change course category",
+    "changeCategoryButtonSemanticLabel": "Change category for {courseName}",
+    "@changeCategoryButtonSemanticLabel": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },
+    "deleteButtonTitle": "Delete",
+    "deleteButtonTooltip": "Delete course permanently",
+    "deleteButtonSemanticLabel": "Delete {courseName}",
+    "@deleteButtonSemanticLabel": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },
+    "deleteCourseConfirmMessage": "Do you want to Delete {courseName} permanently?",
+    "@deleteCourseConfirmMessage": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },    
+    "firstYear":"1st Year",
+    "secondYear":"2nd Year",
+    "thirdYear":"3rd Year",
+    "fourthYear":"4th Year",
+    "itDepartment": "IT",
+    "mechaDepartment": "Mecha",
+    "autoDepartment": "Auto", 
+    "reDepartment": "RE",
+    "opDepartment": "O&P",
+    "addCourseTitle": "Add Course",
+    "editCourseTitle": "Edit Course",
+    "courseAddedSuccessfully": "Course Added Successfully",
+    "courseUpdatedSuccessfully": "Course Updated Successfully",
+    "courseDeletedSuccessfully": "Course Deleted Successfully",
+    "categoryChangedSuccessfully": "Category Changed Successfully",
+    "interviewBeforeCourse": "Interview dates must be before course dates",
+    "courseInfo": "Course Info",
+    "courseInfoDescription": "Let's Start With Course Basic Info",
+    "courseGoals": "Course Goals",
+    "courseGoalsDescription": "Set The Course Outcomes for Students",
+    "courseGoalsNote": "Note: you must set at least one goal",
+    "goalLabel": "Goal {goalNumber}",
+    "@goalLabel": {
+        "placeholders": {
+            "goalNumber": {
+                "type": "int"
+            }
+        }
+    },
+    "goalHint": "Enter Goal {goalNumber}",
+    "@goalHint": {
+        "placeholders": {
+            "goalNumber": {
+                "type": "int"
+            }
+        }
+    },
+    "addGoal": "Add Goal",
+    "courseDates": "Course Dates",
+    "courseDatesDescription": "Now Let's set the Dates of the Course",
+    "courseImage": "Course Image",
+    "courseImageDescription": "Finally you can Add an Image to your course",
+    "courseImageNote": "Note: if you Don't add an image to the course the course will have the UCCD logo automatically",    "addButtonLabel": "Add",
+    "editButtonLabel": "Edit",
+    "courseTitleLabel": "Course Title",
+    "courseTitleHint": "Enter Course Title",
+    "descriptionLabel": "Description",
+    "descriptionHint": "Enter Course Description",
+    "roomNumberLabel": "Room Number",
+    "roomNumberHint": "Enter Room Number",
+    "durationLabel": "Duration",
+    "durationHint": "Enter Course Duration",
+    "courseStartDateLabel": "Course Start Date",
+    "courseStartDateHint": "Enter Course Start Date",
+    "courseStartDateRequired": "Start Date Required",
+    "courseStartDateBeforeEndDate": "Course Start Date must be before End Date",
+    "courseStartDateAfterInterviews": "Course Start Date must be After Interviews",
+    "courseEndDateLabel": "Course End Date",
+    "courseEndDateHint": "Enter Course End Date",
+    "courseEndDateRequired": "End Date Required",
+    "courseEndDateAfterStartDate": "Course End Date must be After Start Date",
+    "courseEndDateAfterInterviews": "Course End Date must be After Interviews",
+    "loadingText": "Loading",
+    "noInstructorsRegistered": "No Instructors Registered",
+    "instructorsLabel": "Instructors",
+    "selectOneInstructor": "Select One Instructor",    "noCategoriesRegistered": "No Categories Registered",
+    "categoriesLabel": "Categories",    
+    "selectCategory": "Select Category",
+    "tapToAddImage": "Tab to Add Image",
+    "imageSizeLimit": "Image Size limit is 10 MB",
+    "deleteDialogTitle": "Delete",
+    "deleteButtonText": "Delete",
+    "logoutDialogTitle": "Logout",
+    "logoutButtonText": "Logout",    "deletePostTitle": "Delete Post",
+    "deletePostConfirmMessage": "Are you sure you want to delete this post?",
+    "cancel": "Cancel",
+    "universityIdLabel": "University ID",
+    "nationalIdLabel": "National ID",
+    "departmentLabel": "Department",
+    "yearLabel": "Year",
+    "genderLabel": "Gender",    
+    "disabilityLabel": "Disability",
+    "phoneNumberLabel": "Phone Number",    
+    "graduationYearLabel": "Graduation Year",
+    "archivePanel": "Archive Panel",
+    "archiveStatisticsTooltip": "View archived course statistics and analytics",
+    "archiveStatisticsSemanticLabel": "View statistics for archived course {courseName}",
+    "@archiveStatisticsSemanticLabel": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },
+    "courseStudentsTooltip": "View archived course students",
+    "courseStudentsSemanticLabel": "View students for {courseName}",
+    "@courseStudentsSemanticLabel": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },
+    "courseRatingsTooltip": "View course ratings and feedback",    "courseRatingsSemanticLabel": "View ratings for {courseName}",
+    "@courseRatingsSemanticLabel": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },
+    "ratingsTitle": "Ratings",
+    "allRatings": "All",
+    "fiveStars": "5 Stars",
+    "fourStars": "4 Stars",
+    "threeStars": "3 Stars",
+    "twoStars": "2 Stars",
+    "oneStar": "1 Star",    
+    "noRatingsYet": "No ratings yet",
+    "noRatingsMessage": "This course hasn't received any ratings yet.",    "errorLoadingRatings": "Error loading ratings",
+    "ratingOverview": "Rating Overview",
+    "overallRating": "Overall",
+    "contentRating": "Content",
+    "instructorRating": "Instructor",    "reviewsCount": "{count} reviews",
+    "@reviewsCount": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "noReviewsYet": "No reviews yet",
+    "showingOneReview": "Showing 1 review",    "showingMultipleReviews": "Showing {count} reviews",
+    "@showingMultipleReviews": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "noFilteredReviews": "No {filter} reviews",
+    "@noFilteredReviews": {
+        "placeholders": {
+            "filter": {
+                "type": "String"
+            }
+        }
+    },
+    "showingOneFilteredReview": "Showing 1 {filter} review",
+    "@showingOneFilteredReview": {
+        "placeholders": {
+            "filter": {
+                "type": "String"
+            }
+        }
+    },
+    "showingMultipleFilteredReviews": "Showing {count} {filter} reviews",    "@showingMultipleFilteredReviews": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            },
+            "filter": {
+                "type": "String"
+            }
+        }
+    },
+    "loadingUserName": "Loading User Name",
+    "loadingComment": "Loading comment text that will be replaced with actual content...",    "totalDays": "Total: {days} Days",
+    "@totalDays": {
+        "placeholders": {
+            "days": {
+                "type": "String"
+            }
+        }
+    },    "attendedDays": "Attended: {count}",
+    "@attendedDays": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "absentDays": "Absent: {count}",
+    "@absentDays": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "absenceDaysTitle": "Absence Days",
+    "enrollmentSuccess": "Successfully enrolled in {courseName}",
+    "@enrollmentSuccess": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },
+    "enrollmentError": "Error: {errorMessage}",
+    "@enrollmentError": {
+        "placeholders": {
+            "errorMessage": {
+                "type": "String"
+            }
+        }
+    },
+    "noGoalsProvided": "No goals provided",
+    "advancedCourse": "Advanced {category}",
+    "@advancedCourse": {
+        "placeholders": {
+            "category": {
+                "type": "String"
+            }
+        }
+    },
+    "beginnerCourse": "{category} for Beginners",
+    "@beginnerCourse": {
+        "placeholders": {
+            "category": {
+                "type": "String"
+            }
+        }    },
+    "Review": "Review",    "enrollmentFull": "Full",
+    "enrollmentAlmostFull": "Almost full!",
+    "enrollmentFillingUp": "Filling up",
+    "enrollmentSpotsAvailable": "Spots available",
+    "courseStatsDuration": "Duration",
+    "courseStatsRoom": "Room",
+    "courseStatsLength": "Length",
+    "courseStatsPrerequisites": "Prerequisites",
+    "courseStatsDurationValue": "{hours} hrs",
+    "@courseStatsDurationValue": {
+        "placeholders": {
+            "hours": {
+                "type": "String"
+            }
+        }
+    },    
+    "courseStatsLengthValue": "{weeks} weeks",
+    "@courseStatsLengthValue": {
+        "placeholders": {
+            "weeks": {
+                "type": "String"
+            }
+        }
+    },
+    "courseScheduleTitle": "Course Schedule",
+    "relatedCoursesTitle": "Related Courses",
+    "instructorTitle": "Instructor",
+    "aboutThisCourseTitle": "About This Course",
+    "confirmEnrollmentTitle": "Confirm Enrollment",
+    "confirmEnrollmentMessage": "You are about to enroll in {courseName}.",
+    "@confirmEnrollmentMessage": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },
+    "interviewPeriodLabel": "Interview Period: {startDate} - {endDate}",
+    "@interviewPeriodLabel": {
+        "placeholders": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            }
+        }
+    },
+    "coursePeriodLabel": "Course Period: {startDate} - {endDate}",
+    "@coursePeriodLabel": {
+        "placeholders": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            }
+        }
+    },
+    "confirmButton": "Confirm",
+    "enrollNowButton": "Enroll Now",
+    "courseTimelineTitle": "Course Timeline",
+    "interviewPeriodTitle": "Interview Period",
+    "coursePeriodTitle": "Course Period",
+    "instructorLabel": "Instructor: {name}",
+    "@instructorLabel": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },    "viewCourseButton": "View Course",
+    "SkillsAndPrerequisites": "Skills & Prerequisites",
+    "WhatYouWillLearn": "What You Will Learn",
+    "interviewPeriodSubtitle": "Interview starts on {startDate} and ends on {endDate}",
+    "@interviewPeriodSubtitle": {
+        "placeholders": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            }
+        }
+    },
+    "coursePeriodSubtitle": "Course runs from {startDate} to {endDate}",
+    "@coursePeriodSubtitle": {
+        "placeholders": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            }
+        }
+    },
+                  
+ "communityTitle": "Community",
+    "communitySubtitle": "Follow Events of UCCD Center",
+    "likeButtonLabel": "Like",
+    "commentsButtonLabel": "Comments",
+    "editPostOption": "Edit Post",
+    "deletePostOption": "Delete Post",
+    "createPostDialogTitle": "Create Post",
+    "editPostDialogTitle": "Edit Post",
+    "postContentHint": "What's on your mind?",
+    "editPostContentHint": "Edit your post...",
+    "postButtonLabel": "Post",
+    "updateButtonLabel": "Update",
+    "cancelButtonLabel": "Cancel",
+    "postContentEmpty": "Post content cannot be empty",
+    "failedToPickImage": "Failed to pick image: {error}",
+    "@failedToPickImage": {
+        "placeholders": {
+            "error": {
+                "type": "String"
+            }
+        }
+    },
+
+
+"removeImageTooltip": "Remove image",
+    "closeDialogTooltip": "Close dialog",
+    "pickImageTooltip": "Pick image",
+    "noPostsYet": "No posts yet",
+    "beFirstToShare": "Be the first to share something with the community!",
+    "createPostButton": "Create Post",
+    "noCommentsYet": "No comments yet",
+    "beFirstToComment": "Be the first to comment on this post!",
+    "commentsTitle": "Comments",
+    "addCommentHint": "Add a comment...",
+    "commentValidationEmpty": "Please enter a comment",
+    "commentValidationTrimmed": "Comment cannot be empty",
+    "errorLoadingComments": "Error loading comments: {error}",
+    "@errorLoadingComments": {
+        "placeholders": {
+            "error": {
+                "type": "String"
+            }
+        }
+    },
+
+ "likesCount": "Likes: {count}",
+    "@likesCount": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+
+ "commentsCount": "Comments: {count}",
+    "@commentsCount": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }        }
+},
+"Post":"Post",
+"adminFeatures":"Admin Features",
+"account":"Account",
+"language":"Language",
+"darkMode":"Dark Mode",
+"users":"Users",
+"logs":"Logs",
+"noLogsInThisDay":"No Logs in This Day",
+"logout":"Logout",
+"logoutConfirmation":"Are you sure you want to Logout",
+"arabic":"Arabic",
+"english":"English",
+"korean": "Korean",
+"roleStudent":"Student",
+"roleInstructor":"Instructor",
+"roleAdmin":"Admin",
+"roleSuperAdmin":"Super Admin",
+"addStudentTitle":"Add Student",
+"editStudentTitle":"Edit Student",
+"addInstructorTitle":"Add Instructor",
+"editInstructorTitle":"Edit Instructor",
+"addAdminTitle":"Add Admin",
+"editAdminTitle":"Edit Admin",
+"studentNameLabel":"Student Name",
+"studentNameHint":"Enter student name",
+"instructorNameLabel":"Instructor Name",
+"instructorNameHint":"Enter instructor name",
+"adminNameLabel":"Admin Name",
+"adminNameHint":"Enter admin username",
+"studentEmailLabel":"Student Email",
+"studentEmailHint":"Enter Student Email",
+"instructorEmailLabel":"Instructor Email",
+"instructorEmailHint":"Enter instructor email",
+"adminEmailLabel":"Admin Email",
+"adminEmailHint":"Enter admin email",
+"studentPasswordLabel":"Student Password",
+"instructorPasswordLabel":"Instructor Password",
+"adminPasswordLabel":"Admin Password",
+"universityIdHint":"Enter Student University ID",
+"nationalIdHint":"Enter National ID",
+"studentEmailRequired":"Student Email Required",
+"universityEmailsOnly":"University Emails Only",
+"universityIdRequired":"University ID Required",
+"nationalIdRequired":"National ID Required",
+"passwordRequired":"Password Required",
+"usernameRequired":"Please enter a username",
+"adminAddedSuccessfully":"Admin Added Successfully",
+"adminUpdatedSuccessfully":"Admin Updated Successfully",
+"instructorAddedSuccessfully":"Instructor Added Successfully",
+"instructorUpdatedSuccessfully":"Instructor Updated Successfully",
+"studentAddedSuccessfully":"Student Added Successfully",
+"studentUpdatedSuccessfully":"Student Updated Successfully",
+"universityIdLengthError":"University ID must be 9 characters length",
+"studentNameRequired":"Student Name Required",
+"nationalIdLengthError":"National ID must be 14 characters length",
+"studentPasswordHint":"Enter Student Password",
+"departmentHint":"Department",
+"selectDepartment":"Select Department",
+"yearHint":"year",
+"selectYear":"Select year",
+"informationTechnology":"Information Technology",
+"mechatronics":"Mechatronics",
+"autotronics":"Autotronics",
+"renewableEnergy":"Renewable Energy",    
+"orthoticsProsthetics":"O&P",    
+"instructorPasswordHint":"Enter Instructor Password",    "nameRequired":"Name Required",
+"browseCoursesHint":"Browse available courses and enroll to see them here",
+"browseCourses":"Browse Courses",
+"tryChangingFilters":"Try changing your filters or search terms",
+"coursesWillAppear":"Courses will appear here once they are available",
+"showAllCourses":"Show All Courses",
+"uploadCourseMaterials":"Upload Course Materials",
+"skillsAndPrerequisitesDescription":"What are the skills and Prerequisites required from the student",
+"prerequisitesNote":"Note: Define at least one skill or prerequisite",
+"prerequisitesNoneNote":"Note: if you don't have any skills or prerequisites, you can Write \"None\" in the field below",
+"prerequisiteSkillLabel":"Prerequisites/Skill {number}",
+"@prerequisiteSkillLabel": {
+    "placeholders": {
+        "number": {
+            "type": "int"
+        }
+    }
+},
+"prerequisiteSkillHint":"Say something about this Prerequisites/Skill",
+"prerequisiteFieldRequired":"This field cannot be empty",
+"addPrerequisiteSkill":"Add Prerequisite/Skill",
+"emailAlreadyInUse":"Email Already in Use",
+"authInvalidEmail":"Invalid Email",
+"emailNotEnabled":"Email is Not Enabled Contact Support",
+"tryAgainLater":"Try Again Later",
+"checkInternetConnection":"Check Your Internet Connection And Try Again Later",
+"userAccountDisabled":"User Account is Disabled Contact Support",
+"noSuchEmailFound":"No Such Email Found",
+"wrongPassword":"Wrong Password",
+"emailOrPasswordInvalid":"Email Or Password is Invalid",
+"unknownError":"Unknown Error",
+"connectionTimeout":"Connection Timeout",
+"noUser":"No User",
+"noUserFoundContactSupport":"No User Found\nPlease Contact Support",
+"error":"Error",
+"success":"Success",
+"codeResent":"Code Resent",
+"failed":"Failed",
+"passwordLengthError":"Password must be at least 8 characters",
+"NothingToEdit":"Nothing to Edit",
+"addCategoryTitle":"Add Category",
+"editCategoryTitle":"Edit Category",
+"categoryNameLabel":"Category Name",
+"categoryNameHint":"Enter Category Name",
+"categoryNameRequired":"Category Name Required",
+"noRegisteredCategories":"No Registered Categories",
+"deleteCategoryConfirmation":"Are you sure you want to delete \"{categoryName}\"?\n\n *This action cannot be undone.",
+"@deleteCategoryConfirmation": {
+  "placeholders": {
+    "categoryName": {
+      "type": "String"
+    }
+  }
+},
+"categoriesOverview":"Categories Overview",
+"categoryAvailable":"{count} {count, plural, =1{category} other{categories}} available",
+"@categoryAvailable": {
+  "placeholders": {
+    "count": {
+      "type": "int"
+    }
+  }
+},
+"manageCategoriesEfficiently":"Manage your categories efficiently",
+"CreatedOn": "Created On",
+"categoryUsageInfo":"This category can be used to organize courses and content.",
+"recentCourses":"Recent Courses",
+"currentYear":"Current Year",
+"department":"Department",
+"inProgress":"In Progress",
+"noCoursesInProgress":"No courses in progress",
+"failedToLoadCourses":"Failed to load courses",
+"noCoursesAvailable":"No courses available",
+"welcomeBackComma":"Welcome back, ",
+"continueLearningJourney":"Continue learning journey",
+"viewAll":"View All",
+"enroll":"Enroll",
+"checkInternetConnectionAndTryAgain":"Check your Internet Connection and try again",
+"connectionTimeoutTryAgain":"Connection Timeout Try Again Later",
+"enrolledInThisCategory":"Enrolled in This Category",
+"courseFull":"Full",
+"enrollNow":"Enroll Now",
+"userCreatedSuccessfully":"User Created Successfully",
+"userDeletedSuccessfully":"User Deleted Successfully",
+"userUpdatedSuccessfully":"User Updated Successfully",
+"instructorCreatedSuccessfully":"Instructor Created Successfully",
+"instructorDeletedSuccessfully":"Instructor Deleted Successfully",
+"categoryAddedSuccessfully":"Category Added Successfully",
+"categoryDeletedSuccessfully":"Category Deleted Successfully",
+"categoryUpdatedSuccessfully":"Category Updated Successfully",
+"postAddedSuccessfully":"Post Added Successfully",
+"postDeletedSuccessfully":"Post Deleted Successfully",
+"postUpdatedSuccessfully":"Post Updated Successfully",
+"commentAddedSuccessfully":"Comment Added Successfully",
+"noInternetConnection":"No Internet Connection",
+"registrationFailed":"Registration Failed",
+"tryAgain":"Try Again",
+"failedToLoadData":"Failed to retrieve Data",
+"failedToLoadCoursesWithHelp":"Failed to load courses.\nPlease check your internet connection and try again.",
+"searchCourses":"Search courses...",
+"noCoursesFound":"No courses found",
+"instructor":"Instructor",
+"starts":"Starts",
+"ended":"Ended",
+"ends":"Ends",
+"completed":"Completed",
+"myCoursesTitle":"My Courses",
+"rateCourse":"Rate Course",
+"yourProgress":"Your Progress",
+"trackEnrolledCourses":"Track your enrolled courses and progress",
+"noEnrolledCourses":"No enrolled courses",
+"notificationSentSuccessfully":"Notification Sent Successfully",
+"Hour": "Hour",
+"ComingSoon": "Coming Soon",
+"ComingSoonlabel": "This feature is coming soon!",
+"selectDateAttendance": "Select Date for Attendance",
+"studentsCount": "Students ({count})",
+"@studentsCount": {
+    "placeholders": {
+        "count": {
+            "type": "String"
+        }
+    }
+},
+"dateLabel": "Date: {date}",
+"@dateLabel": {
+    "placeholders": {
+        "date": {
+            "type": "String"
+        }
+    }
+},
+"presentCount": "Present: {count}",
+"@presentCount": {
+    "placeholders": {
+        "count": {
+            "type": "String"
+        }
+    }
+},
+"absentCount": "Absent: {count}",
+"@absentCount": {
+    "placeholders": {
+        "count": {
+            "type": "String"
+        }
+    }
+},
+"unmarkedCount": "Unmarked: {count}",
+"@unmarkedCount": {
+    "placeholders": {
+        "count": {
+            "type": "String"
+        }
+    }
+},
+"selectTodayDateAttendance": "Please select today's date to view attendance",
+"attendanceOnlyToday": "Attendance is only available for today's date",
+"selectedDate": "Selected: {date}",
+"@selectedDate": {
+    "placeholders": {
+        "date": {
+            "type": "String"
+        }
+    }
+},
+"monthJan": "Jan",
+"monthFeb": "Feb",
+"monthMar": "Mar",
+"monthApr": "Apr",
+"monthMay": "May",
+"monthJun": "Jun",
+"monthJul": "Jul",
+"monthAug": "Aug",
+"monthSep": "Sep",
+"monthOct": "Oct",
+"monthNov": "Nov",
+"monthDec": "Dec",
+"failedToSaveAttendance": "Failed to save attendance: {errorMessage}",
+"@failedToSaveAttendance": {
+    "placeholders": {
+        "errorMessage": {
+            "type": "String"
+        }
+    }
+},
+"errorLoadingStudents": "Error loading students",
+"noStudentsEnrolled": "No students enrolled",
+"studentsWillAppearEnrolled": "Students will appear here once they are enrolled in the course",
+"attendanceOnlyTodayDate": "Attendance can only be marked for today's date",
+"studentMarkedPresent": "Student marked as present",
+"studentMarkedAbsent": "Student marked as absent",
+"studentAttendanceUnmarked": "Student attendance unmarked",
+"room": "Room",
+"Present": "Present",
+"Absent": "Absent",
+"Unmarked": "Unmarked"
+}

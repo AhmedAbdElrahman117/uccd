@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+import 'package:uccd/Features/Admin/Courses/Presentation/Views/Widgets/admin_course_button.dart';
+
+class EditButton extends StatelessWidget {
+  const EditButton({
+    super.key,
+    this.onPressed,
+  });
+
+  final void Function()? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return AdminCourseButton(
+      icon: Icons.edit,
+      backgroundColor: Colors.grey,
+      title: 'Edit',
+      onPressed: onPressed,
+    );
+  }
+}

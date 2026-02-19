@@ -1,0 +1,683 @@
+{
+    "splashText":"المركز الجامعي للتطوير المهني",
+    "splashLoading":"جاري التحميل...",
+    "welcomeTo":"أهلاً بك في",
+    "loginButton":"تسجيل الدخول",    
+    "contactSupport":"تواصل مع الدعم",
+    "orDivider":"أو",
+    "uccdMobileApp":"تطبيق UCCD",
+    "versionNumber":"الإصدار 1.0.0",
+    "universityEmail":"البريد الجامعي",
+    "universityEmailHint":"أدخل بريدك الجامعي",
+    "password":"كلمة المرور",
+    "passwordHint":"أدخل كلمة المرور",    "emailRequired":"حقل البريد الإلكتروني مطلوب",
+    "invalidEmail":"من فضلك أدخل عنوان بريد إلكتروني صحيح",
+    "onlyBtuEmail":"فقط بريد جامعة BTU (@btu.edu.eg) مسموح",
+    "emailUsernameTooShort":"اسم المستخدم في البريد يجب أن يكون 3 أحرف على الأقل",
+    "studentInterests":"اهتمامات الطالب",
+    "studentInterestsDescription":"ما هي فئات الدورات التي تهتم بها",
+    "studentInfo":"بيانات الطالب",
+    "studentInfoDescription":"لنبدأ بتقديم بعض المعلومات عنك",
+    "phoneNumber":"الهاتف",
+    "phoneNumberHint":"أدخل رقم هاتفك",
+    "requiredField":"حقل مطلوب",
+    "phoneNumberTooShort":"رقم الهاتف أقل من 11 رقم",
+    "invalidPhoneNumber":"رقم هاتف غير صحيح",
+    "graduationYear":"سنة التخرج",
+    "graduationYearHint":"أدخل سنة التخرج المتوقعة",
+    "dateRequired":"التاريخ مطلوب",
+    "graduationYearIncorrect":"سنة التخرج غير صحيحة",
+    "verificationEmailSent":"لقد أرسلنا بريد تحقق إلى ",
+    "verificationEmailInbox":" مع رمز OTP، يرجى التحقق من صندوق الوارد",
+    "otpVerification":"تحقق OTP",
+    "didntRecieveCode":"لم تستلم الرمز؟",
+    "rensendCode":"إعادة إرسال الرمز",
+    "Disability":"إعاقة",
+    "yes":"نعم",
+    "No":"لا",
+    "Next":"التالي",
+    "Back":"العودة",
+    "Submit":"إرسال",
+    "TermsAndConditions":"الشروط والأحكام",
+    "readTerms":"يرجى قراءة الشروط والأحكام بعناية قبل المتابعة",
+    "TermsText1":"أوافق وأفوض مركز UCCD باستخدام بياناتي وصوري التي التقطتها أثناء مشاركتي في برامج التدريب و/أو خدمة التطوير المهني التي يقدمها المركز لأغراض إعداد التقارير والمنشورات والتواصل مع أصحاب العمل في مركز UCCD",
+    "TermsText2":"وتفويض تطبيق UCCD بجمع البيانات حول مشاركتي في الدورات التدريبية للتحليل وتحسين تجربة المستخدم",    "IAgree": "أوافق",
+    "onTerms":"على الشروط والأحكام لمركز UCCD",    "home": "الرئيسية",
+    "courses": "الدورات",
+    "myCourses": "دوراتي",
+    "community": "المجتمع",    "profile": "الملف الشخصي",    "assignedCourses": "الدورات المعينة",
+    "noCoursesAssignedYet": "لم يتم تعيين دورات بعد",
+    "coursesWillAppearAssigned": "ستظهر الدورات هنا بمجرد تعيينها لك",
+    "errorLoadingCourses": "خطأ في تحميل الدورات",
+    "quickActions": "الإجراءات السريعة",
+    "addCourse": "إضافة دورة",
+    "createNewCourse": "إنشاء دورة جديدة",
+    "addCategory": "إضافة فئة",
+    "manageCategories": "إدارة الفئات",
+    "addPost": "إضافة منشور",
+    "communityPost": "منشور المجتمع",
+    "addInstructor": "إضافة مدرب",
+    "newInstructor": "مدرب جديد",
+    "addStudent": "إضافة طالب",
+    "registerStudent": "تسجيل طالب",
+    "actions": "إجراءات",
+    "adminDashboard": "لوحة تحكم المشرف",
+    "welcomeBack": "أهلاً بعودتك،",
+    "admin": "مشرف",
+    "totalCourses": "إجمالي الدورات",
+    "activeStudents": "الطلاب النشطين",
+    "studentsByYear": "الطلاب حسب السنة",
+    "studentsByDepartments": "الطلاب حسب الأقسام",
+    "studentsByDepartmentAndYear": "الطلاب حسب القسم والسنة",
+    "changeInstructor": "تغيير المدرب",
+    "change": "تغيير",
+    "interview": "المقابلة",
+    "statistics": "الإحصائيات",
+    "changeCategory": "تغيير الفئة",   
+    "retry": "إعادة المحاولة",
+    "multipleCheck": "اختيار متعدد",
+    "dashboard": "لوحة التحكم",
+    "admins": "المشرفين",
+    "categories": "الفئات",
+    "instructors": "المدربين",
+    "courseAnalytics": "تحليلات الدورة",
+    "settings": "الإعدادات",
+    "dashboardOverview": "نظرة عامة على لوحة التحكم",
+    "course": "الدورة",    
+    "reject": "رفض",    
+    "LiveData": "بيانات حية",
+    "SystemConfiguration": "إعدادات النظام",
+    "coursesManagement": "إدارة الدورات",
+    "students": "الطلاب",
+    "sendNotification": "إرسال إشعار",
+    "sendAll": "إرسال للجميع",
+    "ratings": "التقييمات",    
+    "accept": "قبول",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "noAcceptedStudents": "لا يوجد طلاب مقبولين",
+    "attend": "الحضور",
+    "absent": "الغياب",
+    "invalidCourseDates": "تواريخ الدورة غير صحيحة",
+    "invalidInterviewDates": "تواريخ المقابلة غير صحيحة",
+    "interviewDatesBeforeCourseDates": "يجب أن تكون تواريخ المقابلة قبل تواريخ الدورة",
+    "maxAcceptedStudents": "الحد الأقصى للطلاب المقبولين",
+    "enterMaxAcceptedStudents": "أدخل الحد الأقصى للطلاب المقبولين",
+    "enterInterviewStartDate": "أدخل تاريخ بداية المقابلة",
+    "enterInterviewEndDate": "أدخل تاريخ نهاية المقابلة",
+    "interviewStartDate": "تاريخ بداية المقابلة",
+    "interviewEndDate": "تاريخ نهاية المقابلة",
+    "startDateRequired": "تاريخ البداية مطلوب",
+    "endDateRequired": "تاريخ النهاية مطلوب",
+    "interviewStartDateBeforeEndDate": "يجب أن يكون تاريخ بداية المقابلة قبل تاريخ النهاية",
+    "interviewEndDateAfterStartDate": "يجب أن يكون تاريخ نهاية المقابلة بعد تاريخ البداية",
+    "interviewStartDateBeforeCourses": "يجب أن يكون تاريخ بداية المقابلة قبل الدورات",
+    "interviewEndDateBeforeCourses": "يجب أن يكون تاريخ نهاية المقابلة قبل الدورات",
+    "availableCourses":"المتاحة",
+    "archivedCourses":"المؤرشفة",
+    "ManageCourses":"إدارة الدورة",    
+    "Archived": "مؤرشفة",
+    "Active": "نشط",
+    "Student": "طالب",
+    "controlPanel": "لوحة التحكم",
+    "all": "الكل",
+    "pending": "في الانتظار",
+    "accepted": "مقبول",
+    "rejected": "مرفوض",
+    "studentAcceptedSuccessfully": "تم قبول الطالب بنجاح",
+    "enrollments": "التسجيلات",
+    "available": "المتاح",    
+    "totalStudents": "إجمالي الطلاب",
+    "noStudentsToInterview": "لا يوجد طلاب للمقابلة",
+    "statisticsButtonTitle": "الإحصائيات",
+    "statisticsButtonTooltip": "عرض إحصائيات وتحليلات الدورة",
+    "statisticsButtonSemanticLabel": "عرض إحصائيات {courseName}",
+    "interviewButtonTitle": "المقابلة",
+    "interviewButtonTooltip": "إدارة مقابلات وطلبات الدورة",
+    "interviewButtonSemanticLabel": "إدارة مقابلات {courseName}",
+    "editButtonTitle": "تعديل",
+    "editButtonTooltip": "تعديل معلومات وإعدادات الدورة",
+    "editButtonSemanticLabel": "تعديل {courseName}",
+    "changeInstructorButtonTitle": "تغيير المدرب",
+    "changeInstructorButtonTooltip": "تغيير مدرب الدورة",
+    "changeInstructorButtonSemanticLabel": "تغيير مدرب {courseName}",
+    "changeCategoryButtonTitle": "تغيير الفئة",
+    "changeCategoryButtonTooltip": "تغيير فئة الدورة",
+    "changeCategoryButtonSemanticLabel": "تغيير فئة {courseName}",
+    "deleteButtonTitle": "حذف",
+    "deleteButtonTooltip": "حذف الدورة نهائياً",
+    "deleteButtonSemanticLabel": "حذف {courseName}",
+    "deleteCourseConfirmMessage": "هل تريد حذف {courseName} نهائياً؟",    
+    "firstYear":"السنة الاولى",
+    "secondYear":"السنة الثانية",
+    "thirdYear":"السنة الثالثة",    "fourthYear":"السنة الرابعة",
+    "itDepartment": "تكنولوجيا المعلومات",
+    "mechaDepartment": "الميكاترونيكس",
+    "autoDepartment": "الأوتوترونيكس", 
+    "reDepartment": "الطاقة المتجددة",
+    "opDepartment": "الأطراف الصناعية",
+    "addCourseTitle": "إضافة دورة",
+    "editCourseTitle": "تعديل دورة",
+    "courseAddedSuccessfully": "تم إضافة الدورة بنجاح",
+    "courseUpdatedSuccessfully": "تم تحديث الدورة بنجاح",
+    "courseDeletedSuccessfully": "تم حذف الدورة بنجاح",
+    "categoryChangedSuccessfully": "تم تغيير الفئة بنجاح",
+    "interviewBeforeCourse": "يجب أن تكون مواعيد المقابلة قبل مواعيد الدورة",
+    "courseInfo": "معلومات الدورة",
+    "courseInfoDescription": "لنبدأ بالمعلومات الأساسية للدورة",
+    "courseGoals": "أهداف الدورة",
+    "courseGoalsDescription": "حدد النتائج المتوقعة للطلاب من الدورة",
+    "courseGoalsNote": "ملاحظة: يجب تحديد هدف واحد على الأقل",
+    "goalLabel": "الهدف {goalNumber}",
+    "goalHint": "أدخل الهدف {goalNumber}",
+    "addGoal": "إضافة هدف",
+    "courseDates": "تواريخ الدورة",
+    "courseDatesDescription": "الآن لنحدد تواريخ الدورة",
+    "courseImage": "صورة الدورة",
+    "courseImageDescription": "أخيراً يمكنك إضافة صورة للدورة",
+    "courseImageNote": "ملاحظة: إذا لم تضع صورة للدورة فستظهر شعار UCCD تلقائياً",    "addButtonLabel": "إضافة",
+    "editButtonLabel": "تعديل",
+    "courseTitleLabel": "عنوان الدورة",
+    "courseTitleHint": "أدخل عنوان الدورة",
+    "descriptionLabel": "الوصف",
+    "descriptionHint": "أدخل وصف الدورة",
+    "roomNumberLabel": "رقم القاعة",
+    "roomNumberHint": "أدخل رقم القاعة",
+    "durationLabel": "المدة",
+    "durationHint": "أدخل مدة الدورة",
+    "courseStartDateLabel": "تاريخ بداية الدورة",
+    "courseStartDateHint": "أدخل تاريخ بداية الدورة",
+    "courseStartDateRequired": "تاريخ البداية مطلوب",
+    "courseStartDateBeforeEndDate": "يجب أن يكون تاريخ بداية الدورة قبل تاريخ النهاية",
+    "courseStartDateAfterInterviews": "يجب أن يكون تاريخ بداية الدورة بعد المقابلات",
+    "courseEndDateLabel": "تاريخ نهاية الدورة",
+    "courseEndDateHint": "أدخل تاريخ نهاية الدورة",
+    "courseEndDateRequired": "تاريخ النهاية مطلوب",
+    "courseEndDateAfterStartDate": "يجب أن يكون تاريخ نهاية الدورة بعد تاريخ البداية",
+    "courseEndDateAfterInterviews": "يجب أن يكون تاريخ نهاية الدورة بعد المقابلات",
+    "loadingText": "جاري التحميل",
+    "noInstructorsRegistered": "لا يوجد مدربين مسجلين",
+    "instructorsLabel": "المدربين",
+    "selectOneInstructor": "اختر مدرب واحد",    
+    "noCategoriesRegistered": "لا يوجد فئات مسجلة",
+    "categoriesLabel": "الفئات",   
+     "selectCategory": "اختر فئة",
+    "tapToAddImage": "اضغط لإضافة صورة",
+    "imageSizeLimit": "الحد الاقصي لحجم الصورة 10 ميجابايت",
+    "deleteDialogTitle": "حذف",
+    "deleteButtonText": "حذف",
+    "logoutDialogTitle": "تسجيل الخروج",
+    "logoutButtonText": "تسجيل الخروج",    
+    "deletePostTitle": "حذف المنشور",
+    "deletePostConfirmMessage": "هل أنت متأكد من حذف هذا المنشور؟",
+    "cancel": "إلغاء",
+    "universityIdLabel": "الرقم الجامعي",
+    "nationalIdLabel": "الرقم القومي",
+    "departmentLabel": "القسم",
+    "yearLabel": "السنة",
+    "genderLabel": "الجنس",    
+    "disabilityLabel": "الإعاقة",
+    "phoneNumberLabel": "رقم الهاتف",    
+    "graduationYearLabel": "سنة التخرج",
+    "archivePanel": "لوحة الأرشيف",
+    "archiveStatisticsTooltip": "عرض إحصائيات وتحليلات الدورة المؤرشفة",
+    "archiveStatisticsSemanticLabel": "عرض إحصائيات الدورة المؤرشفة {courseName}",
+    "courseStudentsTooltip": "عرض طلاب الدورة المؤرشفة",
+    "courseStudentsSemanticLabel": "عرض طلاب {courseName}",    
+    "courseRatingsTooltip": "عرض تقييمات وملاحظات الدورة",
+    "courseRatingsSemanticLabel": "عرض تقييمات {courseName}",    "totalDays": "المجموع: {days} أيام",
+    "@totalDays": {
+        "placeholders": {
+            "days": {
+                "type": "String"
+            }
+        }
+    },
+    "attendedDays": "الحضور: {count}",
+    "@attendedDays": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "absentDays": "الغياب: {count}",
+    "@absentDays": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "absenceDaysTitle": "أيام الغياب",
+    "enrollmentSuccess": "تم التسجيل بنجاح في {courseName}",
+    "enrollmentError": "خطأ: {errorMessage}",
+    "noGoalsProvided": "لم يتم تحديد أهداف",
+    "advancedCourse": "{category} متقدم",
+    "beginnerCourse": "{category} للمبتدئين",
+    "ratingsTitle": "التقييمات",
+    "allRatings": "الكل",
+    "fiveStars": "5 نجوم",
+    "fourStars": "4 نجوم",
+    "threeStars": "3 نجوم",
+    "twoStars": "نجمتان",
+    "oneStar": "نجمة واحدة",
+    "noRatingsYet": "لا توجد تقييمات بعد",
+    "noRatingsMessage": "لم تحصل هذه الدورة على أي تقييمات بعد.",   
+    "errorLoadingRatings": "خطأ في تحميل التقييمات",
+    "ratingOverview": "نظرة عامة على التقييمات",
+    "overallRating": "إجمالي",
+    "contentRating": "المحتوى",
+    "instructorRating": "المدرب",
+    "reviewsCount": "{count} تقييم",    "@reviewsCount": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }    },
+    "noReviewsYet": "لا توجد تقييمات بعد",
+    "showingOneReview": "عرض تقييم واحد",
+    "showingMultipleReviews": "عرض {count} تقييم",    "@showingMultipleReviews": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "noFilteredReviews": "لا توجد تقييمات {filter}",
+    "@noFilteredReviews": {
+        "placeholders": {
+            "filter": {
+                "type": "String"
+            }
+        }
+    },
+    "showingOneFilteredReview": "عرض تقييم واحد {filter}",
+    "@showingOneFilteredReview": {
+        "placeholders": {
+            "filter": {
+                "type": "String"
+            }
+        }
+    },
+    "showingMultipleFilteredReviews": "عرض {count} تقييم {filter}",    "@showingMultipleFilteredReviews": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            },
+            "filter": {
+                "type": "String"
+            }
+        }
+    },
+    "loadingUserName": "جاري تحميل اسم المستخدم",    
+    "loadingComment": "جاري تحميل نص التعليق الذي سيتم استبداله بالمحتوى الفعلي...",
+    "Review": "تقييم",    "enrollmentFull": "مكتملة",
+    "enrollmentAlmostFull": "تكاد تكتمل!",
+    "enrollmentFillingUp": "تمتلئ",
+    "enrollmentSpotsAvailable": "أماكن متاحة",
+    "courseStatsDuration": "المدة",
+    "courseStatsRoom": "القاعة",
+    "courseStatsLength": "المهلة",
+    "courseStatsPrerequisites": "المتطلبات المسبقة",
+    "courseStatsDurationValue": "{hours} ساعة",
+    "@courseStatsDurationValue": {
+        "placeholders": {
+            "hours": {
+                "type": "String"
+            }
+        }
+    },    "courseStatsLengthValue": "{weeks} أسبوع",
+    "@courseStatsLengthValue": {
+        "placeholders": {
+            "weeks": {
+                "type": "String"
+            }
+        }
+    },
+    "courseScheduleTitle": "جدول الدورة",
+    "relatedCoursesTitle": "الدورات ذات الصلة",
+    "instructorTitle": "المدرب",
+    "aboutThisCourseTitle": "حول هذه الدورة",
+    "confirmEnrollmentTitle": "تأكيد التسجيل",
+    "confirmEnrollmentMessage": "أنت على وشك التسجيل في {courseName}.",
+    "@confirmEnrollmentMessage": {
+        "placeholders": {
+            "courseName": {
+                "type": "String"
+            }
+        }
+    },
+    "interviewPeriodLabel": "فترة المقابلة: {startDate} - {endDate}",
+    "@interviewPeriodLabel": {
+        "placeholders": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            }
+        }
+    },
+    "coursePeriodLabel": "فترة الدورة: {startDate} - {endDate}",
+    "@coursePeriodLabel": {
+        "placeholders": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            }
+        }
+    },
+    "confirmButton": "تأكيد",
+    "enrollNowButton": "سجل الآن",
+    "courseTimelineTitle": "الجدول الزمني للدورة",
+    "interviewPeriodTitle": "فترة المقابلة",
+    "coursePeriodTitle": "فترة الدورة",
+    "instructorLabel": "المدرب: {name}",
+    "@instructorLabel": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },    "viewCourseButton": "عرض الدورة",
+    "SkillsAndPrerequisites": "المهارات والمتطلبات المسبقة",
+    "WhatYouWillLearn": "ماذا ستتعلم",
+    "interviewPeriodSubtitle": "تبدأ المقابلة في {startDate} وتنتهي في {endDate}",
+    "@interviewPeriodSubtitle": {
+        "placeholders": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            }
+        }
+    },
+    "coursePeriodSubtitle": "تمتد الدورة من {startDate} إلى {endDate}",
+    "@coursePeriodSubtitle": {
+        "placeholders": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            }
+        }
+    },
+    "communityTitle": "المجتمع",
+    "communitySubtitle": "تابع أحداث مركز UCCD",
+    "likeButtonLabel": "إعجاب",
+    "commentsButtonLabel": "التعليقات",
+    "editPostOption": "تعديل المنشور",
+    "deletePostOption": "حذف المنشور",
+    "createPostDialogTitle": "إنشاء منشور",
+    "editPostDialogTitle": "تعديل المنشور",
+    "postContentHint": "ما الذي تفكر فيه؟",
+    "editPostContentHint": "عدل منشورك...",
+    "postButtonLabel": "نشر",
+    "updateButtonLabel": "تحديث",
+    "cancelButtonLabel": "إلغاء",
+    "postContentEmpty": "محتوى المنشور لا يمكن أن يكون فارغاً",
+    "failedToPickImage": "فشل في اختيار الصورة: {error}",
+    "removeImageTooltip": "إزالة الصورة",
+    "closeDialogTooltip": "إغلاق النافذة",
+    "pickImageTooltip": "اختيار صورة",
+    "noPostsYet": "لا توجد منشورات بعد",
+    "beFirstToShare": "كن أول من يشارك شيئاً مع المجتمع!",
+    "createPostButton": "إنشاء منشور",
+    "noCommentsYet": "لا توجد تعليقات بعد",
+    "beFirstToComment": "كن أول من يعلق على هذا المنشور!",
+    "commentsTitle": "التعليقات",
+    "addCommentHint": "أضف تعليقاً...",
+    "commentValidationEmpty": "من فضلك أدخل تعليقاً",
+    "commentValidationTrimmed": "التعليق لا يمكن أن يكون فارغاً",    
+    "errorLoadingComments": "خطأ في تحميل التعليقات: {error}",
+    "likesCount": "الإعجابات: {count}",
+    "commentsCount": "التعليقات: {count}",   
+    "Post":"نشر",
+    "adminFeatures":"ميزات المشرف",
+    "account":"الحساب",
+    "language":"اللغة",
+    "darkMode":"الوضع المظلم",
+    "users":"المستخدمون",    "logs":"السجلات",
+    "noLogsInThisDay":"لا توجد سجلات في هذا اليوم",
+    "logout":"تسجيل الخروج",
+    "logoutConfirmation":"هل أنت متأكد أنك تريد تسجيل الخروج",    "arabic":"العربية",
+    "english":"الإنجليزية",
+    "korean": "الكورية",    
+    "roleStudent":"طالب",
+    "roleInstructor":"مدرب",
+    "roleAdmin":"مشرف",
+    "roleSuperAdmin":"مشرف عام",
+    "addStudentTitle":"إضافة طالب",
+    "editStudentTitle":"تعديل طالب",
+    "addInstructorTitle":"إضافة مدرب",
+    "editInstructorTitle":"تعديل مدرب",
+    "addAdminTitle":"إضافة مشرف",
+    "editAdminTitle":"تعديل مشرف",
+    "studentNameLabel":"اسم الطالب",
+    "studentNameHint":"أدخل اسم الطالب",
+    "instructorNameLabel":"اسم المدرب",
+    "instructorNameHint":"أدخل اسم المدرب",
+    "adminNameLabel":"اسم المشرف",
+    "adminNameHint":"أدخل اسم المستخدم للمشرف",
+    "studentEmailLabel":"بريد الطالب",
+    "studentEmailHint":"أدخل بريد الطالب",
+    "instructorEmailLabel":"بريد المدرب",
+    "instructorEmailHint":"أدخل بريد المدرب",
+    "adminEmailLabel":"بريد المشرف",
+    "adminEmailHint":"أدخل بريد المشرف",
+    "studentPasswordLabel":"كلمة مرور الطالب",
+    "instructorPasswordLabel":"كلمة مرور المدرب",
+    "adminPasswordLabel":"كلمة مرور المشرف",
+    "universityIdHint":"أدخل الرقم الجامعي للطالب",
+    "nationalIdHint":"أدخل الرقم القومي",
+    "studentEmailRequired":"بريد الطالب مطلوب",
+    "universityEmailsOnly":"البريد الجامعي فقط",
+    "universityIdRequired":"الرقم الجامعي مطلوب",
+    "nationalIdRequired":"الرقم القومي مطلوب",
+    "passwordRequired":"كلمة المرور مطلوبة",
+    "usernameRequired":"من فضلك أدخل اسم المستخدم",
+    "adminAddedSuccessfully":"تم إضافة المشرف بنجاح",
+    "adminUpdatedSuccessfully":"تم تحديث المشرف بنجاح",
+    "instructorAddedSuccessfully":"تم إضافة المدرب بنجاح",    
+    "instructorUpdatedSuccessfully":"تم تحديث المدرب بنجاح",
+    "studentAddedSuccessfully":"تم إضافة الطالب بنجاح",    
+    "studentUpdatedSuccessfully":"تم تحديث الطالب بنجاح",
+    "universityIdLengthError":"يجب أن يكون الرقم الجامعي 9 أرقام",
+    "studentNameRequired":"اسم الطالب مطلوب",    
+    "nationalIdLengthError":"يجب أن يكون الرقم القومي 14 رقم",
+    "studentPasswordHint":"أدخل كلمة مرور الطالب",
+    "departmentHint":"القسم",
+    "selectDepartment":"اختر القسم",
+    "yearHint":"السنة",
+    "selectYear":"اختر السنة",
+    "informationTechnology":"تكنولوجيا المعلومات",
+    "mechatronics":"الميكاترونيكس",
+    "autotronics":"الأوتوترونيكس",
+    "renewableEnergy":"الطاقة المتجددة",    
+    "orthoticsProsthetics":"الأطراف والأجهزة التعويضية",    "instructorPasswordHint":"أدخل كلمة مرور المدرب",    "nameRequired":"الاسم مطلوب",
+    "browseCoursesHint":"تصفح الدورات المتاحة واشترك لتراها هنا",
+    "browseCourses":"تصفح الدورات",
+    "tryChangingFilters":"جرب تغيير المرشحات أو مصطلحات البحث",
+    "coursesWillAppear":"ستظهر الدورات هنا بمجرد توفرها",
+    "showAllCourses":"عرض جميع الدورات",
+    "uploadCourseMaterials":"رفع مواد الدورة",
+"skillsAndPrerequisitesDescription":"ما هي المهارات والمتطلبات المسبقة المطلوبة من الطالب",
+"prerequisitesNote":"ملاحظة: حدد مهارة واحدة أو متطلب مسبق واحد على الأقل",
+"prerequisitesNoneNote":"ملاحظة: إذا لم تكن لديك أي مهارات أو متطلبات مسبقة، يمكنك كتابة \"لا يوجد\" في الحقل أدناه",
+"prerequisiteSkillLabel":"المتطلبات المسبقة/المهارة {number}",
+"@prerequisiteSkillLabel": {
+    "placeholders": {
+        "number": {
+            "type": "int"
+        }
+    }
+},
+"prerequisiteSkillHint":"قل شيئاً عن هذه المتطلبات المسبقة/المهارة",
+"prerequisiteFieldRequired":"هذا الحقل لا يمكن أن يكون فارغاً",
+"addPrerequisiteSkill":"إضافة متطلب مسبق/مهارة",
+"emailAlreadyInUse":"البريد الإلكتروني مستخدم بالفعل",
+"authInvalidEmail":"بريد إلكتروني غير صحيح",
+"emailNotEnabled":"البريد الإلكتروني غير مفعل، تواصل مع الدعم",
+"tryAgainLater":"حاول مرة أخرى لاحقاً",
+"checkInternetConnection":"تحقق من اتصالك بالإنترنت وحاول مرة أخرى لاحقاً",
+"userAccountDisabled":"حساب المستخدم معطل، تواصل مع الدعم",
+"noSuchEmailFound":"لم يتم العثور على هذا البريد الإلكتروني",
+"wrongPassword":"كلمة مرور خاطئة",
+"emailOrPasswordInvalid":"البريد الإلكتروني أو كلمة المرور غير صحيحة",
+"unknownError":"خطأ غير معروف",
+"connectionTimeout":"انتهت مهلة الاتصال",
+"noUser":"لا يوجد مستخدم",
+"noUserFoundContactSupport":"لم يتم العثور على مستخدم\nيرجى التواصل مع الدعم",
+    "error":"خطأ",    "success":"نجح",
+    "codeResent":"تم إعادة إرسال الرمز",
+    "failed":"فشل",
+    "passwordLengthError":"يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+    "NothingToEdit":"لا يوجد شيء لتعديله",
+    "addCategoryTitle":"إضافة فئة",
+    "editCategoryTitle":"تعديل فئة",
+    "categoryNameLabel":"اسم الفئة",
+    "categoryNameHint":"أدخل اسم الفئة",
+    "categoryNameRequired":"اسم الفئة مطلوب",
+    "noRegisteredCategories":"لا توجد فئات مسجلة",
+    "deleteCategoryConfirmation":"هل أنت متأكد من حذف \"{categoryName}\"?\n\n *لا يمكن التراجع عن هذا الإجراء.",
+    "@deleteCategoryConfirmation": {
+        "placeholders": {
+            "categoryName": {
+                "type": "String"
+            }
+        }
+    },
+    "categoriesOverview":"نظرة عامة على الفئات",
+    "categoryAvailable":"{count} {count, plural, =1{فئة} other{فئات}} متاحة",
+    "@categoryAvailable": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },    "manageCategoriesEfficiently":"إدارة فئاتك بكفاءة",
+    "CreatedOn": "تم الإنشاء في",
+    "categoryUsageInfo":"يمكن استخدام هذه الفئة لتنظيم الدورات والمحتوى.",    "recentCourses":"الدورات الحديثة",
+    "currentYear":"السنة الحالية",
+    "department":"القسم",
+    "inProgress":"قيد التقدم",
+    "noCoursesInProgress":"لا توجد دورات قيد التقدم",
+    "failedToLoadCourses":"فشل في تحميل الدورات",    "noCoursesAvailable":"لا توجد دورات متاحة",
+    "welcomeBackComma":"أهلاً بعودتك، ",
+    "continueLearningJourney":"تابع رحلة التعلم",    "viewAll":"عرض الكل",
+    "enroll":"التسجيل",
+    "checkInternetConnectionAndTryAgain":"تحقق من اتصالك بالإنترنت وحاول مرة أخرى",
+    "connectionTimeoutTryAgain":"انتهت مهلة الاتصال، حاول مرة أخرى لاحقاً",
+    "enrolledInThisCategory":"مسجل في هذه الفئة",
+    "courseFull":"مكتمل",
+    "enrollNow":"سجل الآن",
+    "userCreatedSuccessfully":"تم إنشاء المستخدم بنجاح",
+    "userDeletedSuccessfully":"تم حذف المستخدم بنجاح",
+    "userUpdatedSuccessfully":"تم تحديث المستخدم بنجاح",
+    "instructorCreatedSuccessfully":"تم إنشاء المدرس بنجاح",
+    "instructorDeletedSuccessfully":"تم حذف المدرس بنجاح",
+    "categoryAddedSuccessfully":"تم إضافة الفئة بنجاح",
+    "categoryDeletedSuccessfully":"تم حذف الفئة بنجاح",
+    "categoryUpdatedSuccessfully":"تم تحديث الفئة بنجاح",
+    "postAddedSuccessfully":"تم إضافة المنشور بنجاح",
+    "postDeletedSuccessfully":"تم حذف المنشور بنجاح",
+    "postUpdatedSuccessfully":"تم تحديث المنشور بنجاح",    "commentAddedSuccessfully":"تم إضافة التعليق بنجاح",
+    "noInternetConnection":"لا يوجد اتصال بالإنترنت",
+    "registrationFailed":"فشل التسجيل",
+    "tryAgain":"حاول مرة أخرى",
+    "failedToLoadData":"فشل في استرداد البيانات",    "failedToLoadCoursesWithHelp":"فشل في تحميل الدورات.\nيرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.",
+    "searchCourses":"البحث في الدورات...",
+    "noCoursesFound":"لم يتم العثور على دورات",
+    "instructor":"المدرب",    "starts":"يبدأ",
+    "ended":"انتهت",    "ends":"تنتهي",
+    "completed":"مكتملة",    "myCoursesTitle":"دوراتي",
+    "rateCourse":"تقييم الدورة",    "yourProgress":"تقدمك",
+    "trackEnrolledCourses":"تتبع الدورات المسجلة والتقدم",
+    "noEnrolledCourses":"لا توجد دورات مسجلة",    "notificationSentSuccessfully":"تم إرسال الإشعار بنجاح",
+    "Hour": "ساعة",
+    "ComingSoon": "قريباً",
+    "ComingSoonlabel": "هذا القسم قيد التطوير وسيتم إطلاقه قريباً. شكراً لصبرك!",
+    "selectDateAttendance": "اختر تاريخ الحضور",
+    "studentsCount": "الطلاب ({count})",
+    "@studentsCount": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "dateLabel": "التاريخ: {date}",
+    "@dateLabel": {
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
+    "presentCount": "الحضور: {count}",
+    "@presentCount": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "absentCount": "الغياب: {count}",
+    "@absentCount": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "unmarkedCount": "غير محدد: {count}",
+    "@unmarkedCount": {
+        "placeholders": {
+            "count": {
+                "type": "String"
+            }
+        }
+    },
+    "selectTodayDateAttendance": "يرجى اختيار تاريخ اليوم لعرض الحضور",
+    "attendanceOnlyToday": "الحضور متاح فقط لتاريخ اليوم",    "selectedDate": "المحدد: {date}",
+    "@selectedDate": {
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
+    "monthJan": "يناير",
+    "monthFeb": "فبراير",
+    "monthMar": "مارس",
+    "monthApr": "أبريل",
+    "monthMay": "مايو",
+    "monthJun": "يونيو",
+    "monthJul": "يوليو",
+    "monthAug": "أغسطس",
+    "monthSep": "سبتمبر",
+    "monthOct": "أكتوبر",
+    "monthNov": "نوفمبر",    "monthDec": "ديسمبر",    "failedToSaveAttendance": "فشل في حفظ الحضور: {errorMessage}",
+    "@failedToSaveAttendance": {
+        "placeholders": {
+            "errorMessage": {
+                "type": "String"
+            }
+        }
+    },    "errorLoadingStudents": "خطأ في تحميل الطلاب",
+    "noStudentsEnrolled": "لا يوجد طلاب مسجلين",
+    "studentsWillAppearEnrolled": "سيظهر الطلاب هنا بمجرد تسجيلهم في الدورة",
+    "attendanceOnlyTodayDate": "يمكن تسجيل الحضور فقط لتاريخ اليوم",
+    "studentMarkedPresent": "تم تسجيل الطالب كحاضر",
+    "studentMarkedAbsent": "تم تسجيل الطالب كغائب",
+    "studentAttendanceUnmarked": "تم إلغاء تسجيل حضور الطالب",
+    "room": "القاعة",
+    "Present": "حضور",
+    "Absent": "غياب",
+    "Unmarked": "غير محدد"
+}
